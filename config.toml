@@ -1,0 +1,8 @@
+baseURL = "https://hellupline.com.br/"
+languageCode = "en-us"
+title = "HellUpline utils"
+theme = "book"
+enableGitInfo = true
+
+[params]
+BookEnableJS = true

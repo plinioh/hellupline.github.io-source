@@ -1,0 +1,14 @@
+kubernetes
+    hpa
+    secret
+    configmap
+    ingress
+    full-nginx-example
+shellscript
+    wheather
+    rsync
+tips
+    nginx
+        static multi domain
+    docker
+        docker xargs  cleanup
