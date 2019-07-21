@@ -7,15 +7,15 @@ type: docs
 
 # TODO
 
-kubernetes
-    full-nginx-example
-    hpa
-    ingress
-    describe ingress health script
-ssl
-    self-signed certificates
-tips
-    nginx
-        static multi domain
-    docker
-        docker xargs cleanup
+* kubernetes
+    * full-nginx-example
+    * hpa
+    * ingress
+    * describe ingress health script
+* tips
+    * nginx
+        * static multi domain
+    * ssl
+        * self-signed certificates
+    * docker
+        * docker xargs cleanup
