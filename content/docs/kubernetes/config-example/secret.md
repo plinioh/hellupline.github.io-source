@@ -1,5 +1,5 @@
 ---
-title: Secret Example
+title: Secret
 tags:
 - config-files
 - example
