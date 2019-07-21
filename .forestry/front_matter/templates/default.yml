@@ -20,6 +20,7 @@ fields:
     max: 
     step: 
 pages:
+- content/docs/shell-script/monitoring/_index.md
 - content/docs/kubernetes/config-example/secret.md
 - content/docs/kubernetes/config-example/configmap.md
 - content/docs/kubernetes/config-example/service.md
