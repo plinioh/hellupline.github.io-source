@@ -5,7 +5,7 @@ admin_path: ''
 webhook_url: 
 sections:
 - type: directory
-  path: content/docs/kubernetes/**/*
+  path: content/docs/kubernetes
   label: Kubernetes
   create: all
   match: "**/*"
