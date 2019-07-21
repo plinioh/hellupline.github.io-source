@@ -3,7 +3,7 @@ title: Service
 tags:
 - config-files
 - example
-weight: 2
+weight: 4
 
 ---
 # Service Example

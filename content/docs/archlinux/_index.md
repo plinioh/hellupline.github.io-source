@@ -1,6 +1,6 @@
-+++
-tags = []
-title = "ArchLinux"
-weight = 99
+---
+title: ArchLinux
+tags:
+weight: 99
 
-+++
+---

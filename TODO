@@ -1,11 +1,8 @@
 kubernetes
-    hpa
-    secret
-    configmap
-    ingress
     full-nginx-example
+    hpa
+    ingress
 shellscript
-    wheather
     rsync
 tips
     nginx

@@ -2,6 +2,8 @@
 title: OSX
 tags:
     - utils
+weight:
+
 ---
 
 # OSX

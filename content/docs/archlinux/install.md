@@ -1,9 +1,11 @@
-+++
-tags = ["archlinux", "linux"]
-title = "Install Guide Lazy Mode"
-weight = 1
+---
+title: Install Guide Lazy Mode
+tags:
+- archlinux
+- linux
+weight: 1
 
-+++
+---
 # ArchLinux Install Guide *Lazy Mode*
 
 

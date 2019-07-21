@@ -3,7 +3,7 @@ title: Secret
 tags:
 - config-files
 - example
-weight: 3
+weight: 2
 
 ---
 # Secret Example

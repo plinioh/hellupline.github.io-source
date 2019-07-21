@@ -1,6 +1,6 @@
-+++
-tags = []
-title = "Examples"
-weight = 1
+---
+title: Examples
+tags:
+weight: 1
 
-+++
+---
