@@ -1,7 +1,9 @@
 ---
-type: docs
----
+tags: []
+title: NGINX
+weight: 
 
+---
 # NGINX
 
 ## How to run a simple static site with nginx and docker
