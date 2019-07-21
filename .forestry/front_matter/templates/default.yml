@@ -5,6 +5,8 @@ fields:
 - type: text
   name: title
   label: Title
+  config:
+    required: true
 - name: tags
   type: tag_list
   default: []
