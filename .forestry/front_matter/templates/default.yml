@@ -23,7 +23,7 @@ fields:
     step: 
     required: false
 pages:
-- content/docs/kubernetes/config-example/example.md
+- content/docs/kubernetes/config-example/_index.md
 - content/docs/kubernetes/config-example/_index.md.md
 - content/docs/shell-script/monitoring/_index.md
 - content/docs/shell-script/monitoring/website.md
