@@ -12,6 +12,13 @@ sections:
   templates:
   - default
 - type: directory
+  path: content/docs/shell-scripts
+  label: Shell-Script
+  create: all
+  match: "**/*"
+  templates:
+  - default
+- type: directory
   path: content/docs
   label: Docs
   create: all
