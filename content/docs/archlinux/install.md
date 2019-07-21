@@ -1,6 +1,6 @@
 +++
 tags = ["archlinux", "linux"]
-title = "ArchLinux Install Guide Lazy Mode"
+title = "Install Guide Lazy Mode"
 weight = 1
 
 +++
