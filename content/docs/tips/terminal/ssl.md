@@ -1,7 +1,6 @@
 ---
 title: SSL
-tags: []
-weight:
+weight: 99
 
 ---
 # SSL
@@ -52,4 +51,15 @@ echo | 2>/dev/null openssl s_client \
     -servername hellupline.com.br \
     -connect hellupline.com.br:443 |
 openssl x509 -text
+```
+
+## Self-Signed Certificate
+
+```bash
+openssl req -nodes -x509 -days 365 \
+    -newkey rsa:4096 \
+    -keyout key.pem \
+    -out cert.pem \
+    -addext "subjectAltName = DNS:my-other-domain.com,DNS:www.my-other-domain.com" \
+    -subj '/CN=my-domain.com'
 ```

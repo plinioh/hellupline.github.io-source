@@ -13,12 +13,10 @@ type: docs
     * ingress
     * describe ingress health script
 * tips
+    * jq
     * nginx
         * static multi domain
-    * ssl
-        * self-signed certificates
     * docker
         * docker xargs cleanup
-    * get ip
     * mysql
     * cloudformations

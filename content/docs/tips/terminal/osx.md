@@ -1,8 +1,6 @@
 ---
 title: OSX
-tags:
-    - utils
-weight:
+weight: 99
 
 ---
 

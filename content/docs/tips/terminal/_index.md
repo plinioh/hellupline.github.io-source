@@ -1,6 +1,5 @@
 ---
 title: Terminal
-tags:
-weight:
+weight: 99
 
 ---

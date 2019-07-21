@@ -1,9 +1,5 @@
 ---
 title: Website Alarm
-tags:
-- monitoring
-- curl
-- alarm
 weight: 1
 
 ---

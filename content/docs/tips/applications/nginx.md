@@ -1,7 +1,6 @@
 ---
 title: NGINX
-tags: []
-weight:
+weight: 99
 
 ---
 # NGINX

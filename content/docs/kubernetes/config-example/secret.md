@@ -1,8 +1,5 @@
 ---
 title: Secret
-tags:
-- config-files
-- example
 weight: 2
 
 ---

@@ -7,40 +7,34 @@ fields:
   label: Title
   config:
     required: true
-- name: tags
-  type: tag_list
-  default: []
-  label: Tags
 - name: weight
   type: number
   label: Weight
   description: ''
-  default: 0
+  default: 99
   config:
-    min: 
-    max: 
-    step: 
-    required: false
+    min: 0
+    max: 99
+    step: 1
+    required: true
 pages:
-- content/docs/tips/applications/postgresql.md
+- content/docs/archlinux/_index.md
+- content/docs/archlinux/install.md
+- content/docs/kubernetes/_index.md
+- content/docs/kubernetes/commands.md
+- content/docs/kubernetes/config-example/_index.md
+- content/docs/kubernetes/config-example/configmap.md
+- content/docs/kubernetes/config-example/deployment.md
+- content/docs/kubernetes/config-example/secret.md
+- content/docs/kubernetes/config-example/service.md
 - content/docs/shell-script/_index.md
 - content/docs/shell-script/website-alarm.md
-- content/docs/tips/applications/nginx.md
-- content/docs/tips/applications/ssl.md
-- content/docs/tips/applications/_index.md
 - content/docs/tips/_index.md
-- content/docs/tips/terminal/osx.md
-- content/docs/tips/terminal/rsync.md
-- content/docs/tips/terminal/qr-code.md
-- content/docs/tips/terminal/weather.md
-- content/docs/tips/terminal/date.md
+- content/docs/tips/applications/_index.md
+- content/docs/tips/applications/nginx.md
+- content/docs/tips/applications/postgresql.md
 - content/docs/tips/terminal/_index.md
-- content/docs/kubernetes/config-example/_index.md
-- content/docs/kubernetes/commands.md
-- content/docs/kubernetes/config-example/secret.md
-- content/docs/kubernetes/config-example/configmap.md
-- content/docs/kubernetes/config-example/service.md
-- content/docs/archlinux/install.md
-- content/docs/archlinux/_index.md
-- content/docs/kubernetes/config-example/deployment.md
-- content/docs/kubernetes/_index.md
+- content/docs/tips/terminal/commandlinefu.md
+- content/docs/tips/terminal/curl.md
+- content/docs/tips/terminal/osx.md
+- content/docs/tips/terminal/ssl.md

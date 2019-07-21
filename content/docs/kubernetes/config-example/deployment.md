@@ -1,8 +1,5 @@
 ---
 title: Deployment
-tags:
-- config-files
-- example
 weight: 1
 
 ---

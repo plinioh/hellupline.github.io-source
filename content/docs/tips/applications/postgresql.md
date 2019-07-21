@@ -1,7 +1,6 @@
 ---
 title: Postgresql
-tags: []
-weight:
+weight: 99
 
 ---
 # Postgresql

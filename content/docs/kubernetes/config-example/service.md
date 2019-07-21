@@ -1,8 +1,5 @@
 ---
 title: Service
-tags:
-- config-files
-- example
 weight: 4
 
 ---

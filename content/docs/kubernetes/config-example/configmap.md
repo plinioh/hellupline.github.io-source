@@ -1,8 +1,5 @@
 ---
 title: ConfigMap
-tags:
-- config-files
-- example
 weight: 3
 
 ---

@@ -1,7 +1,5 @@
 ---
 title: Commands
-tags:
-- utils
 weight: 99
 
 ---

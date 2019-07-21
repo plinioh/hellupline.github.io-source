@@ -1,0 +1,57 @@
+---
+title: CommandLineFu
+weight: 99
+
+---
+# CommandLineFu
+
+## Python helpers
+
+### Prettify JSON
+
+```bash
+python -m json.tool
+```
+
+### Simple HTTP Server
+
+```bash
+python -m http.server
+```
+
+## Rsync
+
+```bash
+# if source-dir ends with '/', sync contents
+rsync \
+    --verbose \
+    --progress \
+    --stats \
+    --delete \
+    --archive \
+    --recursive \
+    --links \
+    --perms \
+    --times \
+    --group \
+    --owner \
+    --compress \
+    source-dir/ \
+    target-dir
+```
+
+## Date
+
+```bash
+# RFC-3339
+date --date='1991-01-22 19:00:00 +300'
+date --rfc-3339=seconds
+
+# Timestamp
+date --date='@664581600'
+date '+%s'
+
+# Relative
+date --date="next Friday"
+date --date="2 days ago"
+```

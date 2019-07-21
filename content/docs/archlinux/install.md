@@ -1,9 +1,6 @@
 ---
 title: Install Guide Lazy Mode
-tags:
-- archlinux
-- linux
-weight: 1
+weight: 99
 
 ---
 # ArchLinux Install Guide *Lazy Mode*
