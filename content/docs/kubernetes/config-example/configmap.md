@@ -1,5 +1,5 @@
 ---
-title: ConfigMap Example
+title: ConfigMap
 tags:
 - config-files
 - example
