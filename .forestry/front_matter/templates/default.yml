@@ -22,6 +22,7 @@ fields:
     step: 
     required: false
 pages:
+- content/docs/tips/weather.md
 - content/docs/shell-script/utils/qr-code.md
 - content/docs/kubernetes/config-example/_index.md
 - content/docs/kubernetes/commands.md
