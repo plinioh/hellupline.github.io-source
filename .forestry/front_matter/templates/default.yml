@@ -22,10 +22,10 @@ fields:
     step: 
     required: false
 pages:
+- content/docs/tips/applications/postgresql.md
 - content/docs/shell-script/_index.md
 - content/docs/shell-script/website-alarm.md
 - content/docs/tips/applications/nginx.md
-- content/docs/tips/applications/postgresql.md
 - content/docs/tips/applications/ssl.md
 - content/docs/tips/applications/_index.md
 - content/docs/tips/_index.md
