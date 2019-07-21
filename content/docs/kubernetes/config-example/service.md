@@ -1,5 +1,5 @@
 ---
-title: Service Example
+title: Service
 tags:
 - config-files
 - example
