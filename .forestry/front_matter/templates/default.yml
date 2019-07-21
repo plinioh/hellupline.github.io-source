@@ -17,9 +17,9 @@ fields:
   description: ''
   default: 0
   config:
-    min:
-    max:
-    step:
+    min: 
+    max: 
+    step: 
     required: false
 pages:
 - content/docs/kubernetes/config-example/_index.md
