@@ -46,6 +46,12 @@ rsync \
     target-dir
 ```
 
+## Random Password
+
+```bash
+openssl rand -base64 33
+```
+
 ## Date
 
 ```bash
