@@ -22,6 +22,7 @@ fields:
     max: 
     step: 
 pages:
+- content/docs/kubernetes/commands.md
 - content/docs/shell-script/utils/date.md
 - content/docs/shell-script/utils/_index.md
 - content/docs/shell-script/monitoring/website.md
@@ -33,4 +34,3 @@ pages:
 - content/docs/archlinux/_index.md
 - content/docs/kubernetes/config-example/deployment.md
 - content/docs/kubernetes/_index.md
-- content/docs/kubernetes/commands.md

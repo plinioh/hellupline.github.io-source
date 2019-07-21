@@ -2,7 +2,7 @@
 title: Commands
 tags:
 - utils
-weight: 2
+weight: 99
 
 ---
 # Commands
