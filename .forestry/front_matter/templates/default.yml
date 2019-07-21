@@ -22,6 +22,8 @@ fields:
     step: 
     required: false
 pages:
+- content/docs/tips/ssl.md
+- content/docs/tips/postgresql.md
 - content/docs/tips/nginx.md
 - content/docs/tips/qr-code.md
 - content/docs/tips/weather.md

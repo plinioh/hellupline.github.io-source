@@ -1,7 +1,9 @@
 ---
-type: docs
----
+tags: []
+title: SSL
+weight: 
 
+---
 # SSL
 
 ## Lets Encrypt certifiate

@@ -1,3 +1,9 @@
++++
+tags = []
+title = "Postgres"
+weight = nil
+
++++
 # Postgresql
 
 ## Run a postres in docker
