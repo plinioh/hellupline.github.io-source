@@ -20,6 +20,7 @@ fields:
     max: 
     step: 
 pages:
+- content/docs/shell-script/utils/date.md
 - content/docs/shell-script/utils/_index.md
 - content/docs/shell-script/monitoring/website.md
 - content/docs/shell-script/monitoring/_index.md
