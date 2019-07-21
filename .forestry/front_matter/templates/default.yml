@@ -16,15 +16,15 @@ fields:
   default: 0
   required: true
   config:
-    min:
-    max:
-    step:
+    min: 
+    max: 
+    step: 
 pages:
-- content/docs/archlinux/_index.md
+- content/docs/kubernetes/config-example/secret.md
+- content/docs/kubernetes/config-example/configmap.md
+- content/docs/kubernetes/config-example/service.md
 - content/docs/archlinux/install.md
+- content/docs/archlinux/_index.md
+- content/docs/kubernetes/config-example/deployment.md
 - content/docs/kubernetes/_index.md
 - content/docs/kubernetes/commands.md
-- content/docs/kubernetes/config-example/configmap.md
-- content/docs/kubernetes/config-example/deployment.md
-- content/docs/kubernetes/config-example/secret.md
-- content/docs/kubernetes/config-example/service.md

@@ -3,7 +3,7 @@ title: ConfigMap Example
 tags:
 - config-files
 - example
-weight: 3
+weight: 4
 
 ---
 # ConfigMap Example
