@@ -1,6 +1,6 @@
 ---
 title: Shell Script
 tags: []
-weight: 1
+weight: 2
 
 ---

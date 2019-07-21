@@ -1,6 +1,6 @@
 ---
 title: Kubernetes
 tags: []
-weight: 2
+weight: 1
 
 ---
