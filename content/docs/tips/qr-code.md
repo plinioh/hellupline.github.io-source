@@ -1,7 +1,7 @@
 ---
 title: QR Code
-tags:
-weight:
+tags: []
+weight: 
 
 ---
 # QR Code
