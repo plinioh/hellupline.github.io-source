@@ -16,11 +16,10 @@ fields:
   label: Weight
   description: ''
   default: 0
-  required: true
   config:
-    min: 
-    max: 
-    step: 
+    min:
+    max:
+    step:
     required: false
 pages:
 - content/docs/kubernetes/config-example/_index.md
