@@ -1,5 +1,5 @@
 ---
-title: Date
+title: QR Code
 tags:
 weight:
 

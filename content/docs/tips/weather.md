@@ -1,9 +1,9 @@
-+++
-tags = []
-title = "Weather"
-weight = nil
+---
+title: Weather
+tags:
+weight:
 
-+++
+---
 # Weather
 
 ```bash
