@@ -13,6 +13,12 @@ weight: 99
 python -m json.tool
 ```
 
+### Simple SMTP Debug Server
+
+```bash
+sudo python -m smtpd -n -c DebuggingServer localhost:25
+```
+
 ### Simple HTTP Server
 
 ```bash
