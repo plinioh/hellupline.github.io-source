@@ -1,9 +1,9 @@
-+++
-tags = []
-title = "Rsync"
-weight = nil
+---
+title: Rsync
+tags:
+weight: 0
 
-+++
+---
 # Rsync
 
 ```bash
