@@ -1,7 +1,6 @@
 +++
-draft = true
 tags = []
-title = "Example"
+title = "Examples"
 weight = 1
 
 +++
