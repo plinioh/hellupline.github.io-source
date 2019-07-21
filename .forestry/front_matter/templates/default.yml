@@ -21,6 +21,7 @@ fields:
     min: 
     max: 
     step: 
+    required: true
 pages:
 - content/docs/shell-script/monitoring/_index.md
 - content/docs/shell-script/monitoring/website.md
