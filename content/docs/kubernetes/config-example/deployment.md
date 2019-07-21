@@ -1,5 +1,5 @@
 ---
-title: Deployment Example
+title: Deployment
 tags:
 - config-files
 - example
