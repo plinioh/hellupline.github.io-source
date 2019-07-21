@@ -19,3 +19,5 @@ type: docs
         * self-signed certificates
     * docker
         * docker xargs cleanup
+    * mysql
+    * cloudformations

@@ -45,7 +45,7 @@ docker run --rm -it --name certbot \
         --domains=DOMAIN_1,DOMAIN_2
 ```
 
-## How to inspect a server certifiate
+## Inspect a server certifiate
 
 ```bash
 echo | 2>/dev/null openssl s_client \

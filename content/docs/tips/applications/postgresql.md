@@ -1,5 +1,5 @@
 ---
-title: Postgres
+title: Postgresql
 tags: []
 weight:
 
