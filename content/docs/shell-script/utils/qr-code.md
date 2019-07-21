@@ -1,9 +1,9 @@
-+++
-tags = []
-title = "QR Code"
-weight = nil
+---
+title: Date
+tags:
+weight:
 
-+++
+---
 # QR Code
 
 ```bash
