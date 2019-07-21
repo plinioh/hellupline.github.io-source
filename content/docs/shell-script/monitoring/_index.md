@@ -1,5 +1,5 @@
 +++
-tags = ["monitoring", "alarm"]
+tags = []
 title = "Monitoring"
 weight = 1
 
