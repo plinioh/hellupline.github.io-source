@@ -20,5 +20,5 @@ echo "my text" | curl --form 'data=<-' https://qrenco.de/
 ## Weather
 
 ```bash
-curl wttr.in/curitiba
+curl https://wttr.in/curitiba
 ```
