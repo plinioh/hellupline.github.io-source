@@ -36,6 +36,7 @@ pages:
 - content/docs/kubernetes/config-example/secret.md
 - content/docs/kubernetes/config-example/configmap.md
 - content/docs/kubernetes/config-example/service.md
+- content/docs/kubernetes/config-example/hpa.md
 - content/docs/archlinux/install.md
 - content/docs/archlinux/_index.md
 - content/docs/kubernetes/_index.md
