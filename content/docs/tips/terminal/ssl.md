@@ -50,7 +50,7 @@ docker run --rm -it --name certbot \
 echo | 2>/dev/null openssl s_client \
     -servername hellupline.com.br \
     -connect hellupline.com.br:443 |
-openssl x509 -text
+openssl x509 -noout -text
 ```
 
 ## Self-Signed Certificate
