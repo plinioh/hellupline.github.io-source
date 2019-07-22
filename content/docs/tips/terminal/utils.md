@@ -67,3 +67,12 @@ date '+%s'
 date --date="next Friday"
 date --date="2 days ago"
 ```
+
+##
+
+```bash
+youtube-dl \
+    --audio-format mp3 \
+    --audio-quality 320k \
+    --extract-audio
+```
