@@ -18,8 +18,8 @@ fields:
     step: 1
     required: true
 pages:
-- content/docs/tips/terminal/ssl.md
 - content/docs/tips/terminal/utils.md
+- content/docs/tips/terminal/ssl.md
 - content/docs/tips/terminal/curl.md
 - content/docs/tips/applications/postgresql.md
 - content/docs/kubernetes/config-example/deployment.md
