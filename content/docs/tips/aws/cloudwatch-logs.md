@@ -6,7 +6,9 @@ weight: 99
 # Extract logs from Cloudwatch
 
 ```python
-from itertools import zip_longest
+from itertools import zip_longest, groupby
+from collections import Counter
+import csv
 
 import boto3
 
@@ -50,11 +52,36 @@ def main():
 
     messages = [e['message'] for e in events]
 
-    counts = Counter(' '.join(m.strip().split(' ')[5:]) for m in messages)
-    rank = sorted(counts.items(), key=lambda r: r[1], reverse=True)
-    with open('report.txt', mode='w') as f:
-        for name, count in rank:
-            print(name, count, file=f)
+    def extractfunc(message):
+        return tuple(message.strip().split()[4:6][::-1])
+
+    def transformfunc(row):
+        tag, count = row
+        return tag[0], 10 * count
+
+    def aggregatekeyfunc(row):
+        return row[0]
+
+    def aggregatefunc(row):
+        k, groups = row
+        values = [g[1] for g in groups]
+        total, ammount = sum(values), len(values)
+        return k, total, ammount, total/ammount
+
+    def sortedfunc(row):
+        return row[1]
+
+    counts = Counter(extractfunc(m) for m in messages)
+    items = sorted(transformfunc(r) for r in counts.items())
+    aggregated = [
+        aggregatefunc(r)
+        for r in groupby(items, key=aggregatekeyfunc)
+    ]
+    rank = sorted(aggregated, key=sortedfunc, reverse=True)
+    with open('report.txt', mode='w', newline='') as f:
+        w = csv.writer(f)
+        w.writerow(("name", "total", "ammount", "average"))
+        w.writerows(rank)
 
 
 def grouper(iterable, n, fillvalue=None):
@@ -63,6 +90,7 @@ def grouper(iterable, n, fillvalue=None):
     args = [iter(iterable)] * n
     for batch in zip_longest(*args, fillvalue=fillvalue):
         yield [*filter(None.__ne__, batch)]
+
 
 if __name__ == '__main__':
     main()
