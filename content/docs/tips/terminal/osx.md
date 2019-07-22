@@ -17,3 +17,11 @@ osascript -e 'display notification "Body" with title "Title"'
 ```bash
 say "Hello World"
 ```
+
+## Clipboard
+
+```bash
+pbpaste > output.txt
+
+pbcopy < input.txt
+```
