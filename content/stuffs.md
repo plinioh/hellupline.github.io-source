@@ -3,7 +3,6 @@ title: Stuffs
 type: docs
 
 ---
-
 # Stuffs
 
 ## Weather
@@ -13,16 +12,15 @@ type: docs
 ## TODO
 
 * kubernetes
-    * full-nginx-example
-    * hpa
-    * ingress health script
+  * full-nginx-example
+  * ingress health script
 * tips
-    * jq
-    * nginx
-        * static multi domain
-    * docker
-        * docker xargs cleanup
-    * mysql
-    * cloudformations
+  * jq
+  * nginx
+    * static multi domain
+  * docker
+    * docker xargs cleanup
+  * mysql
+  * cloudformations
 
 ## Links
