@@ -3,6 +3,8 @@ title: Welcome to the Index
 type: docs
 
 ---
+![](https://wttr.in/MyLocation.png?)
+
 ![](/uploads/2.png)
 
 # TODO

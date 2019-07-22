@@ -14,7 +14,7 @@ curl https://ifconfig.co/
 ## QR Code
 
 ```bash
-echo "my text" | curl --form 'data=<-' qrenco.de
+echo "my text" | curl --form 'data=<-' https://qrenco.de/
 ```
 
 ## Weather
