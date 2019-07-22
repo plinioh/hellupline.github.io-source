@@ -14,6 +14,7 @@ metadata:
     namespace: my-namespace
 spec:
     type: ClusterIP
+    externalTrafficPolicy: Local
     selector: {app: my-app}
     ports:
       - {name: http, port: 80, protocol: TCP, targetPort: 8000}
