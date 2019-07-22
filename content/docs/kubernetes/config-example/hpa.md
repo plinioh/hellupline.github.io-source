@@ -1,5 +1,5 @@
 ---
-title: Horizontal Pod Autoscaler
+title: HPA
 weight: 6
 
 ---
