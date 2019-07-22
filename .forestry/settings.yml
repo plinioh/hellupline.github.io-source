@@ -20,7 +20,7 @@ sections:
   - default
 - type: directory
   path: content/docs/shell-scripts
-  label: Tips
+  label: Shell Scripts
   create: all
   match: "**/*"
   templates:

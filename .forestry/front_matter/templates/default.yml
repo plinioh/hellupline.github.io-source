@@ -43,8 +43,8 @@ pages:
 - content/docs/tips/terminal/ssl.md
 - content/docs/tips/applications/postgresql.md
 - content/docs/kubernetes/config-example/deployment.md
-- content/docs/shell-script/_index.md
-- content/docs/shell-script/website-alarm.md
+- content/docs/shell-scripts/_index.md
+- content/docs/shell-scripts/website-alarm.md
 - content/docs/tips/applications/nginx.md
 - content/docs/tips/applications/_index.md
 - content/docs/tips/_index.md
