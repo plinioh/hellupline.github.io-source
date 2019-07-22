@@ -18,6 +18,15 @@ fields:
     step: 1
     required: true
 pages:
+- content/docs/kubernetes/_index.md
+- content/docs/kubernetes/config-example/service.md
+- content/docs/kubernetes/config-example/configmap.md
+- content/docs/kubernetes/config-example/secret.md
+- content/docs/kubernetes/commands.md
+- content/docs/kubernetes/config-example/_index.md
+- content/docs/kubernetes/config-example/deployment.md
+- content/docs/kubernetes/config-example/ingress.md
+- content/docs/kubernetes/config-example/hpa.md
 - content/docs/kubernetes/config-example/hpa.md
 - content/docs/tips/terminal/curl.md
 - content/docs/kubernetes/config-example/ingress.md
