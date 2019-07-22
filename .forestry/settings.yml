@@ -2,7 +2,7 @@
 new_page_extension: md
 auto_deploy: true
 admin_path: ''
-webhook_url: 
+webhook_url:
 sections:
 - type: directory
   path: content/docs/kubernetes
@@ -12,15 +12,29 @@ sections:
   templates:
   - default
 - type: directory
-  path: content/docs
-  label: Docs
+  path: content/docs/tips
+  label: Tips
   create: all
   match: "**/*"
+  templates:
+  - default
+- type: directory
+  path: content/docs/shell-scripts
+  label: Tips
+  create: all
+  match: "**/*"
+  templates:
+  - default
 - type: directory
   path: content
   label: Pages
   create: all
   match: "*"
+- type: directory
+  path: content/docs
+  label: Docs
+  create: all
+  match: "**/*"
 upload_dir: static/uploads
 public_path: "/uploads"
 front_matter_path: ''
