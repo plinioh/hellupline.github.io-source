@@ -4,5 +4,8 @@ title = "HellUpline utils"
 theme = "book"
 enableGitInfo = true
 
+pygmentsCodeFences = true
+pygmentsStyle = "monokai"
+
 [params]
 BookEnableJS = true

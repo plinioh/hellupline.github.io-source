@@ -13,7 +13,10 @@ type: docs
 
 * kubernetes
   * full-nginx-example
-  * ingress health script
+  * volumes
+  * statefulset
+  * jobs
+  * ingress health shell script
 * tips
   * jq
   * nginx
