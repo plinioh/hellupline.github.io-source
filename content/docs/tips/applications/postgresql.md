@@ -139,10 +139,14 @@ JOIN
 ## Get user roles
 
 ```sql
-WITH RECURSIVE cte AS (
-    SELECT oid FROM pg_roles WHERE rolname = 'luismaleski'
-    UNION ALL
-    SELECT m.roleid FROM cte JOIN pg_auth_members m ON m.member = cte.oid
-)
-SELECT rolname FROM pg_roles WHERE oid IN (SELECT oid FROM cte);
+ SELECT
+    a.rolname,
+    ARRAY_AGG(b.rolname)
+FROM
+    pg_roles a,
+    pg_roles b
+WHERE
+    pg_has_role(a.rolname, b.oid, 'member')
+GROUP BY
+    a.rolname;
 ```
