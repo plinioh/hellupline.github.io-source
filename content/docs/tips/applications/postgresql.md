@@ -114,3 +114,35 @@ GRANT example_another_table_role_ro TO example_group_ro;
 CREATE ROLE example_user WITH NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION INHERIT LOGIN PASSWORD 'mysecretpassword' VALID UNTIL 'infinity';
 GRANT example_group_ro TO example_user;
 ```
+
+## Inspect default schema privileges
+
+```sql
+SELECT
+    nsp.nspname,
+    case defacl.defaclobjtype
+        when 'r' then 'TABLE'
+        when 'm' then 'MATERIALIZED_VIEW'
+        when 'i' then 'INDEX'
+        when 'S' then 'SEQUENCE'
+        when 'v' then 'VIEW'
+        when 'c' then 'TYPE'
+        else defacl.defaclobjtype::text
+    end as object_type,
+    defacl.defaclacl
+FROM
+    pg_default_acl defacl
+JOIN
+    pg_namespace nsp ON defacl.defaclnamespace=nsp.oid;
+```
+
+## Get user roles
+
+```sql
+WITH RECURSIVE cte AS (
+    SELECT oid FROM pg_roles WHERE rolname = 'luismaleski'
+    UNION ALL
+    SELECT m.roleid FROM cte JOIN pg_auth_members m ON m.member = cte.oid
+)
+SELECT rolname FROM pg_roles WHERE oid IN (SELECT oid FROM cte);
+```
