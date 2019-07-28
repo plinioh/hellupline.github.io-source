@@ -1,4 +1,4 @@
-baseURL = "https://hellupline.com.br/"
+baseURL = "https://hellupline.dev/"
 languageCode = "en-us"
 title = "HellUpline utils"
 theme = "book"
