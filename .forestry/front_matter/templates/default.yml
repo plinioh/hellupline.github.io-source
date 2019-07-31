@@ -18,16 +18,16 @@ fields:
     step: 1
     required: true
 pages:
+- content/docs/tips/terminal/linux.md
+- content/docs/scripts/aws/ami.md
 - content/docs/tips/applications/postgresql.md
 - content/docs/scripts/_index.md
 - content/docs/scripts/website-alarm.md
 - content/docs/scripts/aws/cloudwatch-logs.md
-- content/docs/scripts/aws/ami.md
 - content/docs/scripts/aws/_index.md
 - content/docs/tips/terminal/utils.md
 - content/docs/tips/terminal/utils.md
 - content/docs/tips/terminal/_index.md
-- content/docs/tips/terminal/linux.md
 - content/docs/tips/terminal/osx.md
 - content/docs/tips/_index.md
 - content/docs/tips/applications/_index.md
