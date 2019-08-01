@@ -1,4 +1,16 @@
 ---
 label: Docs
 hide_body: true
-fields: []
+fields:
+- name: title
+  type: text
+  config:
+    required: true
+  label: Title
+- name: type
+  type: text
+  config:
+    required: false
+  label: Type
+  hidden: true
+  default: docs
