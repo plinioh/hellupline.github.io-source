@@ -19,8 +19,8 @@ fields:
     required: true
 pages:
 - content/docs/kubernetes/commands.md
-- content/docs/kubernetes/config-example/deployment.md
 - content/docs/kubernetes/commands.md
+- content/docs/kubernetes/config-example/deployment.md
 - content/docs/kubernetes/config-example/deployment.md
 - content/docs/scripts/website-alarm.md
 - content/docs/scripts/aws/cloudwatch-logs.md
