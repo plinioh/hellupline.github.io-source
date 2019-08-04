@@ -19,7 +19,9 @@ fields:
     required: true
 pages:
 - content/docs/kubernetes/commands.md
+- content/docs/kubernetes/config-example/deployment.md
 - content/docs/kubernetes/commands.md
+- content/docs/kubernetes/config-example/deployment.md
 - content/docs/scripts/website-alarm.md
 - content/docs/scripts/aws/cloudwatch-logs.md
 - content/docs/tips/terminal/osx.md
@@ -31,11 +33,9 @@ pages:
 - content/docs/kubernetes/config-example/secret.md
 - content/docs/kubernetes/config-example/configmap.md
 - content/docs/kubernetes/config-example/service.md
-- content/docs/kubernetes/config-example/deployment.md
 - content/docs/tips/terminal/ssl.md
 - content/docs/tips/terminal/osx.md
 - content/docs/kubernetes/config-example/configmap.md
-- content/docs/kubernetes/config-example/deployment.md
 - content/gallery.md
 - content/docs/tips/terminal/linux.md
 - content/docs/scripts/aws/ami.md
