@@ -8,6 +8,10 @@ weight: 99
 ## How execute docker image in kubernetes
 
 ```bash
+NAMESPACE="production"
+SERVICE="my-app"
+kubectl run --rm -it shell --image=alpine --restart=Never -- wget -qO- http://${SERVICE}.${NAMESPACE}.svc.cluster.local
+
 kubectl run --rm -it shell --image=alpine --restart=Never -- wget -qO- https://www.google.com
 ```
 
@@ -61,7 +65,6 @@ NAMESPACE="production"
 DEPLOYMENT="my-app"
 kubectl --namespace "${NAMESPACE}" rollout undo deploy "${DEPLOYMENT}"
 ```
-
 
 ## Copy from/to pods
 
