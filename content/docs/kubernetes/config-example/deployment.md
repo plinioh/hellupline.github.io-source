@@ -13,7 +13,8 @@ metadata:
     name: my-app
     namespace: my-namespace
 spec:
-    strategy: {rollingUpdate: {maxSurge: 1, maxUnavailable: 1}, type: RollingUpdate}
+    strategy: {rollingUpdate: {maxSurge: 1, maxUnavailable: 0}, type: RollingUpdate}
+    minReadySeconds: 30
     replicas: 3
     template:
         metadata:

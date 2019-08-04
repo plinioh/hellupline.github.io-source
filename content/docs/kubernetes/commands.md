@@ -38,6 +38,31 @@ DEPLOYMENT="my-app"
 kubectl --namespace "${NAMESPACE}" scale deployment --replicas 1 "${DEPLOYMENT}"
 ```
 
+## Watch deployment update
+
+```bash
+NAMESPACE="production"
+DEPLOYMENT="my-app"
+kubectl --namespace "${NAMESPACE}" rollout status deploy "${DEPLOYMENT}"
+```
+
+## Deployment history
+
+```bash
+NAMESPACE="production"
+DEPLOYMENT="my-app"
+kubectl --namespace "${NAMESPACE}" rollout history deploy "${DEPLOYMENT}"
+```
+
+## Deployment revert
+
+```bash
+NAMESPACE="production"
+DEPLOYMENT="my-app"
+kubectl --namespace "${NAMESPACE}" rollout undo deploy "${DEPLOYMENT}"
+```
+
+
 ## Copy from/to pods
 
 ```bash
@@ -52,7 +77,6 @@ kubectl --namespace="${NAMESPACE}" cp "${POD_NAME}":/etc/nginx/conf.d etc-nginx-
 kubectl --namespace="${NAMESPACE}" cp etc-letsencrypt "${POD_NAME}":/etc/letsencrypt
 kubectl --namespace="${NAMESPACE}" cp etc-nginx-conf.d "${POD_NAME}":/etc/nginx/conf.d
 ```
-
 
 ## Show failed pods
 
