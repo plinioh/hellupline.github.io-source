@@ -6,6 +6,7 @@ weight: 3
 # ConfigMap Example
 
 ```yaml
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -19,5 +20,4 @@ data:
             "key_01": "value_02",
             "key_02": "value_02",
         }
----
 ```

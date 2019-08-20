@@ -6,6 +6,7 @@ weight: 1
 # Deployment Example
 
 ```yaml
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -102,5 +103,4 @@ spec:
                       - {key: config.json, path: config.json}
               - name: data
                 emptyDir: {}
----
 ```

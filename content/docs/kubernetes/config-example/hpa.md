@@ -6,6 +6,7 @@ weight: 6
 # Horizontal Pod Autoscaler Example
 
 ```yaml
+---
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -44,5 +45,4 @@ spec:
                 averageValue: 1k
     minReplicas: 1
     maxReplicas: 10
----
 ```

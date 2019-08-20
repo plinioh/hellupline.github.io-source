@@ -6,6 +6,7 @@ weight: 5
 # Ingress Example
 
 ```yaml
+---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -124,5 +125,4 @@ stringData:
         ekulBtRIfZx/uE46mxX6mQbbhg0tWOL/Cc6hruiM5zISgXHxdIRN9X/KFSsozDa4
         W7u+nHRY0FGH7LCqXazLs91GMJ8uXoc=
         -----END PRIVATE KEY-----
----
 ```

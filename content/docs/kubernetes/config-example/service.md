@@ -6,6 +6,7 @@ weight: 4
 # Service Example
 
 ```yaml
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -18,5 +19,4 @@ spec:
     selector: {app: my-app}
     ports:
       - {name: http, port: 80, protocol: TCP, targetPort: 8000}
----
 ```

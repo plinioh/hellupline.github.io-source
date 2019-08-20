@@ -6,6 +6,7 @@ weight: 2
 # Secret Example
 
 ```yaml
+---
 apiVersion: v1
 kind: Secret
 metadata:
@@ -20,5 +21,4 @@ stringData:
             "key_01": "value_02",
             "key_02": "value_02",
         }
----
 ```
