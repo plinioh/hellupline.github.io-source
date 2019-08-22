@@ -26,6 +26,13 @@ POD_NAME=$(kubectl --namespace="${NAMESPACE}" get pods --selector=app="${POD_LAB
 kubectl --namespace="${NAMESPACE}" exec -it "${POD_NAME}" -- bash
 ```
 
+## Show failed pods
+
+```bash
+NAMESPACE="production"
+kubectl --namespace="${NAMESPACE}" get pods --field-selector=status.phase=Failed
+```
+
 ## Change deployment image
 
 ```bash
@@ -79,11 +86,4 @@ kubectl --namespace="${NAMESPACE}" cp "${POD_NAME}":/etc/nginx/conf.d etc-nginx-
 
 kubectl --namespace="${NAMESPACE}" cp etc-letsencrypt "${POD_NAME}":/etc/letsencrypt
 kubectl --namespace="${NAMESPACE}" cp etc-nginx-conf.d "${POD_NAME}":/etc/nginx/conf.d
-```
-
-## Show failed pods
-
-```bash
-NAMESPACE="production"
-kubectl --namespace="${NAMESPACE}" get pods --field-selector=status.phase=Failed
 ```

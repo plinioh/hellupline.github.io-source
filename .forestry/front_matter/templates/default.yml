@@ -23,7 +23,8 @@ pages:
 - content/docs/kubernetes/config-example/configmap.md
 - content/docs/kubernetes/config-example/ingress.md
 - content/docs/kubernetes/config-example/service.md
-- content/docs/kubernetes/config-example/deployment.md
+- content/docs/kubernetes/config-example/role.md
+- content/docs/kubernetes/config-example/namespace.md
 - content/docs/kubernetes/config-example/secret.md
 - content/docs/kubernetes/commands.md
 - content/docs/kubernetes/commands.md

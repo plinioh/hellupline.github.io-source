@@ -1,0 +1,16 @@
+---
+title: Namespace
+weight: 8
+
+---
+# Namespace Example
+
+```yaml
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: my-namespace
+    labels:
+        name: my-namespace
+```
