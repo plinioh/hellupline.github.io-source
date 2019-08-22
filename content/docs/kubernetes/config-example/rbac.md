@@ -60,7 +60,7 @@ metadata:
 rules:
   - apiGroups: ["", "extensions", "apps", "batch"]
     resources: ["*"]
-    verbs: ["*"]
+    verbs: ["get", "list", "watch"]
 
 ---
 apiVersion: v1
@@ -151,7 +151,7 @@ metadata:
 rules:
   - apiGroups: ["", "extensions", "apps", "batch"]
     resources: ["*"]
-    verbs: ["*"]
+    verbs: ["get", "list", "watch"]
 
 ---
 apiVersion: v1
