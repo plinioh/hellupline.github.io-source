@@ -17,6 +17,7 @@ spec:
     strategy: {rollingUpdate: {maxSurge: 1, maxUnavailable: 0}, type: RollingUpdate}
     minReadySeconds: 30
     replicas: 3
+    selector: {matchLabels: {app: my-app}}
     template:
         metadata:
             labels: {app: my-app}
