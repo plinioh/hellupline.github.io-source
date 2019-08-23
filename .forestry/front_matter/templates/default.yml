@@ -18,6 +18,8 @@ fields:
     step: 1
     required: true
 pages:
+- content/docs/kubernetes/config-example/deployment.md
+- content/docs/kubernetes/config-example/deployment.md
 - content/docs/kubernetes/config-example/volumes.md
 - content/docs/kubernetes/config-example/statefulset.md
 - content/docs/kubernetes/config-example/rbac.md
@@ -27,11 +29,9 @@ pages:
 - content/docs/kubernetes/commands.md
 - content/docs/kubernetes/commands.md
 - content/docs/kubernetes/config-example/ingress.md
-- content/docs/kubernetes/config-example/deployment.md
 - content/docs/kubernetes/config-example/configmap.md
 - content/docs/kubernetes/config-example/ingress.md
 - content/docs/kubernetes/config-example/service.md
-- content/docs/kubernetes/config-example/deployment.md
 - content/docs/kubernetes/config-example/secret.md
 - content/docs/scripts/website-alarm.md
 - content/docs/scripts/aws/cloudwatch-logs.md
