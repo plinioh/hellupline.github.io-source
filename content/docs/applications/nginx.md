@@ -1,8 +1,9 @@
 ---
 title: NGINX
-weight: 99
+weight: 1
 
 ---
+
 # NGINX
 
 ## How to run a simple static site with nginx and docker

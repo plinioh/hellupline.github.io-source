@@ -1,5 +1,5 @@
 ---
 title: Terminal
-weight: 99
+weight: 5
 
 ---

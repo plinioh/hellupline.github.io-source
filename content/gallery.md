@@ -1,6 +1,7 @@
 ---
 title: Gallery
 type: docs
+bookToc: false
 
 ---
 ![](/uploads/Helmet1_Sign.png)

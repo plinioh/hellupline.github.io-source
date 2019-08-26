@@ -6,6 +6,6 @@ weight: 3
 
 # ConfigMap Example
 
-[Download](/scripts/kubernetes/configmap.yaml)
+[Download](/resources/kubernetes/configmap.yaml)
 
-{{% code file="/static/scripts/kubernetes/configmap.yaml" language="yaml" %}}
+{{% code file="/static/resources/kubernetes/configmap.yaml" language="yaml" %}}

@@ -3,6 +3,7 @@ title: Utils
 weight: 99
 
 ---
+
 # Utils
 
 ## Python helpers
@@ -66,13 +67,4 @@ date '+%s'
 # Relative
 date --date="next Friday"
 date --date="2 days ago"
-```
-
-## Download audio from video
-
-```bash
-youtube-dl \
-    --audio-format mp3 \
-    --audio-quality 320k \
-    --extract-audio
 ```

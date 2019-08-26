@@ -1,218 +1,45 @@
 ---
 title: RBAC
-weight: 7
+weight: 12
 
 ---
+
 # Cluster Level Role-Based Access Control Example
 
 [Offical Docs](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
 
 ## Full Access Example
 
-```yaml
----
-kind: ClusterRole
-apiVersion: rbac.authorization.k8s.io/v1beta1
-metadata:
-    name: my-role--full-access
-rules:
-  - apiGroups: ["", "extensions", "apps", "batch"]
-    resources: ["*"]
-    verbs: ["*"]
+[Download](/resources/kubernetes/rbac-cluster-full-access.yaml)
 
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-    name: my-service-account
-    namespace: my-namespace
-
----
-kind: ClusterRoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
-metadata:
-    name: my-user-view
-roleRef:
-    apiGroup: rbac.authorization.k8s.io
-    kind: ClusterRole
-    name: my-role--full-access
-subjects:
-  - apiGroup: rbac.authorization.k8s.io
-    kind: ServiceAccount
-    name: my-service-account
-    namespace: my-namespace
-  - apiGroup: rbac.authorization.k8s.io
-    kind: User
-    name: my-user
-  - apiGroup: rbac.authorization.k8s.io
-    kind: Group
-    name: my-group
-```
+{{% code file="/static/resources/kubernetes/rbac-cluster-full-access.yaml" language="yaml" %}}
 
 ## Read Only Example
 
-```yaml
----
-kind: ClusterRole
-apiVersion: rbac.authorization.k8s.io/v1beta1
-metadata:
-    name: my-role--read-only
-rules:
-  - apiGroups: ["", "extensions", "apps", "batch"]
-    resources: ["*"]
-    verbs: ["get", "list", "watch"]
+[Download](/resources/kubernetes/rbac-cluster-read-only.yaml)
 
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-    name: my-service-account
-    namespace: my-namespace
-
----
-kind: ClusterRoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
-metadata:
-    name: my-user-view
-roleRef:
-    apiGroup: rbac.authorization.k8s.io
-    kind: ClusterRole
-    name: my-role--read-only
-subjects:
-  - apiGroup: rbac.authorization.k8s.io
-    kind: ServiceAccount
-    name: my-service-account
-    namespace: my-namespace
-  - apiGroup: rbac.authorization.k8s.io
-    kind: User
-    name: my-user
-  - apiGroup: rbac.authorization.k8s.io
-    kind: Group
-    name: my-group
-```
+{{% code file="/static/resources/kubernetes/rbac-cluster-read-only.yaml" language="yaml" %}}
 
 # Namespace Level Role-Based Access Control Example
 
 ## Full Access Example
 
-```yaml
----
-kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
-metadata:
-    name: my-role--full-access
-    namespace: my-namespace
-rules:
-  - apiGroups: ["", "extensions", "apps", "batch"]
-    resources: ["*"]
-    verbs: ["*"]
+[Download](/resources/kubernetes/rbac-namespace-full-access.yaml)
 
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-    name: my-service-account
-    namespace: my-namespace
-
----
-kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
-metadata:
-    name: my-user-view
-    namespace: my-namespace
-roleRef:
-    apiGroup: rbac.authorization.k8s.io
-    kind: Role
-    name: my-role--full-access
-subjects:
-  - apiGroup: rbac.authorization.k8s.io
-    kind: ServiceAccount
-    name: my-service-account
-    namespace: my-namespace
-  - apiGroup: rbac.authorization.k8s.io
-    kind: User
-    name: my-user
-    namespace: my-namespace
-  - apiGroup: rbac.authorization.k8s.io
-    kind: Group
-    name: my-group
-    namespace: my-namespace
-```
+{{% code file="/static/resources/kubernetes/rbac-namespace-full-access.yaml" language="yaml" %}}
 
 ## Read Only Example
 
-```yaml
----
-kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
-metadata:
-    name: my-role--read-only
-    namespace: my-namespace
-rules:
-  - apiGroups: ["", "extensions", "apps", "batch"]
-    resources: ["*"]
-    verbs: ["get", "list", "watch"]
+[Download](/resources/kubernetes/rbac-namespace-read-only.yaml)
 
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-    name: my-service-account
-    namespace: my-namespace
-
----
-kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
-metadata:
-    name: my-user-view
-    namespace: my-namespace
-roleRef:
-    apiGroup: rbac.authorization.k8s.io
-    kind: Role
-    name: my-role--read-only
-subjects:
-  - apiGroup: rbac.authorization.k8s.io
-    kind: ServiceAccount
-    name: my-service-account
-    namespace: my-namespace
-  - apiGroup: rbac.authorization.k8s.io
-    kind: User
-    name: my-user
-    namespace: my-namespace
-  - apiGroup: rbac.authorization.k8s.io
-    kind: Group
-    name: my-group
-    namespace: my-namespace
-```
+{{% code file="/static/resources/kubernetes/rbac-namespace-read-only.yaml" language="yaml" %}}
 
 
 # Aggregated Role
 
-```yaml
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: monitoring
-aggregationRule:
-  clusterRoleSelectors:
-  - matchLabels:
-      rbac.example.com/aggregate-to-monitoring: "true"
-rules: [] # Rules are automatically filled in by the controller manager.
+[Download](/resources/kubernetes/rbac-aggregated-maintenance.yaml)
 
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: monitoring-endpoints
-  labels:
-    rbac.example.com/aggregate-to-monitoring: "true"
-# These rules will be added to the "monitoring" role.
-rules:
-- apiGroups: [""]
-  resources: ["services", "endpoints", "pods"]
-  verbs: ["get", "list", "watch"]
-```
+{{% code file="/static/resources/kubernetes/rbac-aggregated-maintenance.yaml" language="yaml" %}}
 
 # Common Subjects
 

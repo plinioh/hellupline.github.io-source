@@ -1,37 +1,11 @@
 ---
 title: StatefulSet
-weight: 12
+weight: 10
 
 ---
+
 # StatefulSet Example
 
-```yaml
----
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-    labels: {app: my-app}
-    name: my-app
-    namespace: my-namespace
-spec:
-    selector: {matchLabels: {app: my-app}}
-    replicas: 1
-    serviceName: my-app
-    template:
-        metadata: {labels: {app: my-app}}
-        spec:
-            containers:
-              - name: my-app
-                image: nginx
-                volumeMounts:
-                  - {name: "my-app-data", mountPath: "/usr/share/nginx/html"}
-                ports:
-                  - {containerPort: 5432, protocol: TCP}
-    volumeClaimTemplates:
-      - metadata: {name: my-app-data}
-        spec:
-            selector: {matchLabels: {app: my-app}}
-            resources: {requests: {storage: 1Gi}}
-            accessModes: [ReadWriteOnce]
-            storageClassName: manual
-```
+[Download](/resources/kubernetes/statefulset.yaml)
+
+{{% code file="/static/resources/kubernetes/statefulset.yaml" language="yaml" %}}

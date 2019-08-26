@@ -1,0 +1,22 @@
+baseURL: https://hellupline.dev/
+languageCode: en-us
+title: HellUpLine Stuffs
+theme: book
+disableKinds: [taxonomy, taxonomyTerm]
+
+# Book configuration
+disablePathToLower: false
+enableGitInfo: true
+
+# Code highlight
+pygmentsStyle: monokailight
+pygmentsCodeFences: true
+
+params:
+  BookRepo: https://github.com/hellupline/hellupline.github.io-source
+  BookEditPath: edit/master/content
+  BookSection: docs
+  # BookMenuBundle: /menu
+  BookToC: 3
+  BookDateFormat: 'Jan 2, 2006'
+  BookSearch: true

@@ -3,6 +3,7 @@ title: Install Guide Lazy Mode
 weight: 99
 
 ---
+
 # ArchLinux Install Guide *Lazy Mode*
 
 

@@ -1,16 +1,11 @@
 ---
 title: Namespace
-weight: 8
+weight: 11
 
 ---
+
 # Namespace Example
 
-```yaml
----
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: my-namespace
-    labels:
-        name: my-namespace
-```
+[Download](/resources/kubernetes/namespace.yaml)
+
+{{% code file="/static/resources/kubernetes/namespace.yaml" language="yaml" %}}

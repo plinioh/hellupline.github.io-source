@@ -8,13 +8,13 @@ type: docs
 ## TODO
 
 * kubernetes
-  * full-nginx-example
-  * ingress health shell script
+    * full-nginx-example
+    * ingress health shell script
 * tips
-  * jq
-  * nginx
-    * static multi domain
-  * docker
-    * docker xargs cleanup
-  * mysql
-  * cloudformations
+    * jq
+    * nginx
+        * static multi domain
+    * docker
+        * docker xargs cleanup
+    * mysql
+    * cloudformations

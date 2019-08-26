@@ -1,5 +1,5 @@
 ---
 title: Tips
-weight: 3
+weight: 10
 
 ---

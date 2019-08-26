@@ -1,31 +1,13 @@
 ---
 title: CronJob
-weight: 10
+weight: 8
 
 ---
+
 # CronJob Example
 
 [Crontab Guru](https://crontab.guru/)
 
-```yaml
-apiVersion: batch/v1beta1
-kind: CronJob
-metadata:
-    labels: {app: my-cronjob}
-    name: my-cronjob
-    namespace: my-namespace
-spec:
-    schedule: "* * * * *"
-    concurrencyPolicy: Forbid
-    jobTemplate:
-        spec:
-            template:
-                metadata: {labels: {app: my-cronjob}}
-                spec:
-                    restartPolicy: Never
-                    containers:
-                      - name: my-cronjob
-                        image: alpine
-                        imagePullPolicy: Always
-                        command: ["echo", "hello", "nurse"]
-```
+[Download](/resources/kubernetes/cronjob.yaml)
+
+{{% code file="/static/resources/kubernetes/cronjob.yaml" language="yaml" %}}
