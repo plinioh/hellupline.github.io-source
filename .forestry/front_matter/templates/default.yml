@@ -40,7 +40,6 @@ pages:
 - content/docs/kubernetes/config-example/deployment.md
 - content/docs/kubernetes/config-example/ingress.md
 - content/docs/kubernetes/config-example/secret.md
-- content/docs/tips/_index.md
 - content/docs/scripts/_index.md
 - content/gallery.md
 - content/docs/kubernetes/config-example/statefulset.md
@@ -55,7 +54,6 @@ pages:
 - content/docs/kubernetes/config-example/job.md
 - content/docs/kubernetes/config-example/ingress.md
 - content/docs/kubernetes/config-example/secret.md
-- content/docs/tips/_index.md
 - content/docs/kubernetes/commands.md
 - content/docs/kubernetes/commands.md
 - content/docs/kubernetes/_index.md
