@@ -46,6 +46,7 @@ spec:
                   - {name: SECRET_ENV, valueFrom: {secretKeyRef: {name: my-app-secret, key: SECRET_ENV}}}
                   - {name: CONFIG_ENV, valueFrom: {configMapKeyRef: {name: my-app-config, key: CONFIG_ENV}}}
                   - {name: ENV_NAME, value: "ENV_VALUE"}
+                  - {name: POD_NAMESPACE, valueFrom: {fieldRef: {fieldPath: metadata.name}}}
 
                 # pod health
                 readinessProbe:

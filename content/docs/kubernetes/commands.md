@@ -5,13 +5,38 @@ weight: 99
 ---
 
 # Commands
+
+## Kubernetes Plugins
+
+[Dashboard Repository](https://github.com/kubernetes/dashboard)
+
+[Metrics Server Repository](https://github.com/kubernetes-incubator/metrics-server)
+
+[Local Path Provisioner Repository](https://github.com/rancher/local-path-provisioner)
+
+[Proxied Dashboard](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/)
+
+```bash
+kubectl apply --file https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta3/aio/deploy/recommended.yaml
+kubectl apply \
+        --file https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/aggregated-metrics-reader.yaml \
+        --file https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/auth-delegator.yaml \
+        --file https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/auth-reader.yaml \
+        --file https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/metrics-apiservice.yaml \
+        --file https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/metrics-server-deployment.yaml \
+        --file https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/metrics-server-service.yaml \
+        --file https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/resource-reader.yaml
+kubectl apply --file https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.9/deploy/local-path-storage.yaml
+
+kubectl proxy
+```
+
 ## How execute docker image in kubernetes
 
 ```bash
 NAMESPACE="production"
 SERVICE="my-app"
 kubectl run --rm -it shell --image=alpine --restart=Never -- wget -qO- http://${SERVICE}.${NAMESPACE}.svc.cluster.local
-
 kubectl run --rm -it shell --image=alpine --restart=Never -- wget -qO- https://www.google.com
 ```
 
@@ -38,7 +63,10 @@ kubectl --namespace="${NAMESPACE}" get pods --field-selector=status.phase=Failed
 ```bash
 NAMESPACE="production"
 DEPLOYMENT="my-app"
-kubectl --namespace="${NAMESPACE}" set image deployment/"${DEPLOYMENT}" nginx:1.10
+CONTAINER_NAME="my-app"
+IMAGE_NAME="nginx"
+IMAGE_TAG="1.10"
+kubectl --namespace="${NAMESPACE}" set image deployment.apps/"${DEPLOYMENT}" "${CONTAINER_NAME}"="${IMAGE_NAME}:${IMAGE_TAG}"
 ```
 
 ## Scale deployment
@@ -73,6 +101,28 @@ DEPLOYMENT="my-app"
 kubectl --namespace "${NAMESPACE}" rollout undo deploy "${DEPLOYMENT}"
 ```
 
+## Change container image using a ServiceAccount
+
+```bash
+NAMESPACE="production"
+SERVICE_ACCOUNT="my-service-account"
+SECRET_NAME=$(kubectl --namespace "${NAMESPACE}" get --output json "${SERVICE_ACCOUNT}" admin-user | jq --raw-output '.secrets[0].name')
+TOKEN=$(kubectl --namespace "${NAMESPACE}" get --output json secrets "${SECRET_NAME}" | jq --raw-output '.data.token' | base64 --decode)
+
+DEPLOYMENT="my-app"
+CONTAINER_NAME="my-app"
+IMAGE_NAME="nginx"
+IMAGE_TAG="1.10"
+
+KUBECONFIG='none' \
+kubectl \
+      --server=${MASTER_ADDRESS} \
+      --insecure-skip-tls-verify=false \
+      --token="${TOKEN}" \
+      --namespace artemis \
+      set image deployments.apps/"${DEPLOYMENT}" "${CONTAINER_NAME}"="${IMAGE_NAME}:${IMAGE_TAG}"
+```
+
 ## Copy from/to pods
 
 ```bash
@@ -86,14 +136,4 @@ kubectl --namespace="${NAMESPACE}" cp "${POD_NAME}":/etc/nginx/conf.d etc-nginx-
 
 kubectl --namespace="${NAMESPACE}" cp etc-letsencrypt "${POD_NAME}":/etc/letsencrypt
 kubectl --namespace="${NAMESPACE}" cp etc-nginx-conf.d "${POD_NAME}":/etc/nginx/conf.d
-```
-
-## Get ServiceAccount token
-
-```bash
-NAMESPACE="production"
-SERVICE_ACCOUNT="my-service-account"
-
-SECRET_NAME=$(kubectl --namespace "${NAMESPACE}" get --output json "${SERVICE_ACCOUNT}" admin-user | jq --raw-output '.secrets[0].name')
-kubectl --namespace "${NAMESPACE}" get --output json secrets "${SECRET_NAME}" | jq --raw-output '.data.token' | base64 --decode
 ```
