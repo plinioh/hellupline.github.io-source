@@ -27,6 +27,8 @@ spec:
               - name: my-app
                 imagePullPolicy: Always
                 image: nginx
+                cmd: ["sh", "-c"]
+                args: ["echo", "123"]
 
                 # pod environment
                 volumeMounts:
