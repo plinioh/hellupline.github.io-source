@@ -5,7 +5,6 @@ weight: 99
 ---
 
 # Commands
-
 ## How execute docker image in kubernetes
 
 ```bash
@@ -87,4 +86,14 @@ kubectl --namespace="${NAMESPACE}" cp "${POD_NAME}":/etc/nginx/conf.d etc-nginx-
 
 kubectl --namespace="${NAMESPACE}" cp etc-letsencrypt "${POD_NAME}":/etc/letsencrypt
 kubectl --namespace="${NAMESPACE}" cp etc-nginx-conf.d "${POD_NAME}":/etc/nginx/conf.d
+```
+
+## Get ServiceAccount token
+
+```bash
+NAMESPACE="production"
+SERVICE_ACCOUNT="my-service-account"
+
+SECRET_NAME=$(kubectl --namespace "${NAMESPACE}" get --output json "${SERVICE_ACCOUNT}" admin-user | jq --raw-output '.secrets[0].name')
+kubectl --namespace "${NAMESPACE}" get --output json secrets "${SECRET_NAME}" | jq --raw-output '.data.token' | base64 --decode
 ```
