@@ -14,20 +14,30 @@ weight: 99
 
 [Local Path Provisioner Repository](https://github.com/rancher/local-path-provisioner)
 
-[Proxied Dashboard](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/)
+[Proxied Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
 
 ```bash
-kubectl apply --file https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta3/aio/deploy/recommended.yaml
-kubectl apply \
-        --file https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/aggregated-metrics-reader.yaml \
-        --file https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/auth-delegator.yaml \
-        --file https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/auth-reader.yaml \
-        --file https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/metrics-apiservice.yaml \
-        --file https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/metrics-server-deployment.yaml \
-        --file https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/metrics-server-service.yaml \
-        --file https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/resource-reader.yaml
-kubectl apply --file https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.9/deploy/local-path-storage.yaml
+# Dashboard
+kubectl apply --filename https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta3/aio/deploy/recommended.yaml
 
+# Metrics Server
+kubectl apply \
+        --filename https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/aggregated-metrics-reader.yaml \
+        --filename https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/auth-delegator.yaml \
+        --filename https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/auth-reader.yaml \
+        --filename https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/metrics-apiservice.yaml \
+        --filename https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/metrics-server-deployment.yaml \
+        --filename https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/metrics-server-service.yaml \
+        --filename https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/resource-reader.yaml
+kubectl get apiservice v1beta1.metrics.k8s.io --output json | jq '.status.conditions[]'
+
+# Local Path Provisioner
+kubectl apply --filename https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.9/deploy/local-path-storage.yaml
+
+# ServiceAccount Token
+kubectl --namespace kube-system get --output json secrets "$(kubectl --namespace kube-system get --output json serviceaccounts default | jq --raw-output '.secrets[0].name')" | jq --raw-output '.data.token' | base64 --decode
+
+# Proxy
 kubectl proxy
 ```
 
@@ -106,7 +116,7 @@ kubectl --namespace "${NAMESPACE}" rollout undo deploy "${DEPLOYMENT}"
 ```bash
 NAMESPACE="production"
 SERVICE_ACCOUNT="my-service-account"
-SECRET_NAME=$(kubectl --namespace "${NAMESPACE}" get --output json "${SERVICE_ACCOUNT}" admin-user | jq --raw-output '.secrets[0].name')
+SECRET_NAME=$(kubectl --namespace "${NAMESPACE}" get --output json serviceaccounts "${SERVICE_ACCOUNT}" | jq --raw-output '.secrets[0].name')
 TOKEN=$(kubectl --namespace "${NAMESPACE}" get --output json secrets "${SECRET_NAME}" | jq --raw-output '.data.token' | base64 --decode)
 
 DEPLOYMENT="my-app"
