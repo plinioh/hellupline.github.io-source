@@ -37,6 +37,9 @@ kubectl apply --filename https://raw.githubusercontent.com/rancher/local-path-pr
 # ServiceAccount Token
 kubectl --namespace kube-system get --output json secrets "$(kubectl --namespace kube-system get --output json serviceaccounts default | jq --raw-output '.secrets[0].name')" | jq --raw-output '.data.token' | base64 --decode
 
+# EKS Token
+aws --profile=prod eks get-token --cluster-name "my_cluster" | jq --raw-output '.status.token'
+
 # Proxy
 kubectl proxy
 ```
