@@ -1,6 +1,6 @@
 ---
 title: StatefulSet
-weight: 10
+weight: 11
 
 ---
 

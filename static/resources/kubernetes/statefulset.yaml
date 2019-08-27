@@ -17,8 +17,6 @@ spec:
                 image: nginx
                 volumeMounts:
                   - {name: my-app-data, mountPath: "/usr/share/nginx/html"}
-                ports:
-                  - {containerPort: 5432, protocol: TCP}
     volumeClaimTemplates:
       - metadata: {name: my-app-data}
         spec:

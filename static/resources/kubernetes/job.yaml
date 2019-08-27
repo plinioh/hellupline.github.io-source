@@ -13,5 +13,4 @@ spec:
             containers:
               - name: my-job
                 image: alpine
-                imagePullPolicy: Always
-                command: ["echo", "hello", "nurse"]
+                args: ["echo", "hello nurse"]

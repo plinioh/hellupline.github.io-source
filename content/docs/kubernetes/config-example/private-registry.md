@@ -1,6 +1,6 @@
 ---
 title: Private Registry
-weight: 13
+weight: 99
 
 ---
 
