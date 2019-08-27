@@ -6,12 +6,12 @@ set -u # variable must exist
 set -x # verbose
 
 
-aws ec2 describe-regions | jq --raw-output '.Regions[].RegionName' | \
+{ [ ! -f regions.json ] && aws ec2 describe-regions > "regions.json"; cat "regions.json"; } |
+    jq --raw-output '.Regions[].RegionName' |
     while read REGION; do
-        aws ec2 describe-images --owners amazon --region ${REGION} | \
-        jq --arg region ${REGION} '. + $ARGS.named'
-    done | \
-    jq --slurp --arg ami "Amazon Linux 2 AMI 2" '
+        { [ ! -f "ami_${REGION}.json" ] && aws --region "${REGION}" ec2 describe-images --owners amazon > "ami_${REGION}.json"; cat "ami_${REGION}.json"; } |
+            jq --arg region ${REGION} '. + $ARGS.named'
+    done | jq --slurp --arg ami "Amazon Linux 2 AMI 2" '
         map(
             .region as $region
             | .Images
