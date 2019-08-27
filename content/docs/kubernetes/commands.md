@@ -50,6 +50,21 @@ kubectl run --rm -it shell --image=alpine --restart=Never -- wget -qO- http://${
 kubectl run --rm -it shell --image=alpine --restart=Never -- wget -qO- https://www.google.com
 ```
 
+## How to access a kubernetes service/pod
+
+```bash
+NAMESPACE="production"
+LOCAL_PORT="8080"
+
+SERVICE="my-app"
+SERVICE_PORT="80"
+kubectl --namespace="${NAMESPACE}" port-forward services/"${SERVICE}" "${LOCAL_PORT}":"${SERVICE_PORT}"
+
+POD="my-app"
+POD_PORT="80"
+kubectl --namespace="${NAMESPACE}" port-forward pods/"${POD}" "${LOCAL_PORT}":"${POD_PORT}"
+```
+
 ## How to run command in a deployments pod
 
 ```bash
