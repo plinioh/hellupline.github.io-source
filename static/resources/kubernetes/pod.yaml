@@ -36,6 +36,9 @@ spec:
         args: ["echo", "123"]
 
         # pod environment
+        lifecycle:
+            postStart: {exec: {command: ["/bin/sh", "-c", "touch /tmp/hello"]}}
+            preStop: {exec: {command: ["/bin/sh", "-c", "echo Hello from the preSop handler > /tmp/hello"]}}
         volumeMounts:
           - {name: secret-files, mountPath: "/my-app/secret/", readOnly: true}
           - {name: config-files, mountPath: "/my-app/config/", readOnly: true}
