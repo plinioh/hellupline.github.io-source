@@ -1,0 +1,449 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'VPC: Public and Private subnets in two availability zones'
+
+Metadata:
+    AWS::CloudFormation::Interface:
+        ParameterGroups:
+          - Label: {default: 'VPC Parameters'}
+            Parameters:
+              - ClassB
+          - Label: {default: 'NatInstance'}
+            Parameters:
+              - InstanceType
+              - KeyName
+              - AuthorizedCidrIp
+
+Parameters:
+    ClassB:
+        Description: 'Class B of VPC (10.XXX.0.0/16)'
+        Type: Number
+        ConstraintDescription: 'Must be in the range [0-255]'
+        Default: 0
+        MinValue: 0
+        MaxValue: 255
+    InstanceType:
+        Description: 'NatInstance EC2 instance type.'
+        Type: String
+        ConstraintDescription: 'must be a valid EC2 instance type.'
+        Default: 't2.micro'
+        AllowedValues:
+          - 't2.micro'
+          - 't2.nano'
+          - 't2.micro'
+          - 't2.small'
+          - 't2.medium'
+          - 't2.large'
+          - 'm1.small'
+          - 'm1.medium'
+          - 'm1.large'
+          - 'm1.xlarge'
+          - 'm2.xlarge'
+          - 'm2.2xlarge'
+          - 'm2.4xlarge'
+          - 'm3.medium'
+          - 'm3.large'
+          - 'm3.xlarge'
+          - 'm3.2xlarge'
+          - 'm4.large'
+          - 'm4.xlarge'
+          - 'm4.2xlarge'
+          - 'm4.4xlarge'
+          - 'm4.10xlarge'
+          - 'c1.medium'
+          - 'c1.xlarge'
+          - 'c3.large'
+          - 'c3.xlarge'
+          - 'c3.2xlarge'
+          - 'c3.4xlarge'
+          - 'c3.8xlarge'
+          - 'c4.large'
+          - 'c4.xlarge'
+          - 'c4.2xlarge'
+          - 'c4.4xlarge'
+          - 'c4.8xlarge'
+          - 'g2.2xlarge'
+          - 'g2.8xlarge'
+          - 'r3.large'
+          - 'r3.xlarge'
+          - 'r3.2xlarge'
+          - 'r3.4xlarge'
+          - 'r3.8xlarge'
+          - 'i2.xlarge'
+          - 'i2.2xlarge'
+          - 'i2.4xlarge'
+          - 'i2.8xlarge'
+          - 'd2.xlarge'
+          - 'd2.2xlarge'
+          - 'd2.4xlarge'
+          - 'd2.8xlarge'
+          - 'h1.4xlarge'
+          - 'hs1.8xlarge'
+          - 'cr1.8xlarge'
+          - 'cc2.8xlarge'
+    KeyName:
+        Description: 'Name of an existing EC2 KeyPair to enable SSH access to the nat instances'
+        Type: AWS::EC2::KeyPair::KeyName
+        ConstraintDescription: 'must be the name of an existing EC2 KeyPair.'
+    AuthorizedCidrIp:
+        Description: 'The IP address range that can be used to SSH to the EC2 instances.'
+        Type: String
+        ConstraintDescription: 'must be a valid IP CIDR range of the form x.x.x.x/x'
+        MinLength: 9
+        MaxLength: 18
+        Default: '0.0.0.0/0'
+        AllowedPattern: '(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})'
+
+Mappings:
+    RegionMap:
+        "ap-northeast-1": {"AMI": "ami-0cf78ae724f63bac0", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "ap-northeast-2": {"AMI": "ami-08cfa02141f9e9bee", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "ap-south-1": {"AMI": "ami-0aba92643213491b9", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "ap-southeast-1": {"AMI": "ami-0cf24653bcf894797", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "ap-southeast-2": {"AMI": "ami-00c1445796bc0a29f", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "ca-central-1": {"AMI": "ami-b61b96d2", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "eu-central-1": {"AMI": "ami-06465d49ba60cf770", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "eu-north-1": {"AMI": "ami-d6bd31a8", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "eu-west-1": {"AMI": "ami-0ea87e2bfa81ca08a", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "eu-west-2": {"AMI": "ami-e6768381", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "eu-west-3": {"AMI": "ami-0050bb60cea70c5b3", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "sa-east-1": {"AMI": "ami-09c013530239687aa", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "us-east-1": {"AMI": "ami-0422d936d535c63b1", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "us-east-2": {"AMI": "ami-0f9c61b5a562a16af", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "us-west-1": {"AMI": "ami-0d4027d2cdbca669d", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+        "us-west-2": {"AMI": "ami-40d1f038", "NAME": "Amazon Linux AMI 2018.03.0.20180811 x86_64 VPC NAT HVM EBS"}
+
+Resources:
+    ######################
+    # VPC
+    ######################
+    VPC:
+        Type: AWS::EC2::VPC
+        Properties:
+            CidrBlock: !Sub '10.${ClassB}.0.0/16'
+            EnableDnsSupport: true
+            EnableDnsHostnames: true
+            InstanceTenancy: default
+            Tags:
+              - {Key: Name, Value: !Sub '${AWS::StackName} VPC'}
+              - {Key: ClassB, Value: !Sub '10.${ClassB}.0.0/16'}
+    InternetGateway:
+        Type: AWS::EC2::InternetGateway
+        Properties:
+            Tags:
+              - {Key: Name, Value: !Sub '${AWS::StackName} Internet Gateway'}
+    VPCGatewayAttachment:
+        Type: AWS::EC2::VPCGatewayAttachment
+        Properties:
+            VpcId: !Ref VPC
+            InternetGatewayId: !Ref InternetGateway
+
+    ######################
+    # Public ACL
+    ######################
+    PublicNetworkAcl:
+        Type: AWS::EC2::NetworkAcl
+        Properties:
+            VpcId: !Ref VPC
+            Tags:
+              - {Key: Name, Value: !Sub '${AWS::StackName} Public Acl'}
+    PublicNetworkAclEntryIngressAllowAll:
+        Type: AWS::EC2::NetworkAclEntry
+        Properties:
+            NetworkAclId: !Ref PublicNetworkAcl
+            RuleNumber: 99
+            Protocol: -1
+            RuleAction: allow
+            Egress: false
+            CidrBlock: '0.0.0.0/0'
+    PublicNetworkAclEntryEgressAllowAll:
+        Type: AWS::EC2::NetworkAclEntry
+        Properties:
+            NetworkAclId: !Ref PublicNetworkAcl
+            RuleNumber: 99
+            Protocol: -1
+            RuleAction: allow
+            Egress: true
+            CidrBlock: '0.0.0.0/0'
+
+    ######################
+    # Private ACL
+    ######################
+    PrivateNetworkAcl:
+        Type: AWS::EC2::NetworkAcl
+        Properties:
+            VpcId: !Ref VPC
+            Tags:
+              - {Key: Name, Value: !Sub '${AWS::StackName} Private Acl'}
+    PrivateNetworkAclEntryIngressAllowVPC:
+        Type: AWS::EC2::NetworkAclEntry
+        Properties:
+            NetworkAclId: !Ref PrivateNetworkAcl
+            RuleNumber: 99
+            Protocol: -1
+            RuleAction: allow
+            Egress: false
+            CidrBlock: '0.0.0.0/0'
+    PrivateNetworkAclEntryEgressAllowVPC:
+        Type: AWS::EC2::NetworkAclEntry
+        Properties:
+            NetworkAclId: !Ref PrivateNetworkAcl
+            RuleNumber: 99
+            Protocol: -1
+            RuleAction: allow
+            Egress: true
+            CidrBlock: '0.0.0.0/0'
+
+    ############################
+    # Public Subnet 1
+    ############################
+    PublicSubnet1:
+        Type: AWS::EC2::Subnet
+        Properties:
+            VpcId: !Ref VPC
+            AvailabilityZone: !Select [ 0, !GetAZs '' ]
+            CidrBlock: !Sub '10.${ClassB}.0.0/20'
+            MapPublicIpOnLaunch: true
+            Tags:
+              - {Key: Name, Value: !Sub '${AWS::StackName} Public Subnet (AZ1)'}
+    PublicRouteTable1:
+        Type: AWS::EC2::RouteTable
+        Properties:
+            VpcId: !Ref VPC
+            Tags:
+              - {Key: Name, Value: !Sub '${AWS::StackName} Public Routes (AZ1)'}
+    PublicSubnet1RouteTableAssociation:
+        Type: AWS::EC2::SubnetRouteTableAssociation
+        Properties:
+            RouteTableId: !Ref PublicRouteTable1
+            SubnetId: !Ref PublicSubnet1
+    PublicSubnet1NetworkAclAssociation:
+        Type: AWS::EC2::SubnetNetworkAclAssociation
+        Properties:
+            SubnetId: !Ref PublicSubnet1
+            NetworkAclId: !Ref PublicNetworkAcl
+    PublicRouteInternetGateway1:
+        Type: AWS::EC2::Route
+        DependsOn: VPCGatewayAttachment
+        Properties:
+            RouteTableId: !Ref PublicRouteTable1
+            DestinationCidrBlock: '0.0.0.0/0'
+            GatewayId: !Ref InternetGateway
+
+    ############################
+    # Public Subnet 2
+    ############################
+    PublicSubnet2:
+        Type: AWS::EC2::Subnet
+        Properties:
+            VpcId: !Ref VPC
+            AvailabilityZone: !Select [ 1, !GetAZs '' ]
+            CidrBlock: !Sub '10.${ClassB}.32.0/20'
+            MapPublicIpOnLaunch: true
+            Tags:
+              - {Key: Name, Value: !Sub '${AWS::StackName} Public Subnet (AZ2)'}
+    PublicRouteTable2:
+        Type: AWS::EC2::RouteTable
+        Properties:
+            VpcId: !Ref VPC
+            Tags:
+              - {Key: Name, Value: !Sub '${AWS::StackName} Public Routes (AZ2)'}
+    PublicSubnet2RouteTableAssociation:
+        Type: AWS::EC2::SubnetRouteTableAssociation
+        Properties:
+            RouteTableId: !Ref PublicRouteTable2
+            SubnetId: !Ref PublicSubnet2
+    PublicSubnet2NetworkAclAssociation:
+        Type: AWS::EC2::SubnetNetworkAclAssociation
+        Properties:
+            SubnetId: !Ref PublicSubnet2
+            NetworkAclId: !Ref PublicNetworkAcl
+    PublicRouteInternetGateway2:
+        Type: AWS::EC2::Route
+        DependsOn: VPCGatewayAttachment
+        Properties:
+            RouteTableId: !Ref PublicRouteTable2
+            DestinationCidrBlock: '0.0.0.0/0'
+            GatewayId: !Ref InternetGateway
+
+    ############################
+    # Private Subnet 1
+    ############################
+    PrivateSubnet1:
+        Type: AWS::EC2::Subnet
+        Properties:
+            VpcId: !Ref VPC
+            AvailabilityZone: !Select [ 0, !GetAZs '' ]
+            CidrBlock: !Sub '10.${ClassB}.16.0/20'
+            MapPublicIpOnLaunch: false
+            Tags:
+              - {Key: Name, Value: !Sub '${AWS::StackName} Private Subnet (AZ1)'}
+    PrivateRouteTable1:
+        Type: AWS::EC2::RouteTable
+        Properties:
+            VpcId: !Ref VPC
+            Tags:
+              - {Key: Name, Value: !Sub '${AWS::StackName} Private Routes (AZ1)'}
+    PrivateSubnet1RouteTableAssociation:
+        Type: AWS::EC2::SubnetRouteTableAssociation
+        Properties:
+            RouteTableId: !Ref PrivateRouteTable1
+            SubnetId: !Ref PrivateSubnet1
+    PrivateSubnet1NetworkAclAssociation:
+        Type: AWS::EC2::SubnetNetworkAclAssociation
+        Properties:
+            SubnetId: !Ref PrivateSubnet1
+            NetworkAclId: !Ref PrivateNetworkAcl
+    # NatGateway
+    NatGateway1EIP:
+        Type: AWS::EC2::EIP
+        DependsOn: VPCGatewayAttachment
+        Properties:
+            Domain: vpc
+    NatGateway1:
+        Type: AWS::EC2::NatGateway
+        Properties:
+            AllocationId: !GetAtt NatGateway1EIP.AllocationId
+            SubnetId: !Ref PublicSubnet1
+            Tags:
+              - {Key: Name, Value: !Sub '${AWS::StackName} Nat Gateway (AZ1)'}
+    NatGateway1PrivateRoute:
+        Type: AWS::EC2::Route
+        Properties:
+            RouteTableId: !Ref PrivateRouteTable1
+            DestinationCidrBlock: '0.0.0.0/0'
+            NatGatewayId: !Ref NatGateway1
+
+    ############################
+    # Private Subnet 2
+    ############################
+    PrivateSubnet2:
+        Type: AWS::EC2::Subnet
+        Properties:
+            VpcId: !Ref VPC
+            AvailabilityZone: !Select [ 1, !GetAZs '' ]
+            CidrBlock: !Sub '10.${ClassB}.48.0/20'
+            MapPublicIpOnLaunch: true
+            Tags:
+              - {Key: Name, Value: !Sub '${AWS::StackName} Private Subnet (AZ2)'}
+    PrivateRouteTable2:
+        Type: AWS::EC2::RouteTable
+        Properties:
+            VpcId: !Ref VPC
+            Tags:
+              - {Key: Name, Value: !Sub '${AWS::StackName} Private Routes (AZ2)'}
+    PrivateSubnet2RouteTableAssociation:
+        Type: AWS::EC2::SubnetRouteTableAssociation
+        Properties:
+            RouteTableId: !Ref PrivateRouteTable2
+            SubnetId: !Ref PrivateSubnet2
+    PrivateSubnet2NetworkAclAssociation:
+        Type: AWS::EC2::SubnetNetworkAclAssociation
+        Properties:
+            SubnetId: !Ref PrivateSubnet2
+            NetworkAclId: !Ref PrivateNetworkAcl
+    # NatGateway
+    NatGateway2EIP:
+        Type: AWS::EC2::EIP
+        DependsOn: VPCGatewayAttachment
+        Properties:
+            Domain: vpc
+    NatGateway2:
+        Type: AWS::EC2::NatGateway
+        Properties:
+            AllocationId: !GetAtt NatGateway2EIP.AllocationId
+            SubnetId: !Ref PublicSubnet2
+            Tags:
+              - {Key: Name, Value: !Sub '${AWS::StackName} Nat Gateway (AZ2)'}
+    NatGateway2PrivateRoute:
+        Type: AWS::EC2::Route
+        Properties:
+            RouteTableId: !Ref PrivateRouteTable2
+            DestinationCidrBlock: '0.0.0.0/0'
+            NatGatewayId: !Ref NatGateway2
+
+Outputs:
+    AZ1:
+        Description: 'AZ of 1'
+        Value: !Select [0, !GetAZs '']
+        Export: {Name: !Sub '${AWS::StackName}-AZA'}
+    AZ2:
+        Description: 'AZ of 2'
+        Value: !Select [1, !GetAZs '']
+        Export: {Name: !Sub '${AWS::StackName}-AZB'}
+    AZs:
+        Description: 'AZs'
+        Value: 2
+        Export: {Name: !Sub '${AWS::StackName}-AZs'}
+    CidrBlock:
+        Description: 'The set of IP addresses for the VPC.'
+        Value: !GetAtt 'VPC.CidrBlock'
+        Export: {Name: !Sub '${AWS::StackName}-CidrBlock'}
+    VPC:
+        Description: 'VPC.'
+        Value: !Ref VPC
+        Export: {Name: !Sub '${AWS::StackName}-VPC'}
+
+    ######################
+    # Public
+    ######################
+    SubnetsPublic:
+        Description: 'Subnets public.'
+        Value: !Join [',', [!Ref PublicSubnet1, !Ref PublicSubnet2]]
+        Export: {Name: !Sub '${AWS::StackName}-SubnetsPublic'}
+    RouteTablesPublic:
+        Description: 'Route tables public.'
+        Value: !Join [',', [!Ref PublicRouteTable1, !Ref PublicRouteTable2]]
+        Export: {Name: !Sub '${AWS::StackName}-RouteTablesPublic'}
+
+    ######################
+    # Private
+    ######################
+    SubnetsPrivate:
+        Description: 'Subnets private.'
+        Value: !Join [',', [!Ref PrivateSubnet1, !Ref PrivateSubnet2]]
+        Export: {Name: !Sub '${AWS::StackName}-SubnetsPrivate'}
+    RouteTablesPrivate:
+        Description: 'Route tables private.'
+        Value: !Join [',', [!Ref PrivateRouteTable1, !Ref PrivateRouteTable2]]
+        Export: {Name: !Sub '${AWS::StackName}-RouteTablesPrivate'}
+
+    ######################
+    # AZ 1
+    ######################
+    PublicSubnet1:
+        Description: 'Subnet 1 public.'
+        Value: !Ref PublicSubnet1
+        Export: {Name: !Sub '${AWS::StackName}-PublicSubnet1'}
+    PublicRouteTable1:
+        Description: 'Route table 1 public.'
+        Value: !Ref PublicRouteTable1
+        Export: {Name: !Sub '${AWS::StackName}-PublicRouteTable1'}
+    PrivateSubnet1:
+        Description: 'Subnet 1 Private.'
+        Value: !Ref PrivateSubnet1
+        Export: {Name: !Sub '${AWS::StackName}-PrivateSubnet1'}
+    PrivateRouteTable1:
+        Description: 'Route table 1 Private.'
+        Value: !Ref PrivateRouteTable1
+        Export: {Name: !Sub '${AWS::StackName}-PrivateRouteTable1'}
+
+    ######################
+    # AZ 2
+    ######################
+    PublicSubnet2:
+        Description: 'Subnet 2 public.'
+        Value: !Ref PublicSubnet2
+        Export: {Name: !Sub '${AWS::StackName}-PublicSubnet2'}
+    PublicRouteTable2:
+        Description: 'Route table 2 public.'
+        Value: !Ref PublicRouteTable2
+        Export: {Name: !Sub '${AWS::StackName}-PublicRouteTable2'}
+    PrivateSubnet2:
+        Description: 'Subnet 2 private.'
+        Value: !Ref PrivateSubnet2
+        Export: {Name: !Sub '${AWS::StackName}-PrivateSubnet2'}
+    PrivateRouteTable2:
+        Description: 'Route table 2 private.'
+        Value: !Ref PrivateRouteTable2
+        Export: {Name: !Sub '${AWS::StackName}-PrivateRouteTable2'}
