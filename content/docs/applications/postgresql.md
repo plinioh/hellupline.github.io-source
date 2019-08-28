@@ -116,6 +116,27 @@ CREATE ROLE example_user WITH NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION 
 GRANT example_group_ro TO example_user;
 ```
 
+## Redshift
+```
+-- Create a new user
+CREATE USER example_user WITH PASSWORD 'mysecretpassword';
+
+-- Add users to an existing group
+ALTER GROUP example_group ADD USER example_user;
+
+--- Query to check all groups a user is in
+SELECT u.usename AS rolname,
+  u.usesuper AS rolsuper,
+  true AS rolinherit, false AS rolcreaterole,
+  u.usecreatedb AS rolcreatedb, true AS rolcanlogin,
+  -1 AS rolconnlimit,  u.valuntil as rolvaliduntil,
+  ARRAY(SELECT g.groname FROM pg_catalog.pg_group g WHERE u.usesysid = ANY(g.grolist)) as memberof
+FROM pg_catalog.pg_user u
+WHERE u.usename = 'YOUR_USERNAME_HERE'
+ORDER BY 1;
+
+```
+
 ## Inspect default schema privileges
 
 ```sql
