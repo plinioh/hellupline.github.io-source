@@ -44,7 +44,9 @@ aws eks get-token --cluster-name "my_cluster" | jq --raw-output '.status.token'
 kubectl proxy
 ```
 
-## How execute docker image in kubernetes
+## Pods
+
+### How execute docker image in kubernetes
 
 ```bash
 NAMESPACE="production"
@@ -53,7 +55,7 @@ kubectl run --rm -it shell --image=alpine --restart=Never -- wget -qO- http://${
 kubectl run --rm -it shell --image=alpine --restart=Never -- wget -qO- https://www.google.com
 ```
 
-## How to access a kubernetes service/pod
+### How to access a kubernetes service/pod
 
 ```bash
 NAMESPACE="production"
@@ -68,7 +70,31 @@ POD_PORT="80"
 kubectl --namespace="${NAMESPACE}" port-forward pods/"${POD}" "${LOCAL_PORT}":"${POD_PORT}"
 ```
 
-## How to run command in a deployments pod
+### Show failed pods
+
+```bash
+NAMESPACE="production"
+kubectl --namespace="${NAMESPACE}" get pods --field-selector=status.phase=Failed
+```
+
+### Copy from/to pods
+
+```bash
+NAMESPACE="production"
+DEPLOYMENT="my-app"
+POD_LABEL=$(kubectl --namespace="${NAMESPACE}" get deployments "${DEPLOYMENT}" --output=jsonpath='{.spec.template.metadata.labels.app}')
+POD_NAME=$(kubectl --namespace="${NAMESPACE}" get pods --selector=app="${POD_LABEL}" --output=jsonpath='{.items[0].metadata.name}')
+
+kubectl --namespace="${NAMESPACE}" cp "${POD_NAME}":/etc/letsencrypt etc-letsencrypt
+kubectl --namespace="${NAMESPACE}" cp "${POD_NAME}":/etc/nginx/conf.d etc-nginx-conf.d
+
+kubectl --namespace="${NAMESPACE}" cp etc-letsencrypt "${POD_NAME}":/etc/letsencrypt
+kubectl --namespace="${NAMESPACE}" cp etc-nginx-conf.d "${POD_NAME}":/etc/nginx/conf.d
+```
+
+## Deployment
+
+### How to run command in a deployments pod
 
 ```bash
 NAMESPACE="production"
@@ -79,14 +105,7 @@ POD_NAME=$(kubectl --namespace="${NAMESPACE}" get pods --selector=app="${POD_LAB
 kubectl --namespace="${NAMESPACE}" exec -it "${POD_NAME}" -- bash
 ```
 
-## Show failed pods
-
-```bash
-NAMESPACE="production"
-kubectl --namespace="${NAMESPACE}" get pods --field-selector=status.phase=Failed
-```
-
-## Change deployment image
+### Change deployment image
 
 ```bash
 NAMESPACE="production"
@@ -97,7 +116,7 @@ IMAGE_TAG="1.10"
 kubectl --namespace="${NAMESPACE}" set image deployment.apps/"${DEPLOYMENT}" "${CONTAINER_NAME}"="${IMAGE_NAME}:${IMAGE_TAG}"
 ```
 
-## Scale deployment
+### Scale deployment
 
 ```bash
 NAMESPACE="production"
@@ -105,7 +124,7 @@ DEPLOYMENT="my-app"
 kubectl --namespace "${NAMESPACE}" scale deployment --replicas 1 "${DEPLOYMENT}"
 ```
 
-## Watch deployment update
+### Watch deployment update
 
 ```bash
 NAMESPACE="production"
@@ -113,7 +132,7 @@ DEPLOYMENT="my-app"
 kubectl --namespace "${NAMESPACE}" rollout status deploy "${DEPLOYMENT}"
 ```
 
-## Deployment history
+### Deployment history
 
 ```bash
 NAMESPACE="production"
@@ -121,7 +140,7 @@ DEPLOYMENT="my-app"
 kubectl --namespace "${NAMESPACE}" rollout history deploy "${DEPLOYMENT}"
 ```
 
-## Deployment revert
+### Deployment revert
 
 ```bash
 NAMESPACE="production"
@@ -129,7 +148,7 @@ DEPLOYMENT="my-app"
 kubectl --namespace "${NAMESPACE}" rollout undo deploy "${DEPLOYMENT}"
 ```
 
-## Change container image using a ServiceAccount
+### Change container image using a ServiceAccount
 
 ```bash
 NAMESPACE="production"
@@ -151,17 +170,21 @@ kubectl \
       set image deployments.apps/"${DEPLOYMENT}" "${CONTAINER_NAME}"="${IMAGE_NAME}:${IMAGE_TAG}"
 ```
 
-## Copy from/to pods
+## Jobs
+
+### Create Job from CronJob
 
 ```bash
 NAMESPACE="production"
-DEPLOYMENT="my-app"
-POD_LABEL=$(kubectl --namespace="${NAMESPACE}" get deployments "${DEPLOYMENT}" --output=jsonpath='{.spec.template.metadata.labels.app}')
-POD_NAME=$(kubectl --namespace="${NAMESPACE}" get pods --selector=app="${POD_LABEL}" --output=jsonpath='{.items[0].metadata.name}')
+CRONJOB="my-app"
+kubectl --namespace="${NAMESPACE}" create job --from=cronjob/"${CRONJOB}" "${CRONJOB}"-manual
+```
 
-kubectl --namespace="${NAMESPACE}" cp "${POD_NAME}":/etc/letsencrypt etc-letsencrypt
-kubectl --namespace="${NAMESPACE}" cp "${POD_NAME}":/etc/nginx/conf.d etc-nginx-conf.d
+### Pause CronJob
 
-kubectl --namespace="${NAMESPACE}" cp etc-letsencrypt "${POD_NAME}":/etc/letsencrypt
-kubectl --namespace="${NAMESPACE}" cp etc-nginx-conf.d "${POD_NAME}":/etc/nginx/conf.d
+```bash
+NAMESPACE="production"
+CRONJOB="my-app"
+kubectl --namespace="${NAMESPACE}" patch cronjobs --from=cronjob/"${CRONJOB}" "${CRONJOB}"-manual
+kubectl patch cronjobs <job-name> --patch'{"spec": {"suspend": true}}'
 ```
