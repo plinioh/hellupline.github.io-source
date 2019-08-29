@@ -18,9 +18,9 @@ fields:
     step: 1
     required: true
 pages:
+- content/docs/kubernetes/commands.md
+- content/docs/kubernetes/commands.md
 - content/docs/applications/postgresql.md
-- content/docs/kubernetes/commands.md
-- content/docs/kubernetes/commands.md
 - content/docs/kubernetes/config-example/pod.md
 - content/docs/kubernetes/config-example/ingress.md
 - content/docs/kubernetes/config-example/service.md
