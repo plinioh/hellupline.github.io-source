@@ -10,36 +10,26 @@ weight: 14
 
 ## Full Access Example
 
-[Download](/resources/kubernetes/rbac-cluster-full-access.yaml)
-
-{{% code file="/static/resources/kubernetes/rbac-cluster-full-access.yaml" language="yaml" %}}
+{{% code file="/resources/kubernetes/rbac-cluster-full-access.yaml" language="yaml" download="true" %}}
 
 ## Read Only Example
 
-[Download](/resources/kubernetes/rbac-cluster-read-only.yaml)
-
-{{% code file="/static/resources/kubernetes/rbac-cluster-read-only.yaml" language="yaml" %}}
+{{% code file="/resources/kubernetes/rbac-cluster-read-only.yaml" language="yaml" download="true" %}}
 
 # Namespace Level Role-Based Access Control Example
 
 ## Full Access Example
 
-[Download](/resources/kubernetes/rbac-namespace-full-access.yaml)
-
-{{% code file="/static/resources/kubernetes/rbac-namespace-full-access.yaml" language="yaml" %}}
+{{% code file="/resources/kubernetes/rbac-namespace-full-access.yaml" language="yaml" download="true" %}}
 
 ## Read Only Example
 
-[Download](/resources/kubernetes/rbac-namespace-read-only.yaml)
-
-{{% code file="/static/resources/kubernetes/rbac-namespace-read-only.yaml" language="yaml" %}}
+{{% code file="/resources/kubernetes/rbac-namespace-read-only.yaml" language="yaml" download="true" %}}
 
 
 # Aggregated Role
 
-[Download](/resources/kubernetes/rbac-aggregated-maintenance.yaml)
-
-{{% code file="/static/resources/kubernetes/rbac-aggregated-maintenance.yaml" language="yaml" %}}
+{{% code file="/resources/kubernetes/rbac-aggregated-maintenance.yaml" language="yaml" download="true" %}}
 
 # Common Subjects
 

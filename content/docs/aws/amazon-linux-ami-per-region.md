@@ -7,6 +7,4 @@ bookToc: false
 
 # Amazon Linux Ami Per Region
 
-[Download](/resources/aws/amazon-linux-ami-per-region.sh)
-
-{{% code file="/static/resources/aws/amazon-linux-ami-per-region.sh" language="bash" %}}
+{{% code file="/resources/aws/amazon-linux-ami-per-region.sh" language="bash" download="true" %}}

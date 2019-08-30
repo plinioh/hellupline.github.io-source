@@ -6,6 +6,4 @@ weight: 6
 
 # Ingress Example
 
-[Download](/resources/kubernetes/ingress.yaml)
-
-{{% code file="/static/resources/kubernetes/ingress.yaml" language="yaml" %}}
+{{% code file="/resources/kubernetes/ingress.yaml" language="yaml" download="true" %}}

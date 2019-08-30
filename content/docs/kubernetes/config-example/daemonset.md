@@ -6,6 +6,4 @@ weight: 12
 
 # DaemonSet Example
 
-[Download](/resources/kubernetes/daemonset.yaml)
-
-{{% code file="/static/resources/kubernetes/daemonset.yaml" language="yaml" %}}
+{{% code file="/resources/kubernetes/daemonset.yaml" language="yaml" download="true" %}}

@@ -1,3 +1,6 @@
-{{ $file := .Get "file" | readFile }}
-{{ $lang := .Get "language" }}
-{{ (print "```" $lang "\n" $file "\n```") | markdownify }}
+{{ if eq (.Get "download") "true" }}
+<a href="{{ .Get "file" }}">Download</a>
+{{ end }}
+
+{{ $file := print "/static" (.Get "file") | readFile }}
+{{ highlight $file (.Get "language") "" }}

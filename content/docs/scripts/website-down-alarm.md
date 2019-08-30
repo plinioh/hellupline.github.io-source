@@ -7,6 +7,4 @@ bookToc: false
 
 # Monitoring if https response contains text
 
-[Download](/resources/scripts/website-down-alarm.sh)
-
-{{% code file="/static/resources/scripts/website-down-alarm.sh" language="bash" %}}
+{{% code file="/resources/scripts/website-down-alarm.sh" language="bash" download="true" %}}

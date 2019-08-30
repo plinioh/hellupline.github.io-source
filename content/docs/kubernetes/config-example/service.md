@@ -6,18 +6,12 @@ weight: 5
 
 # Service Example
 
-[Download](/resources/kubernetes/service.yaml)
-
-{{% code file="/static/resources/kubernetes/service.yaml" language="yaml" %}}
+{{% code file="/resources/kubernetes/service.yaml" language="yaml" download="true" %}}
 
 # Service DNS Example
 
-[Download](/resources/kubernetes/service-dns.yaml)
-
-{{% code file="/static/resources/kubernetes/service-dns.yaml" language="yaml" %}}
+{{% code file="/resources/kubernetes/service-dns.yaml" language="yaml" download="true" %}}
 
 # Service Endpoint Example
 
-[Download](/resources/kubernetes/service-endpoint.yaml)
-
-{{% code file="/static/resources/kubernetes/service-endpoint.yaml" language="yaml" %}}
+{{% code file="/resources/kubernetes/service-endpoint.yaml" language="yaml" download="true" %}}

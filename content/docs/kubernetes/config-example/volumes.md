@@ -8,12 +8,8 @@ weight: 8
 
 ## Cloud
 
-[Download](/resources/kubernetes/volume-cloud.yaml)
-
-{{% code file="/static/resources/kubernetes/volume-cloud.yaml" language="yaml" %}}
+{{% code file="/resources/kubernetes/volume-cloud.yaml" language="yaml" download="true" %}}
 
 ## Local Disk
 
-[Download](/resources/kubernetes/volume-local-disk.yaml)
-
-{{% code file="/static/resources/kubernetes/volume-local-disk.yaml" language="yaml" %}}
+{{% code file="/resources/kubernetes/volume-local-disk.yaml" language="yaml" download="true" %}}
