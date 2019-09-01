@@ -1,6 +1,6 @@
 ---
 title: EC2
-weight: "2"
+weight: 2
 
 ---
 # EC2
