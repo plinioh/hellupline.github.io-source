@@ -18,6 +18,7 @@ fields:
     step: 1
     required: true
 pages:
+- content/docs/terminal/osx.md
 - content/docs/scripts/website-down-alarm.md
 - content/docs/kubernetes/config-example/ingress.md
 - content/docs/kubernetes/config-example/service.md
@@ -46,7 +47,6 @@ pages:
 - content/docs/terminal/utils.md
 - content/docs/terminal/ssl.md
 - content/docs/terminal/random.md
-- content/docs/terminal/osx.md
 - content/docs/terminal/linux.md
 - content/docs/terminal/curl.md
 - content/docs/terminal/_index.md
