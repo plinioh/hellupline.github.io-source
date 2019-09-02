@@ -6,6 +6,13 @@ weight: 99
 
 # OSX
 
+## HomeBrew
+
+```bash
+HOMEBREW_NO_AUTO_UPDATE=1 brew install ...
+HOMEBREW_NO_AUTO_UPDATE=1 brew cask install ...
+```
+
 ## Notifications
 
 ```bash
