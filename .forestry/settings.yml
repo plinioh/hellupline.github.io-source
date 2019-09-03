@@ -12,20 +12,6 @@ sections:
   templates:
   - default
 - type: directory
-  path: content/docs/tips
-  label: Tips
-  create: all
-  match: "**/*"
-  templates:
-  - default
-- type: directory
-  path: content/docs/shell-scripts
-  label: Shell Scripts
-  create: all
-  match: "**/*"
-  templates:
-  - default
-- type: directory
   path: content
   label: Pages
   create: all
