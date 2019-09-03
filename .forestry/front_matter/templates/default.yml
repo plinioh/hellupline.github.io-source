@@ -17,6 +17,10 @@ fields:
     max: 99
     step: 1
     required: true
+- name: bookToc
+  type: boolean
+  label: BookToc
+  default: false
 pages:
 - content/docs/scripts/_index.md
 - content/docs/aws/_index.md
