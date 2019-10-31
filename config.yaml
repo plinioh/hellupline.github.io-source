@@ -12,7 +12,7 @@ enableGitInfo: true
 pygmentsStyle: monokailight
 pygmentsCodeFences: true
 
-googleAnalytics: UA-123-45
+googleAnalytics: UA-209033133
 
 params:
   BookRepo: https://github.com/hellupline/hellupline.github.io-source
