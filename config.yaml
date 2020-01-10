@@ -2,7 +2,7 @@ baseURL: https://hellupline.dev/
 languageCode: en-us
 title: HellUpLine Stuffs
 theme: book
-disableKinds: [taxonomy, taxonomyTerm]
+# disableKinds: [taxonomy, taxonomyTerm]
 
 # Book configuration
 disablePathToLower: false
@@ -14,11 +14,16 @@ pygmentsCodeFences: true
 
 googleAnalytics: UA-147048049-1
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 params:
-  BookRepo: https://github.com/hellupline/hellupline.github.io-source
+  BookRepo: https://github.com/hellupline/hellupline.github.io
   BookEditPath: edit/master/content
   BookSection: docs
-  # BookMenuBundle: /menu
+  BookMenuBundle: /menu
   BookToC: 3
   BookDateFormat: 'Jan 2, 2006'
   BookSearch: true

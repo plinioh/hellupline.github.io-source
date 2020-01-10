@@ -1,6 +1,9 @@
 ---
 title: Install Guide Lazy Mode
-weight: 99
+weight: 999
+bookCollapseSection: false
+bookFlatSection: false
+bookToc: true
 
 ---
 

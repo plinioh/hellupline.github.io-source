@@ -1,5 +1,7 @@
 {{ if eq (.Get "download") "true" }}
-<a href="{{ .Get "file" }}">Download</a>
+<div style="text-align: right">
+    <a href="{{ .Get "file" }}">Download</a>
+</div>
 {{ end }}
 
 {{ $file := print "/static" (.Get "file") | readFile }}

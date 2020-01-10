@@ -1,9 +1,9 @@
 ---
 title: Welcome to the Index
+weight: 999
 type: docs
+bookCollapseSection: false
+bookFlatSection: false
 bookToc: false
 
 ---
-
-<a href="/stuffs/"><img height="100" src="/uploads/Helmet1.png" /></a>
-<a href="/gallery/"><img height="100" src="/uploads/Helmet2.png" /></a>

@@ -1,0 +1,80 @@
+---
+headless: true
+bookMenuLevels: 1
+
+---
+
+- [**Gallery**]({{< relref "/gallery" >}})
+
+- [**Blog**]({{< relref "/posts" >}})
+
+- **Knowledge**
+  - **Applications**
+    - [Postgresql]({{< relref "/docs/knowledge/applications/postgresql.md" >}})
+    - [Mysql]({{< relref "/docs/knowledge/applications/mysql.md" >}})
+    - [Nginx]({{< relref "/docs/knowledge/applications/nginx.md" >}})
+  - **Commands**
+    - [Linux]({{< relref "/docs/knowledge/commands/linux.md" >}})
+    - [osx]({{< relref "/docs/knowledge/commands/osx.md" >}})
+    - [Curl]({{< relref "/docs/knowledge/commands/curl.md" >}})
+    - [Utils]({{< relref "/docs/knowledge/commands/utils.md" >}})
+    - [kubernetes]({{< relref "/docs/knowledge/commands/kubernetes.md" >}})
+- **Scripts**
+  - **Kubernetes**
+    - [kubectl-context-list]({{< relref "/docs/scripts/kubernetes/kubectl-context-list.md" >}})
+    - [kubectl-context-set]({{< relref "/docs/scripts/kubernetes/kubectl-context-set.md" >}})
+    - [kubectl-namespace-list]({{< relref "/docs/scripts/kubernetes/kubectl-namespace-list.md" >}})
+    - [kubectl-namespace-set]({{< relref "/docs/scripts/kubernetes/kubectl-namespace-set.md" >}})
+    - [kubectl-pods-failed]({{< relref "/docs/scripts/kubernetes/kubectl-pods-failed.md" >}})
+    - [kubectl-shell]({{< relref "/docs/scripts/kubernetes/kubectl-shell.md" >}})
+    - [kubectl-ingress-health]({{< relref "/docs/scripts/kubernetes/kubectl-ingress-health.md" >}})
+  - **Utils**
+    - [cached]({{< relref "/docs/scripts/utils/cached.md" >}})
+    - [make-self-cacert]({{< relref "/docs/scripts/utils/make-self-cacert.md" >}})
+    - [make-certificate]({{< relref "/docs/scripts/utils/make-certificate.md" >}})
+    - [show-certs]({{< relref "/docs/scripts/utils/show-certs.md" >}})
+    - [simple-https]({{< relref "/docs/scripts/utils/simple-https.md" >}})
+    - [clipboard-watch]({{< relref "/docs/scripts/utils/clipboard-watch.md" >}})
+    - [lets-encrypt-cloudflare]({{< relref "/docs/scripts/utils/lets-encrypt-cloudflare.md" >}})
+    - [lets-encrypt-cname]({{< relref "/docs/scripts/utils/lets-encrypt-cname.md" >}})
+  - **Toys**
+    - [metroid]({{< relref "/docs/scripts/toys/metroid.md" >}})
+    - [food]({{< relref "/docs/scripts/toys/food.md" >}})
+    - [colors]({{< relref "/docs/scripts/toys/colors.md" >}})
+    - [dna]({{< relref "/docs/scripts/toys/dna.md" >}})
+    - [pipes]({{< relref "/docs/scripts/toys/pipes.md" >}})
+    - [pipesx]({{< relref "/docs/scripts/toys/pipesx.md" >}})
+    - [colorbars]({{< relref "/docs/scripts/toys/colorbars.md" >}})
+    - [rain]({{< relref "/docs/scripts/toys/rain.md" >}})
+    - [pacman-colors]({{< relref "docs/scripts/toys/pacman-colors.md" >}})
+    - [ghosts]({{< relref "/docs/scripts/toys/ghosts.md" >}})
+    - [ryu]({{< relref "/docs/scripts/toys/ryu.md" >}})
+    - [invaders]({{< relref "/docs/scripts/toys/invaders.md" >}})
+    - [skull]({{< relref "/docs/scripts/toys/skull.md" >}})
+    - [slendy]({{< relref "/docs/scripts/toys/slendy.md" >}})
+- **Cloud**
+  - **Kubernetes**
+    - [deployment]({{< relref "/docs/cloud/kubernetes/deployment.yaml.md" >}})
+    - [pod]({{< relref "/docs/cloud/kubernetes/pod.yaml.md" >}})
+    - [secret]({{< relref "/docs/cloud/kubernetes/secret.yaml.md" >}})
+    - [configmap]({{< relref "/docs/cloud/kubernetes/configmap.yaml.md" >}})
+    - [service]({{< relref "/docs/cloud/kubernetes/service.yaml.md" >}})
+    - [service-endpoint]({{< relref "/docs/cloud/kubernetes/service-endpoint.yaml.md" >}})
+    - [service-dns]({{< relref "/docs/cloud/kubernetes/service-dns.yaml.md" >}})
+    - [ingress]({{< relref "/docs/cloud/kubernetes/ingress.yaml.md" >}})
+    - [hpa]({{< relref "/docs/cloud/kubernetes/hpa.yaml.md" >}})
+    - [volume-local-disk]({{< relref "/docs/cloud/kubernetes/volume-local-disk.yaml.md" >}})
+    - [volume-cloud]({{< relref "/docs/cloud/kubernetes/volume-cloud.yaml.md" >}})
+    - [cronjob]({{< relref "/docs/cloud/kubernetes/cronjob.yaml.md" >}})
+    - [job]({{< relref "/docs/cloud/kubernetes/job.yaml.md" >}})
+    - [statefulset]({{< relref "/docs/cloud/kubernetes/statefulset.yaml.md" >}})
+    - [daemonset]({{< relref "/docs/cloud/kubernetes/daemonset.yaml.md" >}})
+    - [namespace]({{< relref "/docs/cloud/kubernetes/namespace.yaml.md" >}})
+    - [private-registry-credentials]({{< relref "/docs/cloud/kubernetes/private-registry-credentials.yaml.md" >}})
+    - [rbac-cluster-full-access]({{< relref "/docs/cloud/kubernetes/rbac-cluster-full-access.yaml.md" >}})
+    - [rbac-cluster-read-only]({{< relref "/docs/cloud/kubernetes/rbac-cluster-read-only.yaml.md" >}})
+    - [rbac-namespace-full-access]({{< relref "/docs/cloud/kubernetes/rbac-namespace-full-access.yaml.md" >}})
+    - [rbac-namespace-read-only]({{< relref "/docs/cloud/kubernetes/rbac-namespace-read-only.yaml.md" >}})
+    - [rbac-aggregated-maintenance]({{< relref "/docs/cloud/kubernetes/rbac-aggregated-maintenance.yaml" >}})
+- **Archlinux**
+  - [Install]({{< relref "/docs/archlinux/install.md" >}})
