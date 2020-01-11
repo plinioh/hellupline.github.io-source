@@ -6,7 +6,7 @@ bookMenuLevels: 1
 
 - [**Gallery**]({{< relref "/gallery" >}})
 
-- [**Blog**]({{< relref "/posts" >}})
+- [**Posts**]({{< relref "/posts" >}})
 
 - **Knowledge**
   - **Applications**
