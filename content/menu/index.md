@@ -85,5 +85,9 @@ bookMenuLevels: 1
     - [rbac-namespace-full-access]({{< relref "/docs/cloud/kubernetes/rbac-namespace-full-access.yaml.md" >}})
     - [rbac-namespace-read-only]({{< relref "/docs/cloud/kubernetes/rbac-namespace-read-only.yaml.md" >}})
     - [rbac-aggregated-maintenance]({{< relref "/docs/cloud/kubernetes/rbac-aggregated-maintenance.yaml" >}})
+  - **Kubernetes**
+    - [http-to-https]({{< relref "/docs/cloud/nginx/http-to-https.conf.md" >}})
+    - [redirect]({{< relref "/docs/cloud/nginx/redirect.conf.md" >}})
+    - [static-site]({{< relref "/docs/cloud/nginx/static-site.conf.md" >}})
 - **Archlinux**
   - [Install]({{< relref "/docs/archlinux/install.md" >}})
