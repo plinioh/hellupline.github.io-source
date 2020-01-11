@@ -20,7 +20,7 @@ markup:
       unsafe: true
 
 params:
-  BookRepo: https://github.com/hellupline/hellupline.github.io
+  BookRepo: https://github.com/hellupline/hellupline.github.io-source
   BookEditPath: edit/master/content
   BookSection: docs
   BookMenuBundle: /menu
