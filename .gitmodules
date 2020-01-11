@@ -1,9 +1,9 @@
-[submodule "static/samples-scripts"]
-	path = static/samples-scripts
-	url = https://github.com/hellupline/samples-scripts.git
-[submodule "static/samples-cloud"]
-	path = static/samples-cloud
-	url = https://github.com/hellupline/samples-cloud.git
 [submodule "themes/book"]
 	path = themes/book
 	url = https://github.com/alex-shpak/hugo-book
+[submodule "static/samples-cloud"]
+	path = static/samples-cloud
+	url = https://github.com/hellupline/samples-cloud
+[submodule "static/samples-scripts"]
+	path = static/samples-scripts
+	url = https://github.com/hellupline/samples-scripts
