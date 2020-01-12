@@ -5,6 +5,7 @@ bookMenuLevels: 1
 ---
 
 - [**Gallery**]({{< relref "/gallery" >}})
+  - [Todo]({{< relref "/todo" >}})
 
 - [**Posts**]({{< relref "/posts" >}})
 
@@ -13,12 +14,12 @@ bookMenuLevels: 1
     - [Postgresql]({{< relref "/docs/knowledge/applications/postgresql.md" >}})
     - [Mysql]({{< relref "/docs/knowledge/applications/mysql.md" >}})
     - [Nginx]({{< relref "/docs/knowledge/applications/nginx.md" >}})
+    - [Kubernetes]({{< relref "/docs/knowledge/applications/kubernetes.md" >}})
     - [Docker]({{< relref "/docs/knowledge/applications/docker.md" >}})
   - [**Commands**]({{< relref "/docs/knowledge/commands" >}})
     - [Linux]({{< relref "/docs/knowledge/commands/linux.md" >}})
     - [Curl]({{< relref "/docs/knowledge/commands/curl.md" >}})
     - [Osx]({{< relref "/docs/knowledge/commands/osx.md" >}})
-    - [Kubernetes]({{< relref "/docs/knowledge/commands/kubernetes.md" >}})
     - [Utils]({{< relref "/docs/knowledge/commands/utils.md" >}})
 - **Scripts**
   - [**Kubernetes**]({{< relref "/docs/scripts/kubernetes" >}})
