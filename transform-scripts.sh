@@ -36,11 +36,11 @@ function module() {
     local SOURCE="${1}"; shift
 
     mkdir -p "${ROOT}/content/docs/${TARGET}"
-    node "/content/docs/${TARGET}" "${TARGET}"
+    # node "/content/docs/${TARGET}" "${TARGET}"
 
     ls "${ROOT}/static/${SOURCE}/" | while read DIR; do
         mkdir -p "${ROOT}/content/docs/${TARGET}/${DIR}"
-        node "/content/docs/${TARGET}/${DIR}" "${DIR}"
+        # node "/content/docs/${TARGET}/${DIR}" "${DIR}"
 
         ls "${ROOT}/static/${SOURCE}/${DIR}/" | while read NAME; do
             leaf "/content/docs/${TARGET}/${DIR}" "${NAME}" "/${SOURCE}/${DIR}/${NAME}"
