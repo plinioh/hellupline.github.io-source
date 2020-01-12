@@ -6,3 +6,7 @@ bookFlatSection: false
 bookToc: false
 
 ---
+
+- [Postgresql]({{< relref "/docs/knowledge/applications/postgresql.md" >}})
+- [Mysql]({{< relref "/docs/knowledge/applications/mysql.md" >}})
+- [Nginx]({{< relref "/docs/knowledge/applications/nginx.md" >}})

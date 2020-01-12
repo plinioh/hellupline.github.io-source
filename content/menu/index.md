@@ -13,6 +13,7 @@ bookMenuLevels: 1
     - [Postgresql]({{< relref "/docs/knowledge/applications/postgresql.md" >}})
     - [Mysql]({{< relref "/docs/knowledge/applications/mysql.md" >}})
     - [Nginx]({{< relref "/docs/knowledge/applications/nginx.md" >}})
+    - [Docker]({{< relref "/docs/knowledge/applications/docker.md" >}})
   - [**Commands**]({{< relref "/docs/knowledge/commands" >}})
     - [Linux]({{< relref "/docs/knowledge/commands/linux.md" >}})
     - [Curl]({{< relref "/docs/knowledge/commands/curl.md" >}})
