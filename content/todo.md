@@ -13,3 +13,8 @@ bookToc: false
     - git
     - graphicsmagick
     - ffmpeg
+    - jq
+- cloud
+  - cloudformation
+  - kubernetes
+    - nginx + config example
