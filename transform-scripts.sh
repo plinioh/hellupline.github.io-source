@@ -21,6 +21,12 @@ function script_language() {
         /content/docs/scripts/utils/simple-https.md)
             echo "python3"
             ;;
+        /content/docs/scripts/utils/ftpython.md)
+            echo "python3"
+            ;;
+        /content/docs/scripts/golang/*.md)
+            echo "go"
+            ;;
         /content/docs/cloud/kubernetes/*.yaml.md)
             echo "yaml"
             ;;
