@@ -12,6 +12,7 @@ bookToc: false
 - [make-certificate]({{< relref "/docs/scripts/utils/make-certificate.md" >}})
 - [show-certs]({{< relref "/docs/scripts/utils/show-certs.md" >}})
 - [simple-https]({{< relref "/docs/scripts/utils/simple-https.md" >}})
+- [ftpython]({{< relref "/docs/scripts/utils/ftpython.md" >}})
 - [clipboard-watch]({{< relref "/docs/scripts/utils/clipboard-watch.md" >}})
 - [lets-encrypt-cloudflare]({{< relref "/docs/scripts/utils/lets-encrypt-cloudflare.md" >}})
 - [lets-encrypt-cname]({{< relref "/docs/scripts/utils/lets-encrypt-cname.md" >}})

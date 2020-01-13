@@ -25,6 +25,7 @@ bookMenuLevels: 1
   - [**Kubernetes**]({{< relref "/docs/scripts/kubernetes" >}})
   - [**Toys**]({{< relref "/docs/scripts/toys" >}})
   - [**Utils**]({{< relref "/docs/scripts/utils" >}})
+  - [**Golang**]({{< relref "/docs/scripts/golang" >}})
 - **Cloud**
   - [**Kubernetes**]({{< relref "/docs/cloud/kubernetes" >}})
   - [**Nginx**]({{< relref "/docs/cloud/nginx" >}})
