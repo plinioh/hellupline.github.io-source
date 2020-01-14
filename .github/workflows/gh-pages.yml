@@ -1,0 +1,32 @@
+name: github pages
+
+on:
+    push:
+        branches:
+          - master
+
+jobs:
+    build-deploy:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout source
+            uses: actions/checkout@v2
+            with:
+                submodules: true
+
+          - name: Setup Hugo
+            uses: peaceiris/actions-hugo@v2
+            with:
+                hugo-version: '0.62.2'
+                extended: true
+
+          - name: Build
+            run: hugo --gc --minify --cleanDestinationDir
+
+          - name: Deploy
+            uses: peaceiris/actions-gh-pages@v2
+            env:
+              ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+              EXTERNAL_REPOSITORY: hellupline/hellupline.github.io
+              PUBLISH_BRANCH: master
+              PUBLISH_DIR: ./public
