@@ -14,6 +14,12 @@ CREATE USER 'user'@'%' IDENTIFIED BY 'PASSWORD';
 GRANT SELECT on DATABASE.* TO 'user'@'%';
 ```
 
+## Inspect User Permissions
+
+```sql
+SHOW GRANTS FOR 'user'@'%';
+```
+
 ## Allow Kill process on RDS
 
 ```sql
