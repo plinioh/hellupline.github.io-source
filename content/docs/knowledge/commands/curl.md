@@ -11,8 +11,11 @@ bookToc: true
 
 ```bash
 curl \
-   --silent --fail-early --fail --compress --location \
-   --create-dirs --dump-header - --output - \
+   --silent --show-error \
+   --fail --fail-early \
+   --compress --location \
+   --create-dirs \
+   --dump-header - --output - \
    --write-out '
            time_namelookup:  %{time_namelookup}
               time_connect:  %{time_connect}
