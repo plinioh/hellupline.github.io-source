@@ -8,7 +8,6 @@ bookToc: false
 ---
 
 - [Linux]({{< relref "/docs/knowledge/commands/linux.md" >}})
-- [Curl]({{< relref "/docs/knowledge/commands/curl.md" >}})
-- [Netcat]({{< relref "/docs/knowledge/commands/netcat.md" >}})
+- [Network]({{< relref "/docs/knowledge/commands/network.md" >}})
 - [Osx]({{< relref "/docs/knowledge/commands/osx.md" >}})
 - [Utils]({{< relref "/docs/knowledge/commands/utils.md" >}})
