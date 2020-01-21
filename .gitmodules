@@ -6,4 +6,4 @@
 	url = https://github.com/hellupline/samples-cloud
 [submodule "static/samples-scripts"]
 	path = static/samples-scripts
-	url = git@github.com:hellupline/samples-scripts.git
+	url = https://github.com/hellupline/samples-scripts
