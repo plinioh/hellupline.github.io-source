@@ -17,8 +17,9 @@ bookMenuLevels: 1
     - [Kubernetes]({{< relref "/docs/knowledge/applications/kubernetes.md" >}})
     - [Docker]({{< relref "/docs/knowledge/applications/docker.md" >}})
   - [**Commands**]({{< relref "/docs/knowledge/commands" >}})
-    - [Linux]({{< relref "/docs/knowledge/commands/linux.md" >}})
     - [Network]({{< relref "/docs/knowledge/commands/network.md" >}})
+    - [AWS]({{< relref "/docs/knowledge/commands/aws.md" >}})
+    - [Linux]({{< relref "/docs/knowledge/commands/linux.md" >}})
     - [Osx]({{< relref "/docs/knowledge/commands/osx.md" >}})
     - [Utils]({{< relref "/docs/knowledge/commands/utils.md" >}})
 - **Scripts**
