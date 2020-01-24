@@ -9,19 +9,19 @@ bookMenuLevels: 1
 
 - [**Posts**]({{< relref "/posts" >}})
 
-- **Knowledge**
-  - [**Applications**]({{< relref "/docs/knowledge/applications" >}})
-    - [Postgresql]({{< relref "/docs/knowledge/applications/postgresql.md" >}})
-    - [Mysql]({{< relref "/docs/knowledge/applications/mysql.md" >}})
-    - [Nginx]({{< relref "/docs/knowledge/applications/nginx.md" >}})
-    - [Kubernetes]({{< relref "/docs/knowledge/applications/kubernetes.md" >}})
-    - [Docker]({{< relref "/docs/knowledge/applications/docker.md" >}})
-  - [**Commands**]({{< relref "/docs/knowledge/commands" >}})
-    - [Network]({{< relref "/docs/knowledge/commands/network.md" >}})
-    - [AWS]({{< relref "/docs/knowledge/commands/aws.md" >}})
-    - [Linux]({{< relref "/docs/knowledge/commands/linux.md" >}})
-    - [Osx]({{< relref "/docs/knowledge/commands/osx.md" >}})
-    - [Utils]({{< relref "/docs/knowledge/commands/utils.md" >}})
+- **CheatSheet**
+  - [**Applications**]({{< relref "/docs/cheatsheet/applications" >}})
+    - [Postgresql]({{< relref "/docs/cheatsheet/applications/postgresql.md" >}})
+    - [Mysql]({{< relref "/docs/cheatsheet/applications/mysql.md" >}})
+    - [Nginx]({{< relref "/docs/cheatsheet/applications/nginx.md" >}})
+    - [Kubernetes]({{< relref "/docs/cheatsheet/applications/kubernetes.md" >}})
+    - [Docker]({{< relref "/docs/cheatsheet/applications/docker.md" >}})
+  - [**Commands**]({{< relref "/docs/cheatsheet/commands" >}})
+    - [Network]({{< relref "/docs/cheatsheet/commands/network.md" >}})
+    - [AWS]({{< relref "/docs/cheatsheet/commands/aws.md" >}})
+    - [Linux]({{< relref "/docs/cheatsheet/commands/linux.md" >}})
+    - [Osx]({{< relref "/docs/cheatsheet/commands/osx.md" >}})
+    - [Utils]({{< relref "/docs/cheatsheet/commands/utils.md" >}})
 - **Scripts**
   - [**Kubernetes**]({{< relref "/docs/scripts/kubernetes" >}})
   - [**Toys**]({{< relref "/docs/scripts/toys" >}})
