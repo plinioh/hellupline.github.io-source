@@ -23,7 +23,7 @@ aws --profile=default --region=us-east-1 ec2 describe-instances
 ```
 aws --profile=default --region=us-east-1 ec2 describe-addresses \
          --public-ips \
-         --filter "Name=public-ip,Values=[18.217.65.251]" |
+         --filter "Name=public-ip,Values=[10.0.0.1]" |
    jq --raw-output '
       .Addresses[] | [.PublicIp] | @csv'
 ```
