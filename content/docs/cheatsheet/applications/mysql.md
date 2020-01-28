@@ -7,6 +7,21 @@ bookToc: true
 
 ---
 
+# Inspect Bad Queries
+
+```sql
+SELECT
+    ID, USER, DB, STATE, TIME, INFO 
+FROM 
+    information_schema.processlist 
+WHERE 
+    COMMAND NOT IN ('Sleep', 'Connect', 'Binlog Dump')
+    AND USER NOT IN ('system user')
+    AND SUBSTR(USER, 1, 4) != 'app_'
+ORDER BY
+	  TIME DESC;
+```
+
 ## Create user
 ```sql
 CREATE USER 'user'@'%' IDENTIFIED BY 'PASSWORD';
@@ -25,11 +40,10 @@ GRANT EXECUTE ON PROCEDURE `mysql`.`rds_kill` TO `operator`@`%`;
 GRANT SELECT ON TABLE `information_schema`.`PROCESSLIST` TO `operator`@`%`;
 ```
 
-
 ## Kill Query in RDS
 
 ```sql
-SHOW FULL PROCESSLIST;
+SHOW FULL PROCESSLIST; -- or the bad queries above
 
 EXPLAIN FOR CONNECTION PID;
 
