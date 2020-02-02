@@ -36,7 +36,7 @@ gpg \
    file.txt
 ```
 
-### Encrypt with Symmetric ( passphrase )
+### Encrypt with Passphrase
 
 ```bash
 gpg --output file.txt.enc --symmetric file.txt
