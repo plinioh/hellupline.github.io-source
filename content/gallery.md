@@ -1,5 +1,5 @@
 ---
-title: Gallery
+title: gallery
 weight: 999
 type: docs
 bookCollapseSection: false

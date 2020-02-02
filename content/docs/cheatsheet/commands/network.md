@@ -1,5 +1,5 @@
 ---
-title: Network
+title: network
 weight: 999
 bookCollapseSection: false
 bookFlatSection: false

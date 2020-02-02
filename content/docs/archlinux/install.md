@@ -1,5 +1,5 @@
 ---
-title: Install Guide Lazy Mode
+title: install guide lazy mode
 weight: 999
 bookCollapseSection: false
 bookFlatSection: false
@@ -7,7 +7,7 @@ bookToc: true
 
 ---
 
-# ArchLinux Install Guide *Lazy Mode*
+## ArchLinux Install Guide *Lazy Mode*
 
 
 ### Disks Partitions

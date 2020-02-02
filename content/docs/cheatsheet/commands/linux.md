@@ -1,5 +1,5 @@
 ---
-title: Linux
+title: linux
 weight: 999
 bookCollapseSection: false
 bookFlatSection: false

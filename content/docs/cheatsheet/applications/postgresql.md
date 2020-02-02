@@ -1,5 +1,5 @@
 ---
-title: Postgresql
+title: postgresql
 weight: 999
 bookCollapseSection: false
 bookFlatSection: false

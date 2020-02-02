@@ -1,5 +1,5 @@
 ---
-title: Gallery
+title: todo
 weight: 999
 type: docs
 bookCollapseSection: false
@@ -8,13 +8,10 @@ bookToc: false
 
 ---
 
-- Knowledge
-  - Commands
+- cheatsheets
+  - commands
     - git
     - graphicsmagick
     - ffmpeg
     - jq
-- cloud
-  - cloudformation
-  - kubernetes
-    - nginx + config example
+    - ssh, sftp, gpg

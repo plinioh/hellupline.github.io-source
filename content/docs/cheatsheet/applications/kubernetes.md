@@ -1,5 +1,5 @@
 ---
-title: Kubernetes
+title: kubernetes
 weight: 999
 bookCollapseSection: false
 bookFlatSection: false

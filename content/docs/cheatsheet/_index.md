@@ -1,5 +1,5 @@
 ---
-title: CheatSheet
+title: cheatsheet
 weight: 999
 bookCollapseSection: false
 bookFlatSection: false

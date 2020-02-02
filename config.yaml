@@ -2,7 +2,7 @@ baseURL: https://hellupline.dev/
 languageCode: en-us
 title: HellUpLine Stuffs
 theme: book
-# disableKinds: [taxonomy, taxonomyTerm]
+disableKinds: [taxonomy, taxonomyTerm]
 
 # Book configuration
 disablePathToLower: false
