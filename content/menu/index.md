@@ -18,9 +18,10 @@ bookMenuLevels: 1
     - [docker]({{< relref "/docs/cheatsheet/applications/docker.md" >}})
   - [**commands**]({{< relref "/docs/cheatsheet/commands" >}})
     - [network]({{< relref "/docs/cheatsheet/commands/network.md" >}})
-    - [aws]({{< relref "/docs/cheatsheet/commands/aws.md" >}})
+    - [ssh]({{< relref "/docs/cheatsheet/commands/ssh.md" >}})
     - [linux]({{< relref "/docs/cheatsheet/commands/linux.md" >}})
     - [osx]({{< relref "/docs/cheatsheet/commands/osx.md" >}})
+    - [aws]({{< relref "/docs/cheatsheet/commands/aws.md" >}})
     - [utils]({{< relref "/docs/cheatsheet/commands/utils.md" >}})
 - **scripts**
   - [**kubernetes**]({{< relref "/docs/scripts/kubernetes" >}})

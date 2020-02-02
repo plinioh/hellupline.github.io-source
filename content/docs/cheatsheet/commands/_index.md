@@ -7,8 +7,9 @@ bookToc: false
 
 ---
 
-- [Network]({{< relref "/docs/cheatsheet/commands/network.md" >}})
-- [AWS]({{< relref "/docs/cheatsheet/commands/aws.md" >}})
-- [Linux]({{< relref "/docs/cheatsheet/commands/linux.md" >}})
-- [Osx]({{< relref "/docs/cheatsheet/commands/osx.md" >}})
-- [Utils]({{< relref "/docs/cheatsheet/commands/utils.md" >}})
+- [network]({{< relref "/docs/cheatsheet/commands/network.md" >}})
+- [ssh]({{< relref "/docs/cheatsheet/commands/ssh.md" >}})
+- [linux]({{< relref "/docs/cheatsheet/commands/linux.md" >}})
+- [osx]({{< relref "/docs/cheatsheet/commands/osx.md" >}})
+- [aws]({{< relref "/docs/cheatsheet/commands/aws.md" >}})
+- [utils]({{< relref "/docs/cheatsheet/commands/utils.md" >}})

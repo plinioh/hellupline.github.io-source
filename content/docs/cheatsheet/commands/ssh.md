@@ -8,40 +8,116 @@ bookToc: true
 ---
 
 
-## List Instance and Private IPs, Filter by beanstalk environment
+## GPG
+
+### List Output Format
 
 ```bash
-aws --profile=default --region=us-east-1 ec2 describe-instances
-         --filter "Name=tag:elasticbeanstalk:environment-name,Values=my-app" | \
-   jq --raw-output '
-      .Reservations[].Instances[] | [.InstanceId, .PrivateIpAddress] | @csv'
+# sec   rsa4096/xxxxxxxxxxxxxxxx 0000-00-00 [SC]
+#       yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+# uid                 [ultimate] My Name <me@mail.com>
+# ssb   rsa4096/zzzzzzzzzzzzzzzz 0000-00-00 [E]
 ```
 
-
-## List Elastic Ips
+### Generate Key
 
 ```bash
-aws --profile=default --region=us-east-1 ec2 describe-addresses \
-         --public-ips \
-         --filter "Name=public-ip,Values=[10.0.0.1]" |
-   jq --raw-output '
-      .Addresses[] | [.PublicIp] | @csv'
+gpg --full-generate-key
 ```
 
-
-# Describe RDS, Filter by CACertificate Version
+### Encrypt
 
 ```bash
-for PROFILE_NAME in "staging" "production"; do
-    aws --profile="${PROFILE_NAME}" ec2 describe-regions |
-        jq --raw-output '.Regions[].RegionName' |
-        while read REGION_NAME; do
-            aws --profile="${PROFILE_NAME}" --region="${REGION_NAME}" rds describe-db-instances |
-                jq --raw-output '.DBInstances[] | select(.CACertificateIdentifier == "rds-ca-2019" or .PendingModifiedValues.CACertificateIdentifier == "rds-ca-2019" | not) | .DBInstanceIdentifier' |
-                while read INSTANCE_NAME; do
-                    echo "aws --profile='${PROFILE_NAME}' --region='${REGION_NAME}' rds modify-db-instance --db-instance-identifier '${INSTANCE_NAME}' --ca-certificate-identifier rds-ca-2019 --no-certificate-rotation-restart"
-                    # echo ${PROFILE_NAME}, ${REGION_NAME}, ${INSTANCE_NAME}
-                done
-        done
-done
+gpg \
+   --output file.txt.enc \
+   --encrypt \
+   --local-user hellupline@gmail.com \
+   --recipient hellupline@gmail.com \
+   file.txt
+```
+
+### Encrypt with Symmetric ( passphrase )
+
+```bash
+gpg --output file.txt.enc --symmetric file.txt
+```
+
+### Decrypt
+
+```bash
+gpg --output file.txt.enc --decrypt file.txt
+```
+
+### Sign File
+
+```bash
+gpg --sign file.txt
+```
+
+### Clear Sign File
+
+```bash
+gpg --clear-sign file.txt
+```
+
+### Verify File
+
+```bash
+gpg --output file.txt --verify file.txt.gpg
+```
+
+### Detach Sign File
+
+```bash
+gpg --output file.txt.sig --detach-sig file.txt
+```
+
+### Detach Verify File
+
+```bash
+gpg --verify file.txt.sig file.txt
+```
+
+### List PrivKeys
+
+```bash
+gpg --list-secret-keys --keyid-format LONG
+```
+
+### List PubKeys
+
+```bash
+gpg --list-keys --keyid-format LONG
+```
+
+### Export PubKey ( for github )
+
+```bash
+> pubkey.asc gpg --export --armor ID
+```
+
+### Export PrivKey
+
+```bash
+> privkey.asc gpg --export-secret-keys --armor ID
+```
+
+### Import PrivKey
+
+```bash
+gpg --import privkey.asc
+
+gpp --edit-key ID trust quit
+```
+
+### Delete PrivKey
+
+```bash
+gpg --delete-secret-key ID
+```
+
+### Delete PubKey
+
+```bash
+gpg --delete--key ID
 ```
