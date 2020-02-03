@@ -7,7 +7,7 @@ bookToc: true
 
 ---
 
-## List Output Format
+## list output format
 
 ```bash
 # sec   rsa4096/xxxxxxxxxxxxxxxx 0000-00-00 [SC]
@@ -16,13 +16,13 @@ bookToc: true
 # ssb   rsa4096/zzzzzzzzzzzzzzzz 0000-00-00 [E]
 ```
 
-## Generate Key
+## generate key
 
 ```bash
 gpg --full-generate-key
 ```
 
-## Encrypt
+## encrypt
 
 ```bash
 gpg \
@@ -33,73 +33,73 @@ gpg \
    file.txt
 ```
 
-## Encrypt with Passphrase
+## encrypt with passphrase
 
 ```bash
 gpg --output file.txt.enc --symmetric file.txt
 ```
 
-## Decrypt
+## decrypt
 
 ```bash
 gpg --output file.txt.enc --decrypt file.txt
 ```
 
-## Sign File
+## sign file
 
 ```bash
 gpg --sign --armor file.txt
 ```
 
-## Clear Sign File
+## clear sign file
 
 ```bash
 gpg --clear-sign file.txt
 ```
 
-## Verify File
+## verify file
 
 ```bash
 gpg --output file.txt --verify file.txt.gpg
 ```
 
-## Detach Sign File
+## detach sign file
 
 ```bash
 gpg --output file.txt.sig --detach-sig file.txt
 ```
 
-## Detach Verify File
+## detach verify file
 
 ```bash
 gpg --verify file.txt.sig file.txt
 ```
 
-## List PrivKeys
+## list privkeys
 
 ```bash
 gpg --list-secret-keys --keyid-format LONG
 ```
 
-## List PubKeys
+## list pubkeys
 
 ```bash
 gpg --list-public-keys --keyid-format LONG
 ```
 
-## Export PubKey ( for github )
+## export pubkey ( for github )
 
 ```bash
 gpg --output pubkey.asc --export --armor ID
 ```
 
-## Export PrivKey
+## export privkey
 
 ```bash
 gpg --output privkey.asc --export-secret-keys --armor ID
 ```
 
-## Import PrivKey
+## import privkey
 
 ```bash
 gpg --import privkey.asc
@@ -107,19 +107,19 @@ gpg --import privkey.asc
 gpp --edit-key ID trust quit
 ```
 
-## Change PrivKey  Passphrase
+## change privkey  passphrase
 
 ```bash
 gpp --edit-key ID passwd save
 ```
 
-## Delete PrivKey
+## delete privkey
 
 ```bash
 gpg --delete-secret-key ID
 ```
 
-## Delete PubKey
+## delete pubkey
 
 ```bash
 gpg --delete--key ID

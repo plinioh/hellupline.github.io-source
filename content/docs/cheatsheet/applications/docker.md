@@ -7,7 +7,7 @@ bookToc: true
 
 ---
 
-## Run Container
+## run container
 
 ```bash
 docker container run --rm --interactive --tty --name=stuff \
@@ -20,7 +20,7 @@ docker container run --rm --interactive --tty --name=stuff \
     alpine
 ```
 
-## Build
+## build
 
 ```bash
 docker build --tag my_registry/my_app:my_version --file ./Dockerfile ./
@@ -31,7 +31,7 @@ docker push my_registry/my_app:latest
 ```
 
 
-### Multi-Stage Dockerfile
+### multi-stage dockerfile
 
 ```dockerfile
 FROM golang:1.13 as build
@@ -48,7 +48,7 @@ CMD ["./my_app"]
 ```
 
 
-## Volumes
+## volumes
 
 ```bash
 docker volume create my_volume
@@ -57,7 +57,7 @@ docker volume rm my_volume
 ```
 
 
-## Network
+## network
 
 ```bash
 docker network create my_net
@@ -66,7 +66,7 @@ docker network rm my_net
 ```
 
 
-## Running containers
+## running containers
 
 ```bash
 docker container ls
@@ -76,7 +76,7 @@ docker container attach my_container
 ```
 
 
-## System
+## system
 
 ```bash
 docker system events
@@ -85,7 +85,7 @@ docker system prune --volumes --all
 ```
 
 
-## Login to AWS ECR
+## login to aws ecr
 ```bash
 $(aws ecr get-login --no-include-email)
 ```

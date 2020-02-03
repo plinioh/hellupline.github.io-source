@@ -7,7 +7,7 @@ bookToc: true
 
 ---
 
-## Show where a user has permissions
+## show where a user has permissions
 
 ```sql
 SELECT
@@ -26,7 +26,7 @@ WHERE
     a.schemaname = 'example_schema';
 ```
 
-## Show objects ownership
+## show objects ownership
 
 ```sql
 SELECT
@@ -57,7 +57,7 @@ ORDER BY
     cls.relname;
 ```
 
-## Create a read-only access
+## create a read-only access
 
 ```sql
 -- example schema
@@ -93,7 +93,7 @@ CREATE ROLE example_user WITH NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION 
 GRANT example_group_ro TO example_user;
 ```
 
-## Inspect default schema privileges
+## inspect default schema privileges
 
 ```sql
 SELECT
@@ -114,7 +114,7 @@ JOIN
     pg_namespace nsp ON defacl.defaclnamespace=nsp.oid;
 ```
 
-## Get user roles
+## get user roles
 
 ```sql
  SELECT
@@ -129,7 +129,7 @@ GROUP BY
     a.rolname;
 ```
 
-## Redshift
+## redshift
 
 ```sql
 -- Create a new user
@@ -164,7 +164,7 @@ ORDER BY
     rolname;
 ```
 
-## Run a postresql in docker
+## run a postresql in docker
 
 ```bash
 docker run --rm -it --name my-sgdb \

@@ -7,25 +7,25 @@ bookToc: true
 
 ---
 
-## Prettify JSON
+## prettify json
 
 ```bash
 python -m json.tool
 ```
 
-## Simple SMTP Debug Server
+## simple smtp debug server
 
 ```bash
 sudo python -m smtpd -n -c DebuggingServer localhost:25
 ```
 
-## Simple HTTP Server
+## simple http server
 
 ```bash
 python -m http.server
 ```
 
-## Rsync
+## rsync
 
 ```bash
 rsync --verbose --human-readable --progress --stats --partial --archive \
@@ -33,13 +33,13 @@ rsync --verbose --human-readable --progress --stats --partial --archive \
       -- 'SOURCE_OBJECT_1' 'SOURCE_OBJECT_2' 'SOURCE_OBJECT_3' 'TARGET'
 ```
 
-## Random Password
+## random password
 
 ```bash
 openssl rand -base64 33
 ```
 
-## Date
+## date
 
 ```bash
 # RFC-3339
@@ -55,7 +55,7 @@ date --date="next Friday"
 date --date="2 days ago"
 ```
 
-## Download audio from video
+## download audio from video
 
 ```bash
 youtube-dl \
@@ -64,7 +64,7 @@ youtube-dl \
     --extract-audio
 ```
 
-## Stream desktop to address
+## stream desktop to address
 
 ```bash
 ffmpeg -f x11grab -s 1600x900 -framerate 15 -i :0.0 -c:v libx264 -preset fast -s 1600x900 -threads 0 -f mpegts udp://127.0.0.1:2000

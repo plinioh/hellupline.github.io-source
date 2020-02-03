@@ -11,10 +11,10 @@ bookToc: true
 
 ```sql
 SELECT
-    ID, USER, DB, STATE, TIME, INFO 
-FROM 
-    information_schema.processlist 
-WHERE 
+    ID, USER, DB, STATE, TIME, INFO
+FROM
+    information_schema.processlist
+WHERE
     COMMAND NOT IN ('Sleep', 'Connect', 'Binlog Dump')
     AND USER NOT IN ('system user')
     AND SUBSTR(USER, 1, 4) != 'app_'
@@ -22,25 +22,25 @@ ORDER BY
 	  TIME DESC;
 ```
 
-## Create user
+## create user
 ```sql
 CREATE USER 'user'@'%' IDENTIFIED BY 'PASSWORD';
 GRANT SELECT on DATABASE.* TO 'user'@'%';
 ```
 
-## Inspect User Permissions
+## inspect user permissions
 ```sql
 SHOW GRANTS FOR 'user'@'%';
 ```
 
-## Allow Kill process on RDS
+## allow kill process on rds
 ```sql
 GRANT EXECUTE ON PROCEDURE `mysql`.`rds_kill_query` TO `operator`@`%`;
 GRANT EXECUTE ON PROCEDURE `mysql`.`rds_kill` TO `operator`@`%`;
 GRANT SELECT ON TABLE `information_schema`.`PROCESSLIST` TO `operator`@`%`;
 ```
 
-## Kill Query in RDS
+## kill query in rds
 
 ```sql
 SHOW FULL PROCESSLIST; -- or the bad queries above
@@ -51,7 +51,7 @@ CALL mysql.rds_kill_query(PID);
 ```
 
 
-## Inspect Replication Status
+## inspect replication status
 
 ```sql
 SHOW SLAVE STATUS;

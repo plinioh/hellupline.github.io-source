@@ -7,13 +7,13 @@ bookToc: true
 
 ---
 
-## Notifications
+## notifications
 
 ```bash
 notify-send --urgency=critical --app-name=hello-nurse TITLE "BODY"
 ```
 
-## Clipboard
+## clipboard
 
 ```bash
 xclip -out -selection Clipboard > output.txt

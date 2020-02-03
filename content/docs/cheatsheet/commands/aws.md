@@ -8,7 +8,7 @@ bookToc: true
 ---
 
 
-## List Instance and Private IPs, Filter by beanstalk environment
+## list instance and private ips, filter by beanstalk environment
 
 ```bash
 aws --profile=default --region=us-east-1 ec2 describe-instances
@@ -18,7 +18,7 @@ aws --profile=default --region=us-east-1 ec2 describe-instances
 ```
 
 
-## List Elastic Ips
+## list elastic ips
 
 ```bash
 aws --profile=default --region=us-east-1 ec2 describe-addresses \
@@ -29,7 +29,7 @@ aws --profile=default --region=us-east-1 ec2 describe-addresses \
 ```
 
 
-# Describe RDS, Filter by CACertificate Version
+# describe rds, filter by cacertificate version
 
 ```bash
 for PROFILE_NAME in "staging" "production"; do

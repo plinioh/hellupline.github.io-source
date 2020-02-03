@@ -7,7 +7,7 @@ bookToc: true
 
 ---
 
-## Run a simple static site with nginx and docker
+## run a simple static site with nginx and docker
 
 ```bash
 docker run --rm -it --name=static-site \
@@ -18,7 +18,7 @@ docker run --rm -it --name=static-site \
 ```
 
 
-## Run with configuration files
+## run with configuration files
 
 ```bash
 docker run --rm -it --name=static-site \

@@ -7,7 +7,7 @@ bookToc: true
 
 ---
 
-## Kubernetes Plugins
+## kubernetes plugins
 
 [Dashboard Repository](https://github.com/kubernetes/dashboard)
 
@@ -45,9 +45,9 @@ aws eks get-token --cluster-name "my_cluster" | jq --raw-output '.status.token'
 kubectl proxy
 ```
 
-## Pods
+## pods
 
-### How execute docker image in kubernetes
+### how execute docker image in kubernetes
 
 ```bash
 NAMESPACE="production"
@@ -56,7 +56,7 @@ kubectl run --rm -it shell --image=alpine --restart=Never -- wget -qO- http://${
 kubectl run --rm -it shell --image=alpine --restart=Never -- wget -qO- https://www.google.com
 ```
 
-### How to access a kubernetes service/pod
+### how to access a kubernetes service/pod
 
 ```bash
 NAMESPACE="production"
@@ -71,14 +71,14 @@ POD_PORT="80"
 kubectl --namespace="${NAMESPACE}" port-forward pods/"${POD}" "${LOCAL_PORT}":"${POD_PORT}"
 ```
 
-### Show failed pods
+### show failed pods
 
 ```bash
 NAMESPACE="production"
 kubectl --namespace="${NAMESPACE}" get pods --field-selector=status.phase=Failed
 ```
 
-### Copy from/to pods
+### copy from/to pods
 
 ```bash
 NAMESPACE="production"
@@ -93,9 +93,9 @@ kubectl --namespace="${NAMESPACE}" cp etc-letsencrypt "${POD_NAME}":/etc/letsenc
 kubectl --namespace="${NAMESPACE}" cp etc-nginx-conf.d "${POD_NAME}":/etc/nginx/conf.d
 ```
 
-## Deployment
+## deployment
 
-### How to run command in a deployments pod
+### how to run command in a deployments pod
 
 ```bash
 NAMESPACE="production"
@@ -106,7 +106,7 @@ POD_NAME=$(kubectl --namespace="${NAMESPACE}" get pods --selector=app="${POD_LAB
 kubectl --namespace="${NAMESPACE}" exec -it "${POD_NAME}" -- bash
 ```
 
-### Change deployment image
+### change deployment image
 
 ```bash
 NAMESPACE="production"
@@ -117,7 +117,7 @@ IMAGE_TAG="1.10"
 kubectl --namespace="${NAMESPACE}" set image deployment.apps/"${DEPLOYMENT}" "${CONTAINER_NAME}"="${IMAGE_NAME}:${IMAGE_TAG}"
 ```
 
-### Scale deployment
+### scale deployment
 
 ```bash
 NAMESPACE="production"
@@ -125,7 +125,7 @@ DEPLOYMENT="my-app"
 kubectl --namespace "${NAMESPACE}" scale deployment --replicas 1 "${DEPLOYMENT}"
 ```
 
-### Watch deployment update
+### watch deployment update
 
 ```bash
 NAMESPACE="production"
@@ -133,7 +133,7 @@ DEPLOYMENT="my-app"
 kubectl --namespace "${NAMESPACE}" rollout status deploy "${DEPLOYMENT}"
 ```
 
-### Deployment history
+### deployment history
 
 ```bash
 NAMESPACE="production"
@@ -141,7 +141,7 @@ DEPLOYMENT="my-app"
 kubectl --namespace "${NAMESPACE}" rollout history deploy "${DEPLOYMENT}"
 ```
 
-### Deployment revert
+### deployment revert
 
 ```bash
 NAMESPACE="production"
@@ -149,7 +149,7 @@ DEPLOYMENT="my-app"
 kubectl --namespace "${NAMESPACE}" rollout undo deploy "${DEPLOYMENT}"
 ```
 
-### Change container image using a ServiceAccount
+### change container image using a serviceaccount
 
 ```bash
 NAMESPACE="production"
@@ -170,9 +170,9 @@ kubectl --insecure-skip-tls-verify=false \
       set image deployments.apps/"${DEPLOYMENT}" "${CONTAINER_NAME}"="${IMAGE_NAME}:${IMAGE_TAG}"
 ```
 
-## Jobs
+## jobs
 
-### Create Job from CronJob
+### create job from cronjob
 
 ```bash
 NAMESPACE="production"
@@ -180,7 +180,7 @@ CRONJOB="my-app"
 kubectl --namespace="${NAMESPACE}" create job --from=cronjob/"${CRONJOB}" "${CRONJOB}"-manual
 ```
 
-### Pause CronJob
+### pause cronjob
 
 ```bash
 NAMESPACE="production"

@@ -7,9 +7,9 @@ bookToc: true
 
 ---
 
-## Curl
+## curl
 
-### Debug Requests
+### debug requests
 
 ```bash
 curl \
@@ -31,40 +31,47 @@ curl \
    --request GET --url https://example.com
 ```
 
-### IP Address
+### ip address
 
 ```bash
 curl https://ifconfig.co/
 ```
 
-### QR Code
+### qr code
 
 ```bash
 echo "my text" | curl --form 'data=<-' https://qrenco.de/
 ```
 
-### Weather
+### weather
 
 ```bash
 curl https://wttr.in/curitiba
 ```
 
-## Netcat
+## netcat
 
-### Listen do Port
+### listen do port
 
 ```bash
 netcat -vvv -l -p 8000 -s localhost
 ```
 
-### Connect to Server
+### connect to server
 
 ```bash
 netcat -vvv localhost 8000
 ```
 
-### Port Tunnel
+### port tunnel
 
 ```bash
 netcat -vvv -L "localhost:8001" -p 8000 -s localhost
+```
+
+## list open ports
+
+
+```bash
+lsof -P -n -i | grep 'LISTEN'
 ```

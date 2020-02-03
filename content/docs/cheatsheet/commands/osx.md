@@ -7,34 +7,34 @@ bookToc: true
 
 ---
 
-## HomeBrew
+## homebrew
 
-### Install HomeBrew
+### install homebrew
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-### Install Packages
+### install packages
 
 ```bash
 HOMEBREW_NO_AUTO_UPDATE=1 brew install ...
 HOMEBREW_NO_AUTO_UPDATE=1 brew cask install ...
 ```
 
-## Notifications
+## notifications
 
 ```bash
 osascript -e 'display notification "Body" with title "Title"'
 ```
 
-## Text to voice
+## text to voice
 
 ```bash
 say "Hello World"
 ```
 
-## Clipboard
+## clipboard
 
 ```bash
 pbpaste > output.txt
