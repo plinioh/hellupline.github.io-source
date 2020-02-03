@@ -93,13 +93,13 @@ gpg --list-keys --keyid-format LONG
 ### Export PubKey ( for github )
 
 ```bash
-> pubkey.asc gpg --export --armor ID
+gpg --output pubkey.asc --export --armor ID
 ```
 
 ### Export PrivKey
 
 ```bash
-> privkey.asc gpg --export-secret-keys --armor ID
+gpg --output privkey.asc --export-secret-keys --armor ID
 ```
 
 ### Import PrivKey
