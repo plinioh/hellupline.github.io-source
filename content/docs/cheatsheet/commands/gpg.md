@@ -1,5 +1,5 @@
 ---
-title: ssh
+title: gpg
 weight: 999
 bookCollapseSection: false
 bookFlatSection: false
