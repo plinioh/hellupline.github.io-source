@@ -48,7 +48,7 @@ gpg --output file.txt.enc --decrypt file.txt
 ## Sign File
 
 ```bash
-gpg --sign file.txt
+gpg --sign --armor file.txt
 ```
 
 ## Clear Sign File
@@ -84,7 +84,7 @@ gpg --list-secret-keys --keyid-format LONG
 ## List PubKeys
 
 ```bash
-gpg --list-keys --keyid-format LONG
+gpg --list-public-keys --keyid-format LONG
 ```
 
 ## Export PubKey ( for github )
