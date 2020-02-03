@@ -14,4 +14,4 @@ bookToc: false
     - graphicsmagick
     - ffmpeg
     - jq
-    - ssh, sftp, gpg
+    - sftp
