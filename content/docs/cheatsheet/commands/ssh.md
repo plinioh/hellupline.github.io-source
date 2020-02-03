@@ -13,7 +13,7 @@ bookToc: true
 ssh-keygen -t rsa -b 4096 -C "me@mail.com"
 ```
 
-### reach server behind bastion
+## reach server behind bastion
 
 ```bash
 ssh -Nnf -L localhost:8080:remote.example.com:5000 me@example.com
@@ -25,7 +25,7 @@ ssh -O cancel -L localhost:8080:remote.example.com:5000 me@example.com
 ssh -O exit me@example.com
 ```
 
-### reach localhost from bastion
+## reach localhost from bastion
 
 ```bash
 ssh -Nnf -R localhost:8080:remote.example.com:5000 me@example.com
@@ -37,7 +37,7 @@ ssh -O cancel -R localhost:8080:remote.example.com:5000 me@example.com
 ssh -O exit me@example.com
 ```
 
-### create a socks proxy
+## create a socks proxy
 
 ```bash
 ssh -Nnf -D 8080 me@example.com
