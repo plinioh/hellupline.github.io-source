@@ -9,6 +9,7 @@ bookToc: false
 
 - [network]({{< relref "/docs/cheatsheet/commands/network.md" >}})
 - [ssh]({{< relref "/docs/cheatsheet/commands/ssh.md" >}})
+- [gpg]({{< relref "/docs/cheatsheet/commands/gpg.md" >}})
 - [linux]({{< relref "/docs/cheatsheet/commands/linux.md" >}})
 - [osx]({{< relref "/docs/cheatsheet/commands/osx.md" >}})
 - [aws]({{< relref "/docs/cheatsheet/commands/aws.md" >}})
