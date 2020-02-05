@@ -7,6 +7,26 @@ bookToc: true
 
 ---
 
+## dns
+
+### query all records
+
+```bash
+dig @1.1.1.1 example.com ANY
+```
+
+### query records
+
+```bash
+dig @1.1.1.1 +short example.com AAAA
+```
+
+### trace records tld
+
+```bash
+dig @1.1.1.1 +trace example.com AAAA
+```
+
 ## curl
 
 ### debug requests
@@ -70,7 +90,6 @@ netcat -vvv -L "localhost:8001" -p 8000 -s localhost
 ```
 
 ## list open ports
-
 
 ```bash
 lsof -P -n -i | grep 'LISTEN'
