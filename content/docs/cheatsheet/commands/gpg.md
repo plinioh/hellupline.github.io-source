@@ -104,13 +104,13 @@ gpg --output privkey.asc --export-secret-keys --armor ID
 ```bash
 gpg --import privkey.asc
 
-gpp --edit-key ID trust quit
+gpg --edit-key ID trust quit
 ```
 
 ## change privkey  passphrase
 
 ```bash
-gpp --edit-key ID passwd save
+gpg --edit-key ID passwd save
 ```
 
 ## delete privkey
