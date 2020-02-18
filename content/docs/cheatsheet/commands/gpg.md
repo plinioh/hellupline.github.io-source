@@ -28,8 +28,8 @@ gpg --full-generate-key
 gpg \
    --output file.txt.enc \
    --encrypt \
-   --local-user hellupline@gmail.com \
-   --recipient hellupline@gmail.com \
+   --local-user user@example.com \
+   --recipient another@example.com \
    file.txt
 ```
 
@@ -90,13 +90,13 @@ gpg --list-public-keys --keyid-format LONG
 ## export pubkey ( for github )
 
 ```bash
-gpg --output pubkey.asc --export --armor ID
+gpg --output pubkey.asc --armor --export user@example.com
 ```
 
 ## export privkey
 
 ```bash
-gpg --output privkey.asc --export-secret-keys --armor ID
+gpg --output privkey.asc --armor --export-secret-keys user@example.com
 ```
 
 ## import privkey
@@ -104,23 +104,23 @@ gpg --output privkey.asc --export-secret-keys --armor ID
 ```bash
 gpg --import privkey.asc
 
-gpg --edit-key ID trust quit
+gpg --edit-key user@example.com trust quit
 ```
 
 ## change privkey  passphrase
 
 ```bash
-gpg --edit-key ID passwd save
+gpg --edit-key user@example.com passwd save
 ```
 
 ## delete privkey
 
 ```bash
-gpg --delete-secret-key ID
+gpg --delete-secret-key user@example.com
 ```
 
 ## delete pubkey
 
 ```bash
-gpg --delete--key ID
+gpg --delete--key user@example.com
 ```
