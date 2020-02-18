@@ -42,7 +42,7 @@ gpg --output file.txt.enc --symmetric file.txt
 ## decrypt
 
 ```bash
-gpg --output file.txt.enc --decrypt file.txt
+gpg --output file.txt --decrypt file.txt.enc
 ```
 
 ## sign file
