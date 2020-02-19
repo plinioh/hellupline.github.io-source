@@ -93,6 +93,14 @@ CREATE ROLE example_user WITH NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION 
 GRANT example_group_ro TO example_user;
 ```
 
+### in redshit
+
+```sql
+CREATE GROUP "example_group_ro";
+GRANT USAGE ON SCHEMA example_schema TO GROUP example_group_ro;
+GRANT SELECT ON ALL TABLES IN SCHEMA example_schema TO GROUP example_group_ro;
+```
+
 ## inspect default schema privileges
 
 ```sql
