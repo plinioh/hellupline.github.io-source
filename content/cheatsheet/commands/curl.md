@@ -32,6 +32,12 @@ curl \
    --request GET --url https://example.com
 ```
 
+### cheatsheets
+
+```bash
+curl https://cht.sh/COMMAND
+```
+
 ### ip address
 
 ```bash
