@@ -25,27 +25,28 @@ ps - o pid, rss, % mem, command ax | awk '/ ^\s * PID\s / {
 
 ### list running
 
-```
-systemctl list - units - -type = service - -state = running - -all  # service --status-all
+```bash
+systemctl list-units --type=service --state=running --all  # service --status-all
 ```
 
 ### services
 
-```
-systemctl enable - -now SERVICE  # chkconfig SERVICE on
-systemctl disable - -now SERVICE  # chkconfig SERVICE off
+```bash
+systemctl enable --now SERVICE  # chkconfig SERVICE on
+systemctl disable --now SERVICE  # chkconfig SERVICE off
+systemctl is-enabled SERVICE  # chkconfig SERVICE
+systemctl daemon-reload  # chkconfig SERVICE --add
+
 systemctl start SERVICE  # service SERVICE start
 systemctl stop SERVICE  # service SERVICE stop
 systemctl status SERVICE  # service SERVICE status
 systemctl restart SERVICE  # service SERVICE restart
 systemctl reload SERVICE  # service SERVICE reload
-systemctl is-enabled SERVICE  # chkconfig SERVICE
-systemctl daemon - reload  # chkconfig SERVICE --add
 ```
 
 ### inspect
 
-```
+```bash
 journalctl --follow --since=today  # tail --follow /var/log/{messages,syslog}
 journalctl --dmesg
 journalctl --unit SERVICE
