@@ -8,28 +8,44 @@ bookToc: true
 
 ---
 
-## process management
+## system stats
 
-### resident memory in megabytes for pid
+install: sysstat net-tools
 
-```bash
-ps - o pid, rss, % mem, command ax | awk '/ ^\s * PID\s / {
-    d = "date --utc +%Y-%m-%dT%T%z"
-    d | getline curtime
-    close(d)
-    print curtime","$1"", "$2/1024,"$3","$4
-}'
-```
-
-## services management
-
-### list running
+### process stats
 
 ```bash
-systemctl list-units --type=service --state=running --all  # service --status-all
+pidstat -p PID  # pidstat -p ALL
+pidstat -p PID INTERVAL
+pidstat -p PID INTERVAL QUANTITY
+pidstat -C NAME  # by name
+
+# custom stats
+pidstat -p PID -r  # memory
+pidstat -p PID -u  # cpu
+pidstat -p PID -d  # io
+
+# formatting
+pidstat -p PID -t  # tree
+pidstat -p PID -h  # horizontal ( for export )
 ```
 
-### services
+### network stats
+
+```bash
+netstat --tcp --udp --listening --program --numeric  # netstat -tulpn
+```
+
+### routing table
+
+```bash
+netstat --route --numeric  # netstat -rn
+```
+
+
+## services
+
+### manage
 
 ```bash
 systemctl enable --now SERVICE  # chkconfig SERVICE on
@@ -44,7 +60,13 @@ systemctl restart SERVICE  # service SERVICE restart
 systemctl reload SERVICE  # service SERVICE reload
 ```
 
-### inspect
+### list
+
+```bash
+systemctl list-units --type=service --state=running --all  # service --status-all
+```
+
+### logs
 
 ```bash
 journalctl --follow --since=today  # tail --follow /var/log/{messages,syslog}

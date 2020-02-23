@@ -1,12 +1,24 @@
 ---
 title: utils
-weight: 160
+weight: 110
 type: docs
 bookCollapseSection: false
 bookFlatSection: false
 bookToc: true
 
 ---
+
+## math in shell
+
+```bash
+echo 'scale=2; days=15; hours=24; minutes=60; seconds=60; result = days * hours * minutes * seconds; result' | bc
+```
+
+## last exit status
+
+```bash
+echo ${?}
+```
 
 ## prettify json
 

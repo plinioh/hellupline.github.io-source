@@ -1,6 +1,6 @@
 ---
 title: curl
-weight: 120
+weight: 130
 type: docs
 bookCollapseSection: false
 bookFlatSection: false
