@@ -1,6 +1,6 @@
 ---
 title: articles
-weight: 999
+weight: 100
 bookCollapseSection: false
 bookFlatSection: false
 bookToc: false

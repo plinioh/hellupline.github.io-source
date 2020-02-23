@@ -1,6 +1,6 @@
 ---
 title: scripts
-weight: 120
+weight: 130
 bookCollapseSection: false
 bookFlatSection: false
 bookToc: false
