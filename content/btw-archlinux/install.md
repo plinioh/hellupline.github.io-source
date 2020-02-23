@@ -1,6 +1,7 @@
 ---
 title: install guide lazy mode
 weight: 999
+type: docs
 bookCollapseSection: false
 bookFlatSection: false
 bookToc: true
