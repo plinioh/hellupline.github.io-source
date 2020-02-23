@@ -1,5 +1,5 @@
 ---
-title: rbac-namespace-full-access.yaml
+title: rbac-namespace-full-access
 weight: 290
 type: docs
 bookCollapseSection: false

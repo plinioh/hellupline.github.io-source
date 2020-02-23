@@ -1,5 +1,5 @@
 ---
-title: deployment.yaml
+title: deployment
 weight: 100
 type: docs
 bookCollapseSection: false

@@ -1,5 +1,5 @@
 ---
-title: service.yaml
+title: service
 weight: 140
 type: docs
 bookCollapseSection: false

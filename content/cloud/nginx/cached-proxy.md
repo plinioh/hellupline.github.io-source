@@ -1,5 +1,5 @@
 ---
-title: cached-proxy.conf
+title: cached-proxy
 weight: 130
 type: docs
 bookCollapseSection: false

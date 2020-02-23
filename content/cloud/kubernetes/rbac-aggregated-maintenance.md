@@ -1,5 +1,5 @@
 ---
-title: rbac-aggregated-maintenance.yaml
+title: rbac-aggregated-maintenance
 weight: 310
 type: docs
 bookCollapseSection: false

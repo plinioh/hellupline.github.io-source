@@ -1,5 +1,5 @@
 ---
-title: job.yaml
+title: job
 weight: 220
 type: docs
 bookCollapseSection: false

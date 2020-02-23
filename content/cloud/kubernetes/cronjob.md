@@ -1,5 +1,5 @@
 ---
-title: cronjob.yaml
+title: cronjob
 weight: 210
 type: docs
 bookCollapseSection: false

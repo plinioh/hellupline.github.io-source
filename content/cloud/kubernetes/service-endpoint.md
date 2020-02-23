@@ -1,5 +1,5 @@
 ---
-title: service-endpoint.yaml
+title: service-endpoint
 weight: 150
 type: docs
 bookCollapseSection: false

@@ -1,5 +1,5 @@
 ---
-title: rbac-cluster-full-access.yaml
+title: rbac-cluster-full-access
 weight: 270
 type: docs
 bookCollapseSection: false

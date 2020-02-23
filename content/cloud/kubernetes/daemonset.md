@@ -1,5 +1,5 @@
 ---
-title: daemonset.yaml
+title: daemonset
 weight: 240
 type: docs
 bookCollapseSection: false

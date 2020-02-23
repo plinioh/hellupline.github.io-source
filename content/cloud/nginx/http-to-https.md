@@ -1,5 +1,5 @@
 ---
-title: http-to-https.conf
+title: http-to-https
 weight: 100
 type: docs
 bookCollapseSection: false

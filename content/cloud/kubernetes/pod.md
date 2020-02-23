@@ -1,5 +1,5 @@
 ---
-title: pod.yaml
+title: pod
 weight: 110
 type: docs
 bookCollapseSection: false

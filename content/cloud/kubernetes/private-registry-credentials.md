@@ -1,5 +1,5 @@
 ---
-title: private-registry-credentials.yaml
+title: private-registry-credentials
 weight: 260
 type: docs
 bookCollapseSection: false

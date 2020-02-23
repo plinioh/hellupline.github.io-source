@@ -1,5 +1,5 @@
 ---
-title: ingress.yaml
+title: ingress
 weight: 170
 type: docs
 bookCollapseSection: false

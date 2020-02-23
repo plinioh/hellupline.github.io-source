@@ -1,5 +1,5 @@
 ---
-title: redirect.conf
+title: redirect
 weight: 110
 type: docs
 bookCollapseSection: false

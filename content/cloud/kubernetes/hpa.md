@@ -1,5 +1,5 @@
 ---
-title: hpa.yaml
+title: hpa
 weight: 180
 type: docs
 bookCollapseSection: false

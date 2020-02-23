@@ -1,5 +1,5 @@
 ---
-title: volume-cloud.yaml
+title: volume-cloud
 weight: 200
 type: docs
 bookCollapseSection: false

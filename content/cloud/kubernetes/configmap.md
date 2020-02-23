@@ -1,5 +1,5 @@
 ---
-title: configmap.yaml
+title: configmap
 weight: 130
 type: docs
 bookCollapseSection: false

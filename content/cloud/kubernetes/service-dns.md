@@ -1,5 +1,5 @@
 ---
-title: service-dns.yaml
+title: service-dns
 weight: 160
 type: docs
 bookCollapseSection: false

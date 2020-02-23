@@ -1,5 +1,5 @@
 ---
-title: statefulset.yaml
+title: statefulset
 weight: 230
 type: docs
 bookCollapseSection: false

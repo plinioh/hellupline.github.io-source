@@ -1,5 +1,5 @@
 ---
-title: namespace.yaml
+title: namespace
 weight: 250
 type: docs
 bookCollapseSection: false

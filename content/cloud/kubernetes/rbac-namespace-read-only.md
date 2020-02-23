@@ -1,5 +1,5 @@
 ---
-title: rbac-namespace-read-only.yaml
+title: rbac-namespace-read-only
 weight: 300
 type: docs
 bookCollapseSection: false

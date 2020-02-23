@@ -1,5 +1,5 @@
 ---
-title: rbac-cluster-read-only.yaml
+title: rbac-cluster-read-only
 weight: 280
 type: docs
 bookCollapseSection: false

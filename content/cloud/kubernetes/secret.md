@@ -1,5 +1,5 @@
 ---
-title: secret.yaml
+title: secret
 weight: 120
 type: docs
 bookCollapseSection: false

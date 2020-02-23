@@ -1,5 +1,5 @@
 ---
-title: static-site.conf
+title: static-site
 weight: 120
 type: docs
 bookCollapseSection: false

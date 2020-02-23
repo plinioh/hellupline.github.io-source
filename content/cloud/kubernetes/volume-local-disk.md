@@ -1,5 +1,5 @@
 ---
-title: volume-local-disk.yaml
+title: volume-local-disk
 weight: 190
 type: docs
 bookCollapseSection: false
