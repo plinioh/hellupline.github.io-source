@@ -8,7 +8,6 @@ bookToc: true
 
 ---
 
-
 ## list instance and private ips, filter by beanstalk environment
 
 ```bash

@@ -8,7 +8,7 @@ bookToc: true
 
 ---
 
-# Inspect Bad Queries
+## inspect bad queries
 
 ```sql
 SELECT

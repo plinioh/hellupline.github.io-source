@@ -1,6 +1,6 @@
 ---
-title: archlinux
-weight: 900
+title: articles
+weight: 999
 bookCollapseSection: false
 bookFlatSection: false
 bookToc: false
