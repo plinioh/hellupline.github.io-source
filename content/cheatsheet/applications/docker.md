@@ -1,6 +1,7 @@
 ---
-title: nginx
-weight: 999
+title: docker
+weight: 110
+type: docs
 bookCollapseSection: false
 bookFlatSection: false
 bookToc: true

@@ -1,6 +1,7 @@
 ---
 title: kubernetes
-weight: 999
+weight: 100
+type: docs
 bookCollapseSection: false
 bookFlatSection: false
 bookToc: true

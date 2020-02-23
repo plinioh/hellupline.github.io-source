@@ -1,6 +1,6 @@
 ---
 title: ssh
-weight: 160
+weight: 140
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

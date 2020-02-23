@@ -1,6 +1,6 @@
 ---
 title: aws
-weight: 120
+weight: 110
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

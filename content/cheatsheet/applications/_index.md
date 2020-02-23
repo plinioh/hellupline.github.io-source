@@ -1,6 +1,6 @@
 ---
-title: commands
-weight: 100
+title: applications
+weight: 200
 type: docs
 bookCollapseSection: false
 bookFlatSection: false
