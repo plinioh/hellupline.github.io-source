@@ -1,5 +1,5 @@
 ---
-title: linux
+title: sysadmin
 weight: 100
 type: docs
 bookCollapseSection: false
