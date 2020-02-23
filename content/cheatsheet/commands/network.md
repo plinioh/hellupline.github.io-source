@@ -1,6 +1,7 @@
 ---
 title: network
-weight: 999
+weight: 170
+type: docs
 bookCollapseSection: false
 bookFlatSection: false
 bookToc: true

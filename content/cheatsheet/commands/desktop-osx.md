@@ -1,6 +1,7 @@
 ---
-title: osx
+title: desktop-osx
 weight: 999
+type: docs
 bookCollapseSection: false
 bookFlatSection: false
 bookToc: true

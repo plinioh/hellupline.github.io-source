@@ -22,8 +22,9 @@ markup:
 params:
   BookRepo: https://github.com/hellupline/hellupline.github.io-source
   BookEditPath: edit/master/content
-  BookSection: docs
-  BookMenuBundle: /menu
+  # BookSection: docs
+  # BookMenuBundle: /menu
+  BookSection: '*'
   BookToC: 3
   BookDateFormat: 'Jan 2, 2006'
   BookSearch: true
