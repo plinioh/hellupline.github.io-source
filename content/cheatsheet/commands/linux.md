@@ -46,10 +46,10 @@ systemctl daemon - reload  # chkconfig SERVICE --add
 ### inspect
 
 ```
-journalctl - -follow - -since = today  # tail --follow /var/log/{messages,syslog}
-journalctl - -dmesg
-journalctl - -unit SERVICE
+journalctl --follow --since=today  # tail --follow /var/log/{messages,syslog}
+journalctl --dmesg
+journalctl --unit SERVICE
 
-journalctl - -list - boots
-journalctl - -boot BOOT_ID
+journalctl --list-boots
+journalctl --boot BOOT_ID
 ```
