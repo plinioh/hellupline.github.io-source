@@ -10,7 +10,7 @@ bookToc: true
 
 ## system stats
 
-install: sysstat net-tools
+install: sysstat net-tools iotop iftop htop
 
 ### process stats
 
@@ -34,6 +34,16 @@ pidstat -p PID -h  # horizontal ( for export )
 
 ```bash
 netstat --tcp --udp --listening --program --numeric  # netstat -tulpn
+```
+
+### monitoring tui
+
+```bash
+iotop
+
+iftop
+
+htop
 ```
 
 ### routing table
