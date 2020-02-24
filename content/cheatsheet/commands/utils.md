@@ -8,6 +8,15 @@ bookToc: true
 
 ---
 
+## fuck you and everyone around you alarm...
+
+```bash
+{ [ -s ~/.fuckyou.m4a ] || wget -O ~/.fuckyou.m4a https://hellupline.dev/uploads/alarms/c5Ul18ZmBao.m4a; } && {
+    # play alarm if fail
+    curl -Ss https://if-someone-buys-this-i-will-be-really-pissed ||
+    mpv --no-video --loop ~/.fuckyou.m4a ; }
+```
+
 ## math in shell
 
 ```bash
