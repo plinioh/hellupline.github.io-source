@@ -1,9 +1,12 @@
-[submodule "themes/book"]
-	path = themes/book
-	url = https://github.com/alex-shpak/hugo-book
 [submodule "static/samples-cloud"]
 	path = static/samples-cloud
 	url = https://github.com/hellupline/samples-cloud
+	branch = master
 [submodule "static/samples-scripts"]
 	path = static/samples-scripts
 	url = https://github.com/hellupline/samples-scripts
+	branch = master
+[submodule "themes/book"]
+	path = themes/book
+	url = https://github.com/alex-shpak/hugo-book
+	branch = master
