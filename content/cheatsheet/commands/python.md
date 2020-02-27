@@ -18,6 +18,17 @@ bookToc: true
 
 python3 -m pip install \
    --target ./layer/python/lib/python3.8/site-packages \
-   --no-deps --no-compile \
+   --force-reinstall \
+   --no-compile --no-deps \
    --requirement requirements.txt
+```
+
+### install and use
+
+```bash
+python3 -m pip install --upgrade --user pipenv
+
+pipenv install boto3
+
+pipenv shell
 ```
