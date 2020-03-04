@@ -44,6 +44,12 @@ curl https://cht.sh/COMMAND
 curl https://ifconfig.co/
 ```
 
+### dns resolve
+
+```bash
+curl -s https://dnsjson.com/hellupline.dev/A.json | jq '.results.records|sort'
+```
+
 ### qr code
 
 ```bash
