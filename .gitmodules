@@ -1,7 +1,3 @@
-[submodule "static/samples-cloud"]
-	path = static/samples-cloud
-	url = https://github.com/hellupline/samples-cloud
-	branch = master
 [submodule "static/samples-scripts"]
 	path = static/samples-scripts
 	url = https://github.com/hellupline/samples-scripts
