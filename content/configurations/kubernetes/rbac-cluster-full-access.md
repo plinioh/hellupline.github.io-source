@@ -1,6 +1,6 @@
 ---
 title: rbac-cluster-full-access
-weight: 270
+weight: 280
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

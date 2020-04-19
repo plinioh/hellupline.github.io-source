@@ -1,6 +1,6 @@
 ---
 title: service-dns
-weight: 160
+weight: 210
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

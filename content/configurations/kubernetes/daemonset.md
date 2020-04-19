@@ -1,6 +1,6 @@
 ---
 title: daemonset
-weight: 240
+weight: 160
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

@@ -1,6 +1,6 @@
 ---
 title: volume-cloud
-weight: 200
+weight: 250
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

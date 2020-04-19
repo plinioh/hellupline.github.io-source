@@ -1,6 +1,6 @@
 ---
 title: statefulset
-weight: 230
+weight: 150
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

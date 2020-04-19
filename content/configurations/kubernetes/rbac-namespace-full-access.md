@@ -1,6 +1,6 @@
 ---
 title: rbac-namespace-full-access
-weight: 290
+weight: 300
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

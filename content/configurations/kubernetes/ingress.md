@@ -1,6 +1,6 @@
 ---
 title: ingress
-weight: 170
+weight: 220
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

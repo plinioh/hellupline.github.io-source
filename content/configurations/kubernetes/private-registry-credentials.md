@@ -1,6 +1,6 @@
 ---
 title: private-registry-credentials
-weight: 260
+weight: 270
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

@@ -1,6 +1,6 @@
 ---
 title: rbac-namespace-read-only
-weight: 300
+weight: 310
 type: docs
 bookCollapseSection: false
 bookFlatSection: false
