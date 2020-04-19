@@ -1,6 +1,6 @@
 ---
 title: spotifyctl
-weight: 240
+weight: 260
 type: docs
 bookCollapseSection: false
 bookFlatSection: false
@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/utils/spotifyctl" language="sh" download="true" >}}
+{{< code file="/files/scripts/utils/spotifyctl" language="sh" download="true" >}}

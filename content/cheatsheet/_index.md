@@ -1,6 +1,6 @@
 ---
 title: cheatsheet
-weight: 110
+weight: 120
 type: docs
 headless: true
 bookCollapseSection: false

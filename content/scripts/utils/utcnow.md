@@ -1,6 +1,6 @@
 ---
 title: utcnow
-weight: 260
+weight: 210
 type: docs
 bookCollapseSection: false
 bookFlatSection: false
@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/utils/utcnow" language="sh" download="true" >}}
+{{< code file="/files/scripts/utils/utcnow" language="sh" download="true" >}}

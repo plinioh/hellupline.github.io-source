@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/toys/colors" language="sh" download="true" >}}
+{{< code file="/files/scripts/toys/colors" language="sh" download="true" >}}

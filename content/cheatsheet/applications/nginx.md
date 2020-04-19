@@ -1,6 +1,6 @@
 ---
 title: nginx
-weight: 140
+weight: 130
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

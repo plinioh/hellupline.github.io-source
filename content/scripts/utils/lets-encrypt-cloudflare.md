@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/utils/lets-encrypt-cloudflare" language="sh" download="true" >}}
+{{< code file="/files/scripts/utils/lets-encrypt-cloudflare" language="sh" download="true" >}}

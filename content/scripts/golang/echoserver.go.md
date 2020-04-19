@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/golang/echoserver.go" language="go" download="true" >}}
+{{< code file="/files/scripts/golang/echoserver.go" language="go" download="true" >}}

@@ -1,6 +1,6 @@
 ---
 title: git-cleanup
-weight: 200
+weight: 220
 type: docs
 bookCollapseSection: false
 bookFlatSection: false
@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/utils/git-cleanup" language="sh" download="true" >}}
+{{< code file="/files/scripts/utils/git-cleanup" language="sh" download="true" >}}

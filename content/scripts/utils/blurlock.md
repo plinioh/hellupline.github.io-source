@@ -1,6 +1,6 @@
 ---
 title: blurlock
-weight: 190
+weight: 230
 type: docs
 bookCollapseSection: false
 bookFlatSection: false
@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/utils/blurlock" language="sh" download="true" >}}
+{{< code file="/files/scripts/utils/blurlock" language="sh" download="true" >}}

@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/utils/wallpapers" language="sh" download="true" >}}
+{{< code file="/files/scripts/utils/wallpapers" language="sh" download="true" >}}

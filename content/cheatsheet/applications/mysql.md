@@ -1,6 +1,6 @@
 ---
 title: mysql
-weight: 120
+weight: 140
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

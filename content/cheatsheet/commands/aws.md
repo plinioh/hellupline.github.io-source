@@ -70,3 +70,10 @@ aws dynamodb scan \
         )[] | @csv
     ' > export.csv
 ```
+
+
+## cloudformation ec2 init
+
+```bash
+/opt/aws/bin/cfn-init --verbose --region us-east-1 --stack STACK_NAME --resource STACK_RESOURCE --configsets default && echo success
+```

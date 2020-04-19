@@ -1,6 +1,6 @@
 ---
 title: cached
-weight: 100
+weight: 190
 type: docs
 bookCollapseSection: false
 bookFlatSection: false
@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/utils/cached" language="sh" download="true" >}}
+{{< code file="/files/scripts/utils/cached" language="sh" download="true" >}}

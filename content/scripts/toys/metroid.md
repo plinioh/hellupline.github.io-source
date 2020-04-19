@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/toys/metroid" language="sh" download="true" >}}
+{{< code file="/files/scripts/toys/metroid" language="sh" download="true" >}}

@@ -1,6 +1,6 @@
 ---
 title: simple-https
-weight: 110
+weight: 120
 type: docs
 bookCollapseSection: false
 bookFlatSection: false
@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/utils/simple-https" language="python3" download="true" >}}
+{{< code file="/files/scripts/utils/simple-https" language="python3" download="true" >}}

@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/kubernetes/kubectl-context-list" language="sh" download="true" >}}
+{{< code file="/files/scripts/kubernetes/kubectl-context-list" language="sh" download="true" >}}

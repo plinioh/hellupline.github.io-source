@@ -1,6 +1,6 @@
 ---
 title: applications
-weight: 200
+weight: 120
 type: docs
 headless: true
 bookCollapseSection: false

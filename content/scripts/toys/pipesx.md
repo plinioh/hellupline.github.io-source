@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/toys/pipesx" language="sh" download="true" >}}
+{{< code file="/files/scripts/toys/pipesx" language="sh" download="true" >}}

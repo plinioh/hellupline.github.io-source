@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/utils/clipboard-watch" language="sh" download="true" >}}
+{{< code file="/files/scripts/utils/clipboard-watch" language="sh" download="true" >}}

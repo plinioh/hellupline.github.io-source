@@ -1,6 +1,6 @@
 ---
 title: kubernetes
-weight: 100
+weight: 110
 type: docs
 bookCollapseSection: false
 bookFlatSection: false
@@ -18,6 +18,8 @@ bookToc: true
 
 [Proxied Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
 
+[Official Cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+
 ```bash
 # Dashboard
 kubectl apply --filename https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta3/aio/deploy/recommended.yaml
@@ -31,13 +33,21 @@ kubectl apply \
         --filename https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/metrics-server-deployment.yaml \
         --filename https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/metrics-server-service.yaml \
         --filename https://raw.githubusercontent.com/kubernetes-incubator/metrics-server/v0.3.3/deploy/1.8%2B/resource-reader.yaml
-kubectl get apiservice v1beta1.metrics.k8s.io --output json | jq '.status.conditions[]'
+kubectl get --output jsonpath='{.status.conditions[*].message}' apiservice v1beta1.metrics.k8s.io
+
 
 # Local Path Provisioner
 kubectl apply --filename https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.9/deploy/local-path-storage.yaml
 
 # ServiceAccount Token
-kubectl --namespace kube-system get --output json secrets "$(kubectl --namespace kube-system get --output json serviceaccounts default | jq --raw-output '.secrets[0].name')" | jq --raw-output '.data.token' | base64 --decode
+kubectl -n kube-system get -o json secret \
+    | jq --raw-output '.items[] | select(.metadata.name | startswith("default")) | .data.token' \
+    | base64 --decode | xcopy
+
+# ServiceAccount Token EKS
+kubectl -n kube-system get -o json secret \
+    | jq --raw-output '.items[] | select(.metadata.name | startswith("eks-admin")) | .data.token' \
+    | base64 --decode | xcopy
 
 # EKS Token
 aws eks get-token --cluster-name "my_cluster" | jq --raw-output '.status.token'
@@ -53,8 +63,23 @@ kubectl proxy
 ```bash
 NAMESPACE="production"
 SERVICE="my-app"
-kubectl run --rm -it shell --image=alpine --restart=Never -- wget -qO- http://${SERVICE}.${NAMESPACE}.svc.cluster.local
-kubectl run --rm -it shell --image=alpine --restart=Never -- wget -qO- https://www.google.com
+kubectl run --rm -it shell --generator=run-pod/v1 --image=bash
+    $ wget -qO- http://${SERVICE}.${NAMESPACE}.svc.cluster.local
+    $ wget -qO- https://www.google.com
+
+kubectl attach -it shell -c shell
+```
+
+### how to read deployment/pod logs
+
+```bash
+NAMESPACE="production"
+
+DEPLOYMENT="my-app"
+kubectl --namespace="${NAMESPACE}" logs --tail=1 --follow deployment/"${DEPLOYMENT}"
+
+POD="my-app"
+kubectl --namespace="${NAMESPACE}" logs --tail=1 --follow "${POD}"
 ```
 
 ### how to access a kubernetes service/pod
@@ -72,20 +97,23 @@ POD_PORT="80"
 kubectl --namespace="${NAMESPACE}" port-forward pods/"${POD}" "${LOCAL_PORT}":"${POD_PORT}"
 ```
 
-### show failed pods
-
-```bash
-NAMESPACE="production"
-kubectl --namespace="${NAMESPACE}" get pods --field-selector=status.phase=Failed
-```
-
-### copy from/to pods
+### run command in a pod from a deployment
 
 ```bash
 NAMESPACE="production"
 DEPLOYMENT="my-app"
-POD_LABEL=$(kubectl --namespace="${NAMESPACE}" get deployments "${DEPLOYMENT}" --output=jsonpath='{.spec.template.metadata.labels.app}')
-POD_NAME=$(kubectl --namespace="${NAMESPACE}" get pods --selector=app="${POD_LABEL}" --output=jsonpath='{.items[0].metadata.name}')
+POD_LABEL=${$(kubectl get deployments "${DEPLOYMENT}" --output=json | jq -j '.spec.selector.matchLabels | to_entries | .[] | "\(.key)=\(.value),"')%?}
+POD_NAME=$(kubectl --namespace="${NAMESPACE}" get --output jsonpath='{.items[0].metadata.name} pods --selector="${POD_LABEL}"')
+kubectl --namespace="${NAMESPACE}" exec -it "${POD_NAME}" -- bash
+```
+
+### copy from/to pods from a deployment
+
+```bash
+NAMESPACE="production"
+DEPLOYMENT="my-app"
+POD_LABEL=${$(kubectl get deployments "${DEPLOYMENT}" --output=json | jq -j '.spec.selector.matchLabels | to_entries | .[] | "\(.key)=\(.value),"')%?}
+POD_NAME=$(kubectl --namespace="${NAMESPACE}" get --output jsonpath='{.items[0].metadata.name}' pods --selector="${POD_LABEL}")
 
 kubectl --namespace="${NAMESPACE}" cp "${POD_NAME}":/etc/letsencrypt etc-letsencrypt
 kubectl --namespace="${NAMESPACE}" cp "${POD_NAME}":/etc/nginx/conf.d etc-nginx-conf.d
@@ -94,18 +122,15 @@ kubectl --namespace="${NAMESPACE}" cp etc-letsencrypt "${POD_NAME}":/etc/letsenc
 kubectl --namespace="${NAMESPACE}" cp etc-nginx-conf.d "${POD_NAME}":/etc/nginx/conf.d
 ```
 
-## deployment
-
-### how to run command in a deployments pod
+### show failed pods
 
 ```bash
 NAMESPACE="production"
-DEPLOYMENT="my-app"
-POD_LABEL=$(kubectl --namespace="${NAMESPACE}" get deployments "${DEPLOYMENT}" --output=jsonpath='{.spec.template.metadata.labels.app}')
-POD_NAME=$(kubectl --namespace="${NAMESPACE}" get pods --selector=app="${POD_LABEL}" --output=jsonpath='{.items[0].metadata.name}')
-
-kubectl --namespace="${NAMESPACE}" exec -it "${POD_NAME}" -- bash
+kubectl --namespace="${NAMESPACE}" get pods --field-selector=status.phase=Failed
+kubectl get pods --all-namespaces --field-selector=status.phase=Failed
 ```
+
+## deployment
 
 ### change deployment image
 
@@ -115,7 +140,7 @@ DEPLOYMENT="my-app"
 CONTAINER_NAME="my-app"
 IMAGE_NAME="nginx"
 IMAGE_TAG="1.10"
-kubectl --namespace="${NAMESPACE}" set image deployment.apps/"${DEPLOYMENT}" "${CONTAINER_NAME}"="${IMAGE_NAME}:${IMAGE_TAG}"
+kubectl --namespace="${NAMESPACE}" set image --record deployment.apps/"${DEPLOYMENT}" "${CONTAINER_NAME}"="${IMAGE_NAME}:${IMAGE_TAG}"
 ```
 
 ### scale deployment
@@ -131,7 +156,7 @@ kubectl --namespace "${NAMESPACE}" scale deployment --replicas 1 "${DEPLOYMENT}"
 ```bash
 NAMESPACE="production"
 DEPLOYMENT="my-app"
-kubectl --namespace "${NAMESPACE}" rollout status deploy "${DEPLOYMENT}"
+kubectl --namespace "${NAMESPACE}" rollout status --watch deployment.apps/"${DEPLOYMENT}"
 ```
 
 ### deployment history
@@ -139,7 +164,7 @@ kubectl --namespace "${NAMESPACE}" rollout status deploy "${DEPLOYMENT}"
 ```bash
 NAMESPACE="production"
 DEPLOYMENT="my-app"
-kubectl --namespace "${NAMESPACE}" rollout history deploy "${DEPLOYMENT}"
+kubectl --namespace "${namespace}" rollout history deployment.apps/"${deployment}"
 ```
 
 ### deployment revert
@@ -147,28 +172,20 @@ kubectl --namespace "${NAMESPACE}" rollout history deploy "${DEPLOYMENT}"
 ```bash
 NAMESPACE="production"
 DEPLOYMENT="my-app"
-kubectl --namespace "${NAMESPACE}" rollout undo deploy "${DEPLOYMENT}"
+
+# target revision
+kubectl --namespace "${NAMESPACE}" rollout undo deployment.apps/"${DEPLOYMENT}" --to-revision=2
+
+# previous
+kubectl --namespace "${NAMESPACE}" rollout undo deployment.apps/"${DEPLOYMENT}"
 ```
 
-### change container image using a serviceaccount
+### deployment restart all pods
 
 ```bash
 NAMESPACE="production"
-SERVICE_ACCOUNT="my-service-account"
-SECRET_NAME=$(kubectl --namespace "${NAMESPACE}" get --output json serviceaccounts "${SERVICE_ACCOUNT}" | jq --raw-output '.secrets[0].name')
-TOKEN=$(kubectl --namespace "${NAMESPACE}" get --output json secrets "${SECRET_NAME}" | jq --raw-output '.data.token' | base64 --decode)
-
 DEPLOYMENT="my-app"
-CONTAINER_NAME="my-app"
-IMAGE_NAME="nginx"
-IMAGE_TAG="1.10"
-
-KUBECONFIG='none' \
-kubectl --insecure-skip-tls-verify=false \
-      --server=${MASTER_ADDRESS} \
-      --token="${TOKEN}" \
-      --namespace "${NAMESPACE}" \
-      set image deployments.apps/"${DEPLOYMENT}" "${CONTAINER_NAME}"="${IMAGE_NAME}:${IMAGE_TAG}"
+kubectl --namespace "${NAMESPACE}" rollout restart deployment.apps/"${DEPLOYMENT}"
 ```
 
 ## jobs
@@ -188,4 +205,53 @@ NAMESPACE="production"
 CRONJOB="my-app"
 kubectl --namespace="${NAMESPACE}" patch cronjobs --from=cronjob/"${CRONJOB}" "${CRONJOB}"-manual
 kubectl patch cronjobs <job-name> --patch'{"spec": {"suspend": true}}'
+```
+
+## others
+
+### cluster items
+
+```bash
+kubectl get --all-namespaces deployments,cronjobs,jobs,services,ingresses,pods,configmaps,secrets
+```
+
+### cluster usage
+
+```bash
+kubectl top nodes
+kubectl top pods
+```
+
+### watch cluster events
+
+```bash
+kubectl get events --watch --all-namespaces
+```
+
+### pods resource requests/limit report
+
+```bash
+NAMESPACE="production"
+kubectl --namespace=${NAMESPACE} get --output json pods | jq -r '.items[] |
+"\(.metadata.name)
+    Req. RAM: \(.spec.containers[].resources.requests.memory)
+    Lim. RAM: \(.spec.containers[].resources.limits.memory)
+    Req. CPU: \(.spec.containers[].resources.requests.cpu)
+    Lim. CPU: \(.spec.containers[].resources.limits.cpu)
+    Req. Eph. DISK: \(.spec.containers[].resources.requests["ephemeral-storage"])
+    Lim. Eph. DISK: \(.spec.containers[].resources.limits["ephemeral-storage"])
+"'
+```
+
+### kubectl using service-account token
+
+```bash
+NAMESPACE="production"
+SERVICE_ACCOUNT="my-service-account"
+SECRET_NAME=$(kubectl --namespace "${NAMESPACE}" get --output jsonpath='{.secrets[*].name}' serviceaccounts "${SERVICE_ACCOUNT}")
+TOKEN=$(kubectl --namespace "${NAMESPACE}" get --output jsonpath="{.data.token}" secrets "${SECRET_NAME}" | base64 --decode)
+MASTER_ADDRESS=$(kubectl config -o json view | jq --raw-output  '. as $root | $root.clusters[] | select(.name == ($root.contexts[] | select(.name == $root["current-context"]) | .context.cluster)) | .cluster.server')
+
+KUBECONFIG='none' \
+kubectl --insecure-skip-tls-verify=false --server=${MASTER_ADDRESS} --token="${TOKEN}" --namespace "${NAMESPACE}" get pods
 ```

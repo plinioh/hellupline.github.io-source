@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/toys/pacman-colors" language="sh" download="true" >}}
+{{< code file="/files/scripts/toys/pacman-colors" language="sh" download="true" >}}

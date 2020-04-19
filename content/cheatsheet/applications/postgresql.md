@@ -1,6 +1,6 @@
 ---
 title: postgresql
-weight: 130
+weight: 150
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

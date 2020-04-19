@@ -1,6 +1,6 @@
 ---
 title: show-certs
-weight: 150
+weight: 140
 type: docs
 bookCollapseSection: false
 bookFlatSection: false
@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/samples-scripts/utils/show-certs" language="sh" download="true" >}}
+{{< code file="/files/scripts/utils/show-certs" language="sh" download="true" >}}
