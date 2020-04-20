@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/files/scripts/utils/simple-https" language="python3" download="true" >}}
+{{< code file="/files/scripts/python/simple-https" language="python3" download="true" >}}

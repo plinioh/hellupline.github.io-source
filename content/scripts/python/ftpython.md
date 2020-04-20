@@ -8,4 +8,4 @@ bookToc: false
 
 ---
 
-{{< code file="/files/scripts/utils/ftpython" language="python3" download="true" >}}
+{{< code file="/files/scripts/python/ftpython" language="python3" download="true" >}}
