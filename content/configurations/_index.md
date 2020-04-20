@@ -1,6 +1,6 @@
 ---
 title: configurations
-weight: 130
+weight: 140
 type: docs
 headless: true
 bookCollapseSection: false

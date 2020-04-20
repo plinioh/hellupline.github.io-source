@@ -36,7 +36,7 @@ dig @1.1.1.1 +trace example.com AAAA
 curl \
    --silent --show-error \
    --fail --fail-early \
-   --compress --location \
+   --compressed --location \
    --create-dirs \
    --dump-header - --output - \
    --write-out '

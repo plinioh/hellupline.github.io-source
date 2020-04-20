@@ -1,6 +1,6 @@
 ---
 title: scripts
-weight: 140
+weight: 130
 type: docs
 headless: true
 bookCollapseSection: false
