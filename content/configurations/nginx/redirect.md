@@ -1,6 +1,6 @@
 ---
 title: redirect
-weight: 999
+weight: 150
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

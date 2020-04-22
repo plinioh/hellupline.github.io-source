@@ -1,6 +1,6 @@
 ---
 title: load-balancer
-weight: 999
+weight: 130
 type: docs
 bookCollapseSection: false
 bookFlatSection: false

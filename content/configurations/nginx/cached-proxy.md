@@ -1,6 +1,6 @@
 ---
 title: cached-proxy
-weight: 130
+weight: 110
 type: docs
 bookCollapseSection: false
 bookFlatSection: false
