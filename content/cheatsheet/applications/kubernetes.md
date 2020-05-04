@@ -103,7 +103,7 @@ kubectl --namespace="${NAMESPACE}" port-forward pods/"${POD}" "${LOCAL_PORT}":"$
 NAMESPACE="production"
 DEPLOYMENT="my-app"
 POD_LABEL=${$(kubectl get deployments "${DEPLOYMENT}" --output=json | jq -j '.spec.selector.matchLabels | to_entries | .[] | "\(.key)=\(.value),"')%?}
-POD_NAME=$(kubectl --namespace="${NAMESPACE}" get --output jsonpath='{.items[0].metadata.name} pods --selector="${POD_LABEL}"')
+POD_NAME=$(kubectl --namespace="${NAMESPACE}" get --output jsonpath='{.items[0].metadata.name}' pods --selector="${POD_LABEL}")
 kubectl --namespace="${NAMESPACE}" exec -it "${POD_NAME}" -- bash
 ```
 
