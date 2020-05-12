@@ -16,7 +16,7 @@ bookToc: true
 curl \
    --silent --show-error \
    --fail --fail-early \
-   --compress --location \
+   --compressed --location \
    --create-dirs \
    --dump-header - --output - \
    --write-out '
