@@ -195,11 +195,12 @@ ORDER BY
 ## run a postresql in docker
 
 ```bash
-docker run --rm -it --name my-sgdb \
-    --env POSTGRES_PASSWORD=mysecretpassword \
-    --env POSTGRES_USER=myuser \
-    --env POSTGRES_DB=mydatabase \
+docker run --detach --name my-sgdb \
+    --volume ${PWD}/pgdata:/var/lib/postgresql/data \
     --publish 5432:5432 \
+    --env POSTGRES_USER=myuser \
+    --env POSTGRES_PASSWORD=mysecretpassword \
+    --env POSTGRES_DB=mydatabase \
     postgres
 ```
 
