@@ -20,7 +20,7 @@ WHERE
     AND USER NOT IN ('system user')
     AND SUBSTR(USER, 1, 4) != 'app_'
 ORDER BY
-	  TIME DESC;
+    TIME DESC;
 ```
 
 ## create user
