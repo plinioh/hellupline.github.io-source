@@ -26,7 +26,7 @@ pipenv shell
 ```bash
 > requirements.txt pipenv lock --requirements
 
-python3 -m pip install
+python3 -m pip install \
    --force-reinstall --no-compile --no-deps \
    --target ./layer/python/lib/python3.8/site-packages \
    --requirement requirements.txt
