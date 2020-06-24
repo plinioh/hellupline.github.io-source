@@ -92,7 +92,7 @@ ORDER BY
 ## create a read-only access
 
 ```sql
--- use SET ROLE rolname to "change" user
+-- use SET ROLE rolname to "change" user, always use "object" owner for GRANTS
 
 -- example schema
 CREATE SCHEMA example_schema;
