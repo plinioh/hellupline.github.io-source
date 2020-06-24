@@ -14,17 +14,29 @@ bookToc: true
 SELECT
     a.schemaname,
     a.tablename,
-    b.usename,
-    HAS_TABLE_PRIVILEGE(b.usename, a.schemaname || '.' || a.tablename, 'select') as select,
-    HAS_TABLE_PRIVILEGE(b.usename, a.schemaname || '.' || a.tablename, 'insert') as insert,
-    HAS_TABLE_PRIVILEGE(b.usename, a.schemaname || '.' || a.tablename, 'update') as update,
-    HAS_TABLE_PRIVILEGE(b.usename, a.schemaname || '.' || a.tablename, 'delete') as delete,
-    HAS_TABLE_PRIVILEGE(b.usename, a.schemaname || '.' || a.tablename, 'references') as references
+    b.kind,
+    b.name,
+    HAS_TABLE_PRIVILEGE(b.name, a.schemaname || '.' || a.tablename, 'select') as select,
+    HAS_TABLE_PRIVILEGE(b.name, a.schemaname || '.' || a.tablename, 'insert') as insert,
+    HAS_TABLE_PRIVILEGE(b.name, a.schemaname || '.' || a.tablename, 'update') as update,
+    HAS_TABLE_PRIVILEGE(b.name, a.schemaname || '.' || a.tablename, 'delete') as delete,
+    HAS_TABLE_PRIVILEGE(b.name, a.schemaname || '.' || a.tablename, 'references') as references
 FROM
     pg_tables a,
-    pg_user b
+    (
+		SELECT 'role' AS kind, rolname AS name FROM  pg_roles 
+		UNION
+	    SELECT 'user' AS kind, usename AS name FROM pg_user
+	) b
 WHERE
-    a.schemaname = 'example_schema';
+    a.schemaname = 'public' AND
+    a.tablename IN ('my_table', 'my_other_table') AND
+    b.name in ('app_production', 'app_ro', 'app_rw', 'root')
+ORDER BY
+	schemaname ASC,
+	tablename ASC,
+	kind ASC,
+	name ASC;
 ```
 
 ## show objects ownership
@@ -80,6 +92,8 @@ ORDER BY
 ## create a read-only access
 
 ```sql
+-- use SET ROLE rolname to "change" user
+
 -- example schema
 CREATE SCHEMA example_schema;
 
