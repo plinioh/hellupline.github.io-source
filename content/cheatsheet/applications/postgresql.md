@@ -92,7 +92,9 @@ ORDER BY
 ## create a read-only access
 
 ```sql
--- use SET ROLE rolname to "change" user, always use "object" owner for GRANTS
+-- SET ROLE rolname; -- assume role "rolname", always use object owner for GRANTS
+-- SELECT current_user;  -- user name of current execution context
+-- SELECT session_user;  -- session user name
 
 -- example schema
 CREATE SCHEMA example_schema;
