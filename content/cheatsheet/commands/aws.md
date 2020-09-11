@@ -64,7 +64,7 @@ aws dynamodb scan \
       --expression-attribute-names '{"#domain": "domain", "#email": "email", "#login": "login"}' \
       --expression-attribute-values '{":value": {"S": "github"}}' |
     jq --raw-output '
- (
+      (
             [["email", "login"]] +
             [.Items[] | [.email.S, .login.S]]
         )[] | @csv
@@ -76,4 +76,15 @@ aws dynamodb scan \
 
 ```bash
 /opt/aws/bin/cfn-init --verbose --region us-east-1 --stack STACK_NAME --resource STACK_RESOURCE --configsets default && echo success
+```
+
+
+## export beanstalk settings to terraforn
+
+```bash
+aws --profile=default --region=us-east-1 \
+        elasticbeanstalk describe-configuration-settings \
+        --application-name 'my-app' \
+        --environment-name 'my-app-development' |
+    jq --raw-output '.ConfigurationSettings[].OptionSettings[] | select(.Value) | "settings {\n  namespace = \"\(.Namespace)\"\n  name = \"\(.OptionName)\"\n  value = \"\(.Value)\"\n}"'
 ```
