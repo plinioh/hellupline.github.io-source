@@ -59,3 +59,28 @@ SHOW SLAVE STATUS;
 
 SHOW SLAVE HOSTS;
 ```
+
+```sql
+SELECT 
+    dirty.Value AS 'Dirty Pages',
+    total.Value AS 'Total Pages',
+    ROUND(100*dirty.Value/total.Value, 2) AS 'Dirty Pct'
+FROM 
+    (
+        SELECT 
+            VARIABLE_VALUE AS Value 
+        FROM 
+            information_schema.GLOBAL_STATUS 
+        WHERE   
+            VARIABLE_NAME = 'Innodb_buffer_pool_pages_total'
+    ) AS total
+INNER JOIN 
+    (
+        SELECT 
+            VARIABLE_VALUE AS Value 
+        FROM 
+            information_schema.GLOBAL_STATUS 
+        WHERE 
+            VARIABLE_NAME = 'Innodb_buffer_pool_pages_dirty'
+    ) AS dirty;
+```
