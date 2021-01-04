@@ -8,6 +8,30 @@ bookToc: true
 
 ---
 
+## Check long running transactions
+
+```sql
+SELECT
+    pid,
+    usename AS "username",
+    client_addr AS "source ip",
+    query,
+    ( 
+        SELECT EXTRACT (
+            EPOCH FROM ( 
+                DATE_TRUNC( 'second', now( ) - pg_stat_activity.query_start ) 
+	    )
+	)
+    ) AS "duration in seconds",
+    STATE,
+    concat ( 'SELECT pg_terminate_backend(', pid, ');' ) AS run_to_kill 
+FROM
+	pg_stat_activity 
+WHERE
+	STATE != 'idle';
+```
+	
+
 ## show where a user has permissions
 
 ```sql
